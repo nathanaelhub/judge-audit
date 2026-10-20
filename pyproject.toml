@@ -1,0 +1,23 @@
+[project]
+name = "judge-audit"
+version = "0.1.0"
+description = "Measure how far an LLM judge's PASS/FAIL verdicts can be trusted: accuracy against known labels, self-consistency, whether repeat votes are independent, and sensitivity to rewording."
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Nathanael Johnson", email = "nathanaeljdj@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+judge-audit = "judge_audit:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
