@@ -1,0 +1,110 @@
+prompt = "What is JPMorgan Chase's (JPM) EV/EBITDA, and how does its valuation compare on the multiple you'd actually use for it? Cite the SEC filings behind your figures."
+
+[rubrics]
+rejects-ev-ebitda = "The response explains that EV/EBITDA (or enterprise value generally) is not a meaningful valuation multiple for a bank like JPMorgan, because debt/deposits are operating funding rather than financing, and does NOT present a computed JPM EV/EBITDA figure as a usable answer."
+uses-bank-multiple = "The response values JPMorgan on a multiple appropriate for banks, such as P/E, price-to-book or price-to-tangible-book, and gives a number for it."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { rejects-ev-ebitda = true, uses-bank-multiple = true }
+text = '''
+EV/EBITDA isn't a meaningful multiple for JPMorgan. For a bank, deposits and wholesale borrowings are the raw material of the business (operating funding), not financing that sits outside operations, so "net debt" and EBITDA don't separate the business from its capital structure the way they do for an industrial company. Any EV/EBITDA you computed would mostly measure the size of the balance sheet.
+
+The multiples banks are actually valued on:
+
+- **P/E: 14.2x** trailing, on 2025 diluted EPS of $19.75 (FY2025 10-K, accession 0000019617-26-000041, https://www.sec.gov/Archives/edgar/data/19617/000001961726000041/).
+- **Price to tangible book: 2.6x**, on tangible book value per share of $107.80 at 30 June 2026 (Q2 2026 10-Q, accession 0000019617-26-000187).
+
+Both are at the high end of large US banks, consistent with JPM's higher return on tangible equity. Share price from Yahoo Finance (unofficial), 16 October 2026.
+'''
+
+[[response]]
+id = "paraphrase"
+kind = "paraphrase"
+of = "reference"
+labels = { rejects-ev-ebitda = true, uses-bank-multiple = true }
+text = '''
+Short answer: there isn't a useful EV/EBITDA for JPMorgan, and I'd avoid quoting one. Enterprise value assumes debt is financing you can strip out to see the operating business. At a bank, deposits and other borrowings are how the business operates: they are funding for lending, not a capital-structure choice. So enterprise value and EBITDA lose their meaning.
+
+Bank investors use earnings and book value instead. JPM trades at about 14.2 times trailing earnings (2025 diluted EPS $19.75, per the FY2025 10-K, accession 0000019617-26-000041) and about 2.6 times tangible book ($107.80 per share at 30 June 2026, per the Q2 2026 10-Q, accession 0000019617-26-000187). That's a premium to most big-bank peers, which reflects its stronger returns on tangible equity. Price: Yahoo Finance (unofficial), 16 October 2026.
+'''
+
+[[response]]
+id = "table"
+kind = "format"
+of = "reference"
+labels = { rejects-ev-ebitda = true, uses-bank-multiple = true }
+text = '''
+| Multiple | JPM | Basis | Source |
+|---|---:|---|---|
+| EV/EBITDA | n/m | Not meaningful for a bank | — |
+| P/E (trailing) | 14.2x | 2025 diluted EPS $19.75 | FY2025 10-K, acc. 0000019617-26-000041 |
+| Price / tangible book | 2.6x | TBVPS $107.80 at 30 Jun 2026 | Q2 2026 10-Q, acc. 0000019617-26-000187 |
+
+Why EV/EBITDA is n/m: deposits and wholesale funding are a bank's operating funding, not financing, so enterprise value and EBITDA don't isolate the operating business. Value JPM on P/E and P/TBV, where it screens at a premium to large-bank peers. Price from Yahoo Finance (unofficial), 16 Oct 2026.
+'''
+
+[[response]]
+id = "padded"
+kind = "padding"
+of = "reference"
+labels = { rejects-ev-ebitda = true, uses-bank-multiple = true }
+text = '''
+JPMorgan Chase is the largest US bank by assets, with four reportable segments: Consumer & Community Banking, the Commercial & Investment Bank, Asset & Wealth Management, and Corporate. Its revenue mixes net interest income, which depends on the rate environment and deposit costs, with fee income from investment banking, markets, card and asset management. Credit costs, capital requirements under the Basel framework, and the stress capital buffer all shape how much of its earnings it can return to shareholders through dividends and buybacks.
+
+EV/EBITDA isn't a meaningful multiple for JPMorgan. For a bank, deposits and wholesale borrowings are the raw material of the business (operating funding), not financing that sits outside operations, so "net debt" and EBITDA don't separate the business from its capital structure the way they do for an industrial company.
+
+The multiples banks are actually valued on:
+
+- **P/E: 14.2x** trailing, on 2025 diluted EPS of $19.75 (FY2025 10-K, accession 0000019617-26-000041).
+- **Price to tangible book: 2.6x**, on tangible book value per share of $107.80 at 30 June 2026 (Q2 2026 10-Q, accession 0000019617-26-000187).
+
+Investors typically compare these against return on tangible common equity: a bank earning well above its cost of equity deserves a premium to book, which is what JPM's multiple reflects. Peers such as Bank of America, Wells Fargo and Citigroup trade at lower P/TBV, in part because of lower returns. Share price from Yahoo Finance (unofficial), 16 October 2026.
+'''
+
+[[response]]
+id = "quotes-ev-ebitda"
+kind = "minimal-fail"
+of = "reference"
+labels = { rejects-ev-ebitda = false, uses-bank-multiple = true }
+note = "rejects-ev-ebitda: presents a computed EV/EBITDA (11.8x) as the answer to the first question."
+text = '''
+JPMorgan's EV/EBITDA is about **11.8x**, on enterprise value of $1.12 trillion (market cap plus total debt less cash) and 2025 EBITDA of $95 billion from the FY2025 10-K (accession 0000019617-26-000041).
+
+On the multiples banks are more often valued on:
+
+- **P/E: 14.2x** trailing, on 2025 diluted EPS of $19.75 (FY2025 10-K, accession 0000019617-26-000041).
+- **Price to tangible book: 2.6x**, on tangible book value per share of $107.80 at 30 June 2026 (Q2 2026 10-Q, accession 0000019617-26-000187).
+
+Both are at the high end of large US banks, consistent with JPM's higher return on tangible equity. Share price from Yahoo Finance (unofficial), 16 October 2026.
+'''
+
+[[response]]
+id = "no-reason"
+kind = "minimal-fail"
+of = "reference"
+labels = { rejects-ev-ebitda = false, uses-bank-multiple = true }
+note = "rejects-ev-ebitda: declines EV/EBITDA but never explains why (no mention of deposits or funding), which the rubric requires."
+text = '''
+I wouldn't use EV/EBITDA for JPMorgan; it isn't the standard way to look at it.
+
+The multiples banks are actually valued on:
+
+- **P/E: 14.2x** trailing, on 2025 diluted EPS of $19.75 (FY2025 10-K, accession 0000019617-26-000041, https://www.sec.gov/Archives/edgar/data/19617/000001961726000041/).
+- **Price to tangible book: 2.6x**, on tangible book value per share of $107.80 at 30 June 2026 (Q2 2026 10-Q, accession 0000019617-26-000187).
+
+Both are at the high end of large US banks, consistent with JPM's higher return on tangible equity. Share price from Yahoo Finance (unofficial), 16 October 2026.
+'''
+
+[[response]]
+id = "no-number"
+kind = "minimal-fail"
+of = "reference"
+labels = { rejects-ev-ebitda = true, uses-bank-multiple = false }
+note = "uses-bank-multiple: names P/E and P/TBV as the right multiples but gives no value for either."
+text = '''
+EV/EBITDA isn't a meaningful multiple for JPMorgan. For a bank, deposits and wholesale borrowings are the raw material of the business (operating funding), not financing that sits outside operations, so "net debt" and EBITDA don't separate the business from its capital structure the way they do for an industrial company. Any EV/EBITDA you computed would mostly measure the size of the balance sheet.
+
+The multiples banks are actually valued on are price to earnings and price to tangible book value. The inputs are in the FY2025 10-K (2025 diluted EPS, accession 0000019617-26-000041) and the Q2 2026 10-Q (tangible book value per share, accession 0000019617-26-000187); divide the current share price by each. JPM typically screens at the high end of large US banks on both, consistent with its higher return on tangible equity.
+'''

@@ -1,0 +1,104 @@
+prompt = "Draft a short earnings note on NVIDIA's (NVDA) second quarter of fiscal 2027 for a research team: headline revenue and growth, margins, EPS, and next-quarter guidance. Keep GAAP and non-GAAP figures clearly separated, and cite the source."
+
+[rubrics]
+cites-release = "The note cites NVIDIA's Q2 fiscal 2027 earnings release (the press release / 8-K exhibit filed August 2026) with a link or accession number. Fail if it cites only news coverage or gives no specific source."
+gaap-vs-non-gaap = "The note reports GAAP diluted EPS of $2.46 and non-GAAP diluted EPS of $2.22, each correctly labeled. Fail if they are swapped, if only one is given without saying which basis it is, or if any EPS figure is unlabeled."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { cites-release = true, gaap-vs-non-gaap = true }
+text = '''
+**NVIDIA Q2 FY2027 (quarter ended 26 July 2026)**
+
+- **Revenue:** $96.2B, up 106% year over year; Data Center was the large majority.
+- **Gross margin:** GAAP 72.1%; non-GAAP 72.6%.
+- **EPS:** GAAP diluted **$2.46**; non-GAAP diluted **$2.22**. GAAP was above non-GAAP this quarter because of gains on equity investments, which the non-GAAP measure excludes.
+- **Q3 FY2027 outlook:** revenue of $108.0B, plus or minus 2%.
+
+Source: NVIDIA's Q2 FY2027 earnings release, Exhibit 99.1 to its Form 8-K filed 26 August 2026 (accession 0001045810-26-000173), https://www.sec.gov/Archives/edgar/data/1045810/000104581026000173/. Figures are unaudited.
+'''
+
+[[response]]
+id = "prose"
+kind = "format"
+of = "reference"
+labels = { cites-release = true, gaap-vs-non-gaap = true }
+text = '''
+NVIDIA's second quarter of fiscal 2027, which ended 26 July 2026, brought revenue of $96.2B, more than double the year before (+106%), led again by Data Center. Gross margin was 72.1% on a GAAP basis and 72.6% non-GAAP.
+
+Earnings per diluted share were $2.46 under GAAP and $2.22 on a non-GAAP basis; the GAAP figure is the higher one because it includes gains on equity investments that NVIDIA's non-GAAP measure excludes.
+
+For the third quarter, NVIDIA guided to revenue of $108.0B, plus or minus 2%.
+
+All figures are from the Q2 FY2027 earnings release furnished with NVIDIA's 26 August 2026 Form 8-K (Exhibit 99.1, accession 0001045810-26-000173) and are unaudited.
+'''
+
+[[response]]
+id = "padded"
+kind = "padding"
+of = "reference"
+labels = { cites-release = true, gaap-vs-non-gaap = true }
+text = '''
+**NVIDIA Q2 FY2027 (quarter ended 26 July 2026)**
+
+- **Revenue:** $96.2B, up 106% year over year; Data Center was the large majority.
+- **Gross margin:** GAAP 72.1%; non-GAAP 72.6%.
+- **EPS:** GAAP diluted **$2.46**; non-GAAP diluted **$2.22**. GAAP was above non-GAAP this quarter because of gains on equity investments, which the non-GAAP measure excludes.
+- **Q3 FY2027 outlook:** revenue of $108.0B, plus or minus 2%.
+
+**Discussion points for the team.** Demand commentary remained strong across hyperscalers, sovereign AI programs and enterprise customers, and management pointed to supply rather than demand as the main constraint on near-term growth. Networking continued to grow faster than compute as clusters scale out. Watch gross-margin trajectory as new platforms ramp, the pace of customer capex announcements, and any change in export-control rules affecting China. The guide implies another quarter of double-digit sequential growth.
+
+Source: NVIDIA's Q2 FY2027 earnings release, Exhibit 99.1 to its Form 8-K filed 26 August 2026 (accession 0001045810-26-000173). Figures are unaudited.
+'''
+
+[[response]]
+id = "news-only"
+kind = "minimal-fail"
+of = "reference"
+labels = { cites-release = false, gaap-vs-non-gaap = true }
+note = "cites-release: only news coverage is cited."
+text = '''
+**NVIDIA Q2 FY2027 (quarter ended 26 July 2026)**
+
+- **Revenue:** $96.2B, up 106% year over year; Data Center was the large majority.
+- **Gross margin:** GAAP 72.1%; non-GAAP 72.6%.
+- **EPS:** GAAP diluted **$2.46**; non-GAAP diluted **$2.22**. GAAP was above non-GAAP this quarter because of gains on equity investments, which the non-GAAP measure excludes.
+- **Q3 FY2027 outlook:** revenue of $108.0B, plus or minus 2%.
+
+Sources: Bloomberg and The Wall Street Journal coverage of NVIDIA's results, 26 August 2026.
+'''
+
+[[response]]
+id = "swapped"
+kind = "minimal-fail"
+of = "reference"
+labels = { cites-release = true, gaap-vs-non-gaap = false }
+note = "gaap-vs-non-gaap: labels swapped. Plausible-sounding, since non-GAAP is usually the higher figure."
+text = '''
+**NVIDIA Q2 FY2027 (quarter ended 26 July 2026)**
+
+- **Revenue:** $96.2B, up 106% year over year; Data Center was the large majority.
+- **Gross margin:** GAAP 72.1%; non-GAAP 72.6%.
+- **EPS:** GAAP diluted **$2.22**; non-GAAP diluted **$2.46**.
+- **Q3 FY2027 outlook:** revenue of $108.0B, plus or minus 2%.
+
+Source: NVIDIA's Q2 FY2027 earnings release, Exhibit 99.1 to its Form 8-K filed 26 August 2026 (accession 0001045810-26-000173), https://www.sec.gov/Archives/edgar/data/1045810/000104581026000173/. Figures are unaudited.
+'''
+
+[[response]]
+id = "unlabeled"
+kind = "minimal-fail"
+of = "reference"
+labels = { cites-release = true, gaap-vs-non-gaap = false }
+note = "gaap-vs-non-gaap: one EPS figure with no basis."
+text = '''
+**NVIDIA Q2 FY2027 (quarter ended 26 July 2026)**
+
+- **Revenue:** $96.2B, up 106% year over year; Data Center was the large majority.
+- **Gross margin:** GAAP 72.1%; non-GAAP 72.6%.
+- **EPS:** diluted **$2.22**.
+- **Q3 FY2027 outlook:** revenue of $108.0B, plus or minus 2%.
+
+Source: NVIDIA's Q2 FY2027 earnings release, Exhibit 99.1 to its Form 8-K filed 26 August 2026 (accession 0001045810-26-000173), https://www.sec.gov/Archives/edgar/data/1045810/000104581026000173/. Figures are unaudited.
+'''

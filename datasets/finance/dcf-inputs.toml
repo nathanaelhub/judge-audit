@@ -1,0 +1,109 @@
+prompt = "I'm building a DCF for Apple (AAPL). Gather the inputs: the current risk-free rate, Apple's beta, net debt, diluted shares outstanding and latest-fiscal-year free cash flow. Give the value, date and source for each input, citing the SEC filing for company figures."
+
+[rubrics]
+every-input-sourced = "All five requested inputs appear: risk-free rate, beta, net debt, diluted shares outstanding, and free cash flow for the latest fiscal year. Each one has a numeric value, an as-of date or period, and a source specific enough to check (a named data series or filing with a link or accession number). Fail if any input is missing, lacks a source, or is given only as a typical/assumed value without saying so."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { every-input-sourced = true }
+text = '''
+| Input | Value | As of | Source |
+|---|---:|---|---|
+| Risk-free rate (10Y Treasury) | 4.12% | 15 Oct 2026 | FRED series DGS10, https://fred.stlouisfed.org/series/DGS10 |
+| Beta | 1.21 | 60 months to Sep 2026 | OLS on monthly closes of AAPL vs ^GSPC, Yahoo Finance chart API (unofficial), https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=6y&interval=1mo |
+| Net debt | $35.2B | 27 Jun 2026 | Q3 FY2026 10-Q, acc. 0000320193-26-000082: total debt $96.8B less cash and marketable securities $61.6B |
+| Diluted shares | 14.93B | Q3 FY2026 (weighted) | Q3 FY2026 10-Q, acc. 0000320193-26-000082 |
+| Free cash flow | $98.7B | FY2025 (ended 27 Sep 2025) | FY2025 10-K, acc. 0000320193-25-000079: operating cash flow $111.5B less capex $12.8B |
+
+Beta is from an unofficial price source; verify before publishing.
+'''
+
+[[response]]
+id = "prose"
+kind = "format"
+of = "reference"
+labels = { every-input-sourced = true }
+text = '''
+Here are the five inputs.
+
+The risk-free rate is 4.12%, the 10-year Treasury constant-maturity yield on 15 October 2026 (FRED series DGS10, https://fred.stlouisfed.org/series/DGS10).
+
+Apple's beta is 1.21, an OLS regression of 60 monthly returns of AAPL against the S&P 500 (^GSPC) through September 2026, using monthly closes from the Yahoo Finance chart API (unofficial, so verify it): https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=6y&interval=1mo.
+
+Net debt is $35.2B at 27 June 2026: total debt of $96.8B less $61.6B of cash and marketable securities, from the Q3 FY2026 10-Q (accession 0000320193-26-000082).
+
+Diluted shares outstanding are 14.93B, the weighted-average diluted count for Q3 FY2026 from the same 10-Q.
+
+Free cash flow for the latest fiscal year, FY2025 (ended 27 September 2025), is $98.7B: $111.5B of operating cash flow less $12.8B of capital expenditure, from the FY2025 10-K (accession 0000320193-25-000079).
+'''
+
+[[response]]
+id = "padded"
+kind = "padding"
+of = "reference"
+labels = { every-input-sourced = true }
+text = '''
+A DCF for Apple is sensitive mostly to the discount rate and the terminal growth assumption, so it's worth being careful with the inputs that feed WACC. Apple's capital structure is overwhelmingly equity, so the cost of equity (risk-free rate plus beta times the equity risk premium) dominates. Free cash flow is large and steady, driven by iPhone and a growing Services segment with high margins.
+
+| Input | Value | As of | Source |
+|---|---:|---|---|
+| Risk-free rate (10Y Treasury) | 4.12% | 15 Oct 2026 | FRED series DGS10, https://fred.stlouisfed.org/series/DGS10 |
+| Beta | 1.21 | 60 months to Sep 2026 | OLS on monthly closes of AAPL vs ^GSPC, Yahoo Finance chart API (unofficial), https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=6y&interval=1mo |
+| Net debt | $35.2B | 27 Jun 2026 | Q3 FY2026 10-Q, acc. 0000320193-26-000082: total debt $96.8B less cash and marketable securities $61.6B |
+| Diluted shares | 14.93B | Q3 FY2026 (weighted) | Q3 FY2026 10-Q, acc. 0000320193-26-000082 |
+| Free cash flow | $98.7B | FY2025 (ended 27 Sep 2025) | FY2025 10-K, acc. 0000320193-25-000079: operating cash flow $111.5B less capex $12.8B |
+
+You'll still need an equity risk premium (commonly 4.5–5.5%) and a terminal growth rate (2–3% is typical for a mature company); those are judgment calls rather than data. Apple's share count falls every year from buybacks, so consider projecting it down rather than holding it flat. Beta is from an unofficial price source; verify before publishing.
+'''
+
+[[response]]
+id = "missing-shares"
+kind = "minimal-fail"
+of = "reference"
+labels = { every-input-sourced = false }
+note = "Diluted shares outstanding is missing."
+text = '''
+| Input | Value | As of | Source |
+|---|---:|---|---|
+| Risk-free rate (10Y Treasury) | 4.12% | 15 Oct 2026 | FRED series DGS10, https://fred.stlouisfed.org/series/DGS10 |
+| Beta | 1.21 | 60 months to Sep 2026 | OLS on monthly closes of AAPL vs ^GSPC, Yahoo Finance chart API (unofficial), https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=6y&interval=1mo |
+| Net debt | $35.2B | 27 Jun 2026 | Q3 FY2026 10-Q, acc. 0000320193-26-000082: total debt $96.8B less cash and marketable securities $61.6B |
+| Free cash flow | $98.7B | FY2025 (ended 27 Sep 2025) | FY2025 10-K, acc. 0000320193-25-000079: operating cash flow $111.5B less capex $12.8B |
+
+Beta is from an unofficial price source; verify before publishing.
+'''
+
+[[response]]
+id = "assumed-beta"
+kind = "minimal-fail"
+of = "reference"
+labels = { every-input-sourced = false }
+note = "Beta is a typical value with no date or source, presented as if it were data."
+text = '''
+| Input | Value | As of | Source |
+|---|---:|---|---|
+| Risk-free rate (10Y Treasury) | 4.12% | 15 Oct 2026 | FRED series DGS10, https://fred.stlouisfed.org/series/DGS10 |
+| Beta | 1.20 | | |
+| Net debt | $35.2B | 27 Jun 2026 | Q3 FY2026 10-Q, acc. 0000320193-26-000082: total debt $96.8B less cash and marketable securities $61.6B |
+| Diluted shares | 14.93B | Q3 FY2026 (weighted) | Q3 FY2026 10-Q, acc. 0000320193-26-000082 |
+| Free cash flow | $98.7B | FY2025 (ended 27 Sep 2025) | FY2025 10-K, acc. 0000320193-25-000079: operating cash flow $111.5B less capex $12.8B |
+'''
+
+[[response]]
+id = "vague-fcf"
+kind = "minimal-fail"
+of = "reference"
+labels = { every-input-sourced = false }
+note = "Free cash flow's source is 'Apple's annual report' with no link or accession."
+text = '''
+| Input | Value | As of | Source |
+|---|---:|---|---|
+| Risk-free rate (10Y Treasury) | 4.12% | 15 Oct 2026 | FRED series DGS10, https://fred.stlouisfed.org/series/DGS10 |
+| Beta | 1.21 | 60 months to Sep 2026 | OLS on monthly closes of AAPL vs ^GSPC, Yahoo Finance chart API (unofficial), https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=6y&interval=1mo |
+| Net debt | $35.2B | 27 Jun 2026 | Q3 FY2026 10-Q, acc. 0000320193-26-000082: total debt $96.8B less cash and marketable securities $61.6B |
+| Diluted shares | 14.93B | Q3 FY2026 (weighted) | Q3 FY2026 10-Q, acc. 0000320193-26-000082 |
+| Free cash flow | $98.7B | FY2025 | Apple's annual report |
+
+Beta is from an unofficial price source; verify before publishing.
+'''

@@ -1,0 +1,81 @@
+prompt = "Pull Toyota's (TM) last three years of revenue and EBITDA so I can add it to an automaker comps sheet. Cite the filings."
+
+[rubrics]
+states-coverage-gap = "The response recognizes that Toyota reports under IFRS on Form 20-F (not US-GAAP 10-K), and either says the requested figures could not be retrieved in standardized form or clearly labels any figures it gives with their actual source and basis (IFRS, fiscal year ending March, currency JPY). Fail if it presents revenue/EBITDA as cited from SEC filings without real, checkable sources, or silently mixes currencies."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { states-coverage-gap = true }
+text = '''
+Toyota is a foreign private issuer: it files annual reports on **Form 20-F under IFRS**, not 10-Ks under US GAAP, and reports in **Japanese yen** with a fiscal year ending **31 March**.
+
+| Fiscal year (ended 31 Mar) | Revenue (¥T) | EBITDA (¥T, derived) |
+|---|---:|---:|
+| FY2025 | 48.04 | 7.05 |
+| FY2024 | 45.10 | 7.44 |
+| FY2023 | 37.15 | 4.76 |
+
+Source: Toyota's 20-F for the year ended 31 March 2025 (accession 0001193125-25-142326, https://www.sec.gov/Archives/edgar/data/1094517/000119312525142326/0001193125-25-142326-index.htm), which reports FY2024 and FY2023 as comparatives. Revenue is ifrs-full:Revenue. EBITDA is derived as operating income (ifrs-full:ProfitLossFromOperatingActivities) plus depreciation and amortization; Toyota doesn't report it. Convert at each fiscal year's average JPY/USD rate before putting it next to US automakers, and note that Toyota's financial-services borrowings inflate any EV-based multiple.
+'''
+
+[[response]]
+id = "baseline-older-years"
+kind = "hard-pass"
+labels = { states-coverage-gap = true }
+note = "Modeled on a baseline answer a Haiku judge failed in the Oct 2026 open-finance-mcp eval run: each year cited to its own original 20-F, EBITDA flagged as derived. Every clause the rubric requires is met. Figures and accessions are Toyota's real XBRL data (open-finance-mcp test fixture)."
+text = '''
+Toyota files with the SEC as a foreign private issuer, so its annual report is a **Form 20-F prepared under IFRS**, not a 10-K. Figures are in **Japanese yen**, for fiscal years ending **31 March**.
+
+| Fiscal year (ended 31 Mar) | Revenue (¥T) | EBITDA (¥T, derived) | 20-F |
+|---|---:|---:|---|
+| FY2025 | 48.04 | 7.05 | https://www.sec.gov/Archives/edgar/data/1094517/000119312525142326/0001193125-25-142326-index.htm |
+| FY2024 | 45.10 | 7.44 | https://www.sec.gov/Archives/edgar/data/1094517/000119312524167462/0001193125-24-167462-index.htm |
+| FY2023 | 37.15 | 4.76 | https://www.sec.gov/Archives/edgar/data/1094517/000119312523179181/0001193125-23-179181-index.htm |
+
+Each year's figures are as reported in the most recent 20-F that includes it. EBITDA isn't reported by Toyota; I derived it as operating income plus depreciation and amortization, so treat it as an estimate. Convert to dollars at each year's average rate before comparing with GM or Ford.
+'''
+
+[[response]]
+id = "gap-stated"
+kind = "variant-pass"
+of = "reference"
+labels = { states-coverage-gap = true }
+note = "Passes by the rubric's first branch: says the figures couldn't be retrieved in standardized form."
+text = '''
+I couldn't pull these in standardized form. Toyota reports under **IFRS on Form 20-F** as a foreign private issuer, not on a US-GAAP 10-K, and the data source I have standardizes only US-GAAP filings. Its figures are in yen for fiscal years ending 31 March.
+
+The numbers are in Toyota's 20-F filings on EDGAR (CIK 1094517): revenue on the consolidated statement of income, and depreciation and amortization in the cash-flow statement if you want to derive EBITDA. If you add them to the comps sheet, convert at each year's average JPY/USD rate.
+'''
+
+[[response]]
+id = "silent-usd"
+kind = "minimal-fail"
+of = "reference"
+labels = { states-coverage-gap = false }
+note = "Presents dollar figures as if reported, with no mention of IFRS, 20-F, yen or the conversion, and cites '10-K' filings that Toyota doesn't file."
+text = '''
+| Fiscal year | Revenue ($B) | EBITDA ($B) | Source |
+|---|---:|---:|---|
+| 2025 | 320.3 | 47.0 | Toyota 10-K, 2025 |
+| 2024 | 300.7 | 49.6 | Toyota 10-K, 2024 |
+| 2023 | 247.7 | 31.8 | Toyota 10-K, 2023 |
+
+Toyota is the world's largest automaker by volume; EBITDA margins have run between 13% and 17%.
+'''
+
+[[response]]
+id = "unlabeled-yen"
+kind = "minimal-fail"
+of = "reference"
+labels = { states-coverage-gap = false }
+note = "Says nothing about IFRS, 20-F or the March fiscal year, and gives the yen figures without a currency."
+text = '''
+| Fiscal year | Revenue | EBITDA |
+|---|---:|---:|
+| FY2025 | 48.04T | 7.05T |
+| FY2024 | 45.10T | 7.44T |
+| FY2023 | 37.15T | 4.76T |
+
+Source: accession 0001193125-25-142326. EBITDA is operating income plus depreciation and amortization. These should drop straight into the comps sheet next to the US automakers.
+'''

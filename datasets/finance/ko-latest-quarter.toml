@@ -1,0 +1,90 @@
+prompt = "What were Coca-Cola's (KO) net revenues and diluted EPS for the second quarter of 2026? Cite the source document."
+
+[rubrics]
+cites-document = "The figures are attributed to a specific primary document for Q2 2026 (the earnings press release / 8-K exhibit, or the 10-Q) with a link or accession number. Fail if the source is a news article or aggregator only, or is not specific."
+gaap-labeled = "The response gives $1.03 as Coca-Cola's reported (GAAP) diluted EPS for Q2 2026. If it also mentions $0.97, that figure is labeled as comparable or non-GAAP. Fail if the two are swapped, if $0.97 is presented as the reported EPS, or if no Q2 2026 EPS is given."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { cites-document = true, gaap-labeled = true }
+text = '''
+For the second quarter of 2026, Coca-Cola reported:
+
+- **Net revenues: $13,380 million**, up 7% year over year.
+- **Diluted EPS: $1.03** (GAAP). Comparable (non-GAAP) EPS was $0.97.
+
+Source: Coca-Cola's Q2 2026 earnings release, furnished as Exhibit 99.1 to its Form 8-K filed 21 July 2026 (accession 0000021344-26-000027), https://www.sec.gov/Archives/edgar/data/21344/000002134426000027/. Press-release figures are unaudited; the Q2 10-Q is the authoritative filing.
+'''
+
+[[response]]
+id = "paraphrase"
+kind = "paraphrase"
+of = "reference"
+labels = { cites-document = true, gaap-labeled = true }
+text = '''
+Coca-Cola's net revenues for Q2 2026 were $13.38 billion, 7% higher than a year earlier, and diluted earnings per share on a reported (GAAP) basis were $1.03. On the company's comparable basis, which is a non-GAAP measure, EPS was $0.97.
+
+Both come from the earnings press release Coca-Cola furnished with its 21 July 2026 Form 8-K (Exhibit 99.1, accession 0000021344-26-000027).
+'''
+
+[[response]]
+id = "padded"
+kind = "padding"
+of = "reference"
+labels = { cites-document = true, gaap-labeled = true }
+text = '''
+For the second quarter of 2026, Coca-Cola reported:
+
+- **Net revenues: $13,380 million**, up 7% year over year.
+- **Diluted EPS: $1.03** (GAAP). Comparable (non-GAAP) EPS was $0.97.
+
+Organic revenue growth was driven by price/mix, with unit case volume roughly flat globally: growth in Latin America and Asia Pacific offset softer volumes in North America. Operating margin expanded on lower commodity costs and productivity initiatives, partly offset by higher marketing investment. Currency was a modest headwind to reported revenue. Management reaffirmed its full-year guidance for organic revenue growth and comparable EPS growth.
+
+Source: Coca-Cola's Q2 2026 earnings release, furnished as Exhibit 99.1 to its Form 8-K filed 21 July 2026 (accession 0000021344-26-000027). Press-release figures are unaudited; the Q2 10-Q is the authoritative filing.
+'''
+
+[[response]]
+id = "news-source"
+kind = "minimal-fail"
+of = "reference"
+labels = { cites-document = false, gaap-labeled = true }
+note = "cites-document: sourced to news coverage only."
+text = '''
+For the second quarter of 2026, Coca-Cola reported:
+
+- **Net revenues: $13,380 million**, up 7% year over year.
+- **Diluted EPS: $1.03** (GAAP). Comparable (non-GAAP) EPS was $0.97.
+
+Source: Reuters and CNBC coverage of Coca-Cola's second-quarter results, 21 July 2026.
+'''
+
+[[response]]
+id = "swapped-eps"
+kind = "minimal-fail"
+of = "reference"
+labels = { cites-document = true, gaap-labeled = false }
+note = "gaap-labeled: $0.97 presented as the reported diluted EPS and $1.03 as comparable (swapped)."
+text = '''
+For the second quarter of 2026, Coca-Cola reported:
+
+- **Net revenues: $13,380 million**, up 7% year over year.
+- **Diluted EPS: $0.97** (GAAP). Comparable (non-GAAP) EPS was $1.03.
+
+Source: Coca-Cola's Q2 2026 earnings release, furnished as Exhibit 99.1 to its Form 8-K filed 21 July 2026 (accession 0000021344-26-000027), https://www.sec.gov/Archives/edgar/data/21344/000002134426000027/. Press-release figures are unaudited; the Q2 10-Q is the authoritative filing.
+'''
+
+[[response]]
+id = "unlabeled-097"
+kind = "minimal-fail"
+of = "reference"
+labels = { cites-document = true, gaap-labeled = false }
+note = "gaap-labeled: gives only $0.97 as 'diluted EPS', which presents the non-GAAP figure as the reported one."
+text = '''
+For the second quarter of 2026, Coca-Cola reported:
+
+- **Net revenues: $13,380 million**, up 7% year over year.
+- **Diluted EPS: $0.97.**
+
+Source: Coca-Cola's Q2 2026 earnings release, furnished as Exhibit 99.1 to its Form 8-K filed 21 July 2026 (accession 0000021344-26-000027), https://www.sec.gov/Archives/edgar/data/21344/000002134426000027/.
+'''

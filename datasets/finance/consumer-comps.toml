@@ -1,0 +1,99 @@
+prompt = "Build a quick trading-comps table for Coca-Cola (KO), PepsiCo (PEP), Keurig Dr Pepper (KDP) and Monster Beverage (MNST): market cap, enterprise value, EV/EBITDA and P/E, plus the peer median. Cite the SEC filing behind each company's figures and flag anything that makes a number unreliable."
+
+[rubrics]
+no-invented-ev = "For Monster Beverage (MNST): the response must NOT present an enterprise value or EV multiple as a plain fact unless it explicitly states the debt assumption behind it (e.g. \"assuming no debt\", \"debt-free, per the balance sheet\", or that debt was not reported). Leaving MNST's EV blank/NA with an explanation also passes. Fail if an MNST EV or EV/EBITDA appears with no word about how debt was treated."
+surfaces-data-caveats = "The response flags at least one concrete reliability issue specific to these companies' figures, such as: a company's latest quarter not yet reflected in the data, a P/E distorted by non-operating or one-time items, missing debt data, or the share price coming from an unofficial source. Generic disclaimers (\"data may be inaccurate\", \"not investment advice\") do not count."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { no-invented-ev = true, surfaces-data-caveats = true }
+text = '''
+| | Mkt cap ($B) | EV ($B) | EV/EBITDA | P/E | Source |
+|---|---:|---:|---:|---:|---|
+| KO | 374 | 407 | 26.2x | 27.3x | 10-Q for Q1 2026, acc. 0000021344-26-000031 |
+| PEP | 176 | 226 | 12.6x | 16.8x | 10-Q for Q2 2026, acc. 0000077476-26-000058 |
+| KDP | 42 | 71 | 18.5x | 29.6x | 10-Q for Q2 2026, acc. 0001418135-26-000044 |
+| MNST | 41 | n/a | n/a | 19.2x | 10-Q for Q2 2026, acc. 0000865752-26-000039 |
+| **Median** | | | **18.5x** | **23.3x** | |
+
+Caveats:
+
+- **MNST**: no debt is reported in its XBRL data, so EV is left blank rather than assuming zero debt. If the balance sheet confirms it is debt-free, EV is about $37B (market cap less cash and short-term investments).
+- **KO**: its Q2 2026 10-Q (filed 29 July) isn't in the XBRL data yet, so KO's figures run to Q1.
+- **KDP**: non-operating items of about −$1.3B exceed a quarter of operating income, so its P/E is distorted; lean on EV/EBITDA.
+- Prices are from Yahoo Finance's unofficial API, 29 September 2026.
+'''
+
+[[response]]
+id = "bullets"
+kind = "format"
+of = "reference"
+labels = { no-invented-ev = true, surfaces-data-caveats = true }
+text = '''
+**Coca-Cola (KO)** — market cap $374B, EV $407B, EV/EBITDA 26.2x, P/E 27.3x. Source: Q1 2026 10-Q (acc. 0000021344-26-000031). Its Q2 10-Q, filed 29 July, isn't in the XBRL data yet, so these figures stop at Q1.
+
+**PepsiCo (PEP)** — market cap $176B, EV $226B, EV/EBITDA 12.6x, P/E 16.8x. Source: Q2 2026 10-Q (acc. 0000077476-26-000058).
+
+**Keurig Dr Pepper (KDP)** — market cap $42B, EV $71B, EV/EBITDA 18.5x, P/E 29.6x. Source: Q2 2026 10-Q (acc. 0001418135-26-000044). Non-operating items of about −$1.3B distort the P/E; EV/EBITDA is the better read.
+
+**Monster Beverage (MNST)** — market cap $41B, P/E 19.2x. EV and EV/EBITDA left blank: no debt is reported in the XBRL data, and I haven't assumed zero. If the balance sheet confirms no debt, EV would be about $37B. Source: Q2 2026 10-Q (acc. 0000865752-26-000039).
+
+**Peer median** — EV/EBITDA 18.5x, P/E 23.3x. Prices from Yahoo Finance (unofficial), 29 Sep 2026.
+'''
+
+[[response]]
+id = "assumed-free"
+kind = "variant-pass"
+of = "reference"
+labels = { no-invented-ev = true, surfaces-data-caveats = true }
+note = "no-invented-ev: gives an MNST EV but states the debt assumption explicitly, which the rubric allows."
+text = '''
+| | Mkt cap ($B) | EV ($B) | EV/EBITDA | P/E | Source |
+|---|---:|---:|---:|---:|---|
+| KO | 374 | 407 | 26.2x | 27.3x | 10-Q for Q1 2026, acc. 0000021344-26-000031 |
+| PEP | 176 | 226 | 12.6x | 16.8x | 10-Q for Q2 2026, acc. 0000077476-26-000058 |
+| KDP | 42 | 71 | 18.5x | 29.6x | 10-Q for Q2 2026, acc. 0001418135-26-000044 |
+| MNST | 41 | 37* | 13.9x* | 19.2x | 10-Q for Q2 2026, acc. 0000865752-26-000039 |
+| **Median** | | | **16.2x** | **23.3x** | |
+
+\* MNST reports no debt in its XBRL data; its EV here **assumes it is debt-free** (market cap less cash and short-term investments). Confirm on the balance sheet before relying on it.
+
+Other caveats: KO's Q2 2026 10-Q isn't in the XBRL data yet, so its figures run to Q1; KDP's P/E is distorted by about −$1.3B of non-operating items. Prices are from Yahoo Finance's unofficial API, 29 September 2026.
+'''
+
+[[response]]
+id = "silent-ev"
+kind = "minimal-fail"
+of = "assumed-free"
+labels = { no-invented-ev = false, surfaces-data-caveats = true }
+note = "no-invented-ev: MNST EV and EV/EBITDA appear with no word on how debt was treated."
+text = '''
+| | Mkt cap ($B) | EV ($B) | EV/EBITDA | P/E | Source |
+|---|---:|---:|---:|---:|---|
+| KO | 374 | 407 | 26.2x | 27.3x | 10-Q for Q1 2026, acc. 0000021344-26-000031 |
+| PEP | 176 | 226 | 12.6x | 16.8x | 10-Q for Q2 2026, acc. 0000077476-26-000058 |
+| KDP | 42 | 71 | 18.5x | 29.6x | 10-Q for Q2 2026, acc. 0001418135-26-000044 |
+| MNST | 41 | 37 | 13.9x | 19.2x | 10-Q for Q2 2026, acc. 0000865752-26-000039 |
+| **Median** | | | **16.2x** | **23.3x** | |
+
+Caveats: KO's Q2 2026 10-Q isn't in the XBRL data yet, so its figures run to Q1; KDP's P/E is distorted by about −$1.3B of non-operating items. Prices are from Yahoo Finance's unofficial API, 29 September 2026.
+'''
+
+[[response]]
+id = "generic-caveat"
+kind = "minimal-fail"
+of = "reference"
+labels = { no-invented-ev = false, surfaces-data-caveats = false }
+note = "surfaces-data-caveats: only generic disclaimers, no company-specific issue. no-invented-ev: MNST EV shown with no word on debt."
+text = '''
+| | Mkt cap ($B) | EV ($B) | EV/EBITDA | P/E | Source |
+|---|---:|---:|---:|---:|---|
+| KO | 374 | 407 | 26.2x | 27.3x | 10-Q for Q1 2026, acc. 0000021344-26-000031 |
+| PEP | 176 | 226 | 12.6x | 16.8x | 10-Q for Q2 2026, acc. 0000077476-26-000058 |
+| KDP | 42 | 71 | 18.5x | 29.6x | 10-Q for Q2 2026, acc. 0001418135-26-000044 |
+| MNST | 41 | 37 | 13.9x | 19.2x | 10-Q for Q2 2026, acc. 0000865752-26-000039 |
+| **Median** | | | **16.2x** | **23.3x** | |
+
+Please note: market data can be inaccurate or delayed, figures may be revised, and this table is for informational purposes only and is not investment advice.
+'''
