@@ -1,0 +1,82 @@
+prompt = "Give me ExxonMobil's (XOM) annual revenue for the last five fiscal years, with sources."
+
+[rubrics]
+checkable-sources = "Pass if every revenue figure is tied to a specific, checkable source (an SEC filing link, an accession number, or a named 10-K for a given year), or if the response says plainly that it could not retrieve the data instead of giving numbers. Figures given from memory pass only if they are clearly labeled as unverified. A figure cited to a later 10-K that reports it as a prior-year comparative (10-Ks restate earlier years) counts as a specific source. Fail if figures are presented as sourced but no specific source is given, or if sources are vague (\"public filings\", \"company reports\")."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { checkable-sources = true }
+text = '''
+ExxonMobil's ticker now belongs to a new holding company with no 10-K history yet, so these come from the predecessor registrant, Exxon Mobil Corp (CIK 34088).
+
+| Fiscal year | Total revenues and other income ($B) | Source |
+|---|---:|---|
+| 2025 | 332.2 | FY2025 10-K, acc. 0000034088-26-000012 |
+| 2024 | 349.6 | FY2024 10-K, acc. 0000034088-25-000010 |
+| 2023 | 344.6 | FY2023 10-K, acc. 0000034088-24-000018 |
+| 2022 | 413.7 | FY2022 10-K, acc. 0000034088-23-000020 |
+| 2021 | 285.6 | FY2021 10-K, acc. 0000034088-22-000011 |
+'''
+
+[[response]]
+id = "comparatives"
+kind = "hard-pass"
+labels = { checkable-sources = true }
+note = "The rubric's comparative clause: three years cited to one later 10-K that reports them as comparatives. A judge has failed answers like this as 'not sourced to that year's filing'."
+text = '''
+These come from Exxon Mobil Corp (CIK 34088), the predecessor of the current XOM holding company. Each 10-K reports three years, so two filings cover all five.
+
+| Fiscal year | Total revenues and other income ($B) | Source |
+|---|---:|---|
+| 2025 | 332.2 | FY2025 10-K, acc. 0000034088-26-000012 |
+| 2024 | 349.6 | FY2025 10-K (prior-year comparative) |
+| 2023 | 344.6 | FY2025 10-K (prior-year comparative) |
+| 2022 | 413.7 | FY2023 10-K, acc. 0000034088-24-000018 (comparative) |
+| 2021 | 285.6 | FY2023 10-K (comparative) |
+'''
+
+[[response]]
+id = "could-not-retrieve"
+kind = "variant-pass"
+labels = { checkable-sources = true }
+note = "Passes by the rubric's 'says plainly that it could not retrieve the data' branch."
+text = '''
+I couldn't retrieve this reliably. The XOM ticker now points to a new holding company that hasn't filed a 10-K yet, so there's no annual revenue history under it, and I don't have access to the predecessor's filings from here. Rather than give you numbers from memory, I'd pull them from Exxon Mobil Corp's 10-K filings on EDGAR (CIK 34088): each one reports three years of "Total revenues and other income", so the FY2025 and FY2023 10-Ks together cover the last five years.
+'''
+
+[[response]]
+id = "vague"
+kind = "minimal-fail"
+of = "reference"
+labels = { checkable-sources = false }
+note = "Sources are 'ExxonMobil annual reports / public filings': vague."
+text = '''
+| Fiscal year | Total revenues and other income ($B) |
+|---|---:|
+| 2025 | 332.2 |
+| 2024 | 349.6 |
+| 2023 | 344.6 |
+| 2022 | 413.7 |
+| 2021 | 285.6 |
+
+Sources: ExxonMobil annual reports and public SEC filings.
+'''
+
+[[response]]
+id = "memory-unlabeled"
+kind = "minimal-fail"
+of = "reference"
+labels = { checkable-sources = false }
+note = "Two of the five years have no source at all, with nothing saying they are unverified."
+text = '''
+ExxonMobil's ticker now belongs to a new holding company with no 10-K history yet, so these come from the predecessor registrant, Exxon Mobil Corp (CIK 34088).
+
+| Fiscal year | Total revenues and other income ($B) | Source |
+|---|---:|---|
+| 2025 | 332.2 | FY2025 10-K, acc. 0000034088-26-000012 |
+| 2024 | 349.6 | FY2024 10-K, acc. 0000034088-25-000010 |
+| 2023 | 344.6 | FY2023 10-K, acc. 0000034088-24-000018 |
+| 2022 | 413.7 | |
+| 2021 | 285.6 | |
+'''

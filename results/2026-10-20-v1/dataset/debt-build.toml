@@ -1,0 +1,88 @@
+prompt = "What was Apple's total debt at the end of fiscal 2024? Break it into its components and cite the filing."
+
+[rubrics]
+components = "The response breaks Apple's fiscal 2024 total debt into components that add up to roughly $106.6 billion: commercial paper of about $10.0 billion, current term debt of about $10.9 billion and non-current term debt of about $85.8 billion (small rounding differences are fine). Fail if components are double counted or do not sum to the stated total."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { components = true }
+text = '''
+Apple's total debt at the end of fiscal 2024 (28 September 2024) was **$106.629 billion**:
+
+| Component | $B |
+|---|---:|
+| Commercial paper | 9.967 |
+| Term debt, current portion | 10.912 |
+| Term debt, non-current | 85.750 |
+| **Total debt** | **106.629** |
+
+Source: Apple's FY2024 Form 10-K, balance sheet and Note 9 (Debt), accession 0000320193-24-000123, https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/. Operating lease liabilities are excluded.
+'''
+
+[[response]]
+id = "rounded-prose"
+kind = "paraphrase"
+of = "reference"
+labels = { components = true }
+text = '''
+At the end of fiscal 2024 (28 September 2024) Apple carried about $106.6 billion of debt. That's roughly $10.0 billion of commercial paper, $10.9 billion of term debt due within a year, and $85.8 billion of longer-dated term debt. These come from the balance sheet in the FY2024 10-K (accession 0000320193-24-000123), and they exclude lease liabilities.
+'''
+
+[[response]]
+id = "padded"
+kind = "padding"
+of = "reference"
+labels = { components = true }
+text = '''
+Apple's total debt at the end of fiscal 2024 (28 September 2024) was **$106.629 billion**:
+
+| Component | $B |
+|---|---:|
+| Commercial paper | 9.967 |
+| Term debt, current portion | 10.912 |
+| Term debt, non-current | 85.750 |
+| **Total debt** | **106.629** |
+
+Some context: Apple has been gradually reducing gross debt since its 2017 peak, letting bonds mature rather than refinancing all of them. Its term debt is a ladder of fixed- and floating-rate notes in several currencies, with maturities out past 2050, and the commercial paper program funds short-term working-capital needs. Against cash and marketable securities of about $156.7 billion, Apple is net cash positive on that broad definition, though its stated goal has long been to become "net cash neutral" over time by returning capital to shareholders.
+
+Source: Apple's FY2024 Form 10-K, balance sheet and Note 9 (Debt), accession 0000320193-24-000123. Operating lease liabilities are excluded.
+'''
+
+[[response]]
+id = "double-counted"
+kind = "minimal-fail"
+of = "reference"
+labels = { components = false }
+note = "Counts the current portion of term debt twice: once inside total term debt ($96.662B includes it) and again on its own, giving $117.541B. Revised after the Opus pilot: an earlier version listed an unlabeled subtotal row under a correct total, which a careful reader can fairly call a subtotal rather than double counting."
+text = '''
+Apple's total debt at the end of fiscal 2024 (28 September 2024) was **$117.541 billion**:
+
+| Component | $B |
+|---|---:|
+| Commercial paper | 9.967 |
+| Term debt, current portion | 10.912 |
+| Term debt (total, per Note 9) | 96.662 |
+| **Total debt** | **117.541** |
+
+Source: Apple's FY2024 Form 10-K, balance sheet and Note 9 (Debt), accession 0000320193-24-000123. Operating lease liabilities are excluded.
+'''
+
+[[response]]
+id = "wrong-sum"
+kind = "minimal-fail"
+of = "reference"
+labels = { components = false }
+note = "Commercial paper left out of the total: components shown sum to $106.6B but the stated total is $96.662B."
+text = '''
+Apple's total debt at the end of fiscal 2024 (28 September 2024) was **$96.662 billion**:
+
+| Component | $B |
+|---|---:|
+| Commercial paper | 9.967 |
+| Term debt, current portion | 10.912 |
+| Term debt, non-current | 85.750 |
+| **Total debt** | **96.662** |
+
+Source: Apple's FY2024 Form 10-K, balance sheet and Note 9 (Debt), accession 0000320193-24-000123. Operating lease liabilities are excluded.
+'''

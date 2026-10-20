@@ -1,0 +1,71 @@
+prompt = "Is Alphabet (GOOGL) cheaper than Microsoft (MSFT) on P/E right now? Answer with the numbers and say whether P/E is a fair comparison here."
+
+[rubrics]
+flags-non-operating = "The response points out that Alphabet's trailing earnings include large non-operating items (such as gains on equity investments) that make its P/E look lower than its operating business warrants, so a plain P/E comparison with Microsoft is not apples-to-apples. Passing answers suggest an adjustment or an alternative such as EV/EBITDA or operating-income-based multiples. Fail if the response simply declares one company cheaper on P/E without this caveat."
+gives-numbers = "The response gives a P/E figure for both Alphabet and Microsoft, with the period they are based on."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { flags-non-operating = true, gives-numbers = true }
+text = '''
+On headline trailing P/E, Alphabet looks cheaper: **22.4x** versus Microsoft's **33.1x**, both on the last twelve months to 30 June 2026 (GOOGL Q2 2026 10-Q; MSFT FY2026 10-K, year ended 30 June 2026).
+
+But that comparison flatters Alphabet. Its trailing net income includes about $21B of non-operating gains, mostly unrealized gains on equity investments it marks to market, which have nothing to do with its operating business. Strip those out and its P/E on operating earnings is closer to 27x, so the gap narrows a lot.
+
+A fairer comparison uses a multiple built on operating results: on EV/EBITDA Alphabet is about 16x and Microsoft about 22x. Alphabet is still cheaper, but by less than the raw P/E suggests.
+'''
+
+[[response]]
+id = "paraphrase"
+kind = "paraphrase"
+of = "reference"
+labels = { flags-non-operating = true, gives-numbers = true }
+text = '''
+Taken at face value, yes: Alphabet trades at about 22.4 times trailing earnings and Microsoft at about 33.1 times, both for the twelve months ending 30 June 2026.
+
+I wouldn't take it at face value, though. Roughly $21B of Alphabet's trailing profit came from gains on its equity stakes, not from search, cloud or YouTube. Those gains inflate earnings and so shrink the P/E. Excluding them puts Alphabet nearer 27x.
+
+Comparing on EV/EBITDA, which ignores those investment gains, Alphabet sits around 16x against Microsoft's 22x. So Alphabet is cheaper, just not by as much as the P/E gap implies.
+'''
+
+[[response]]
+id = "table"
+kind = "format"
+of = "reference"
+labels = { flags-non-operating = true, gives-numbers = true }
+text = '''
+| LTM to 30 Jun 2026 | GOOGL | MSFT |
+|---|---:|---:|
+| P/E (reported) | 22.4x | 33.1x |
+| P/E ex non-operating gains | ~27x | ~33x |
+| EV/EBITDA | ~16x | ~22x |
+
+Is P/E fair here? Not on its own. Alphabet's trailing earnings include about $21B of non-operating gains (mark-to-market gains on equity investments), which lower its reported P/E. Adjusted for those, or on EV/EBITDA, Alphabet is still cheaper than Microsoft, but by a smaller margin.
+'''
+
+[[response]]
+id = "no-caveat"
+kind = "minimal-fail"
+of = "reference"
+labels = { flags-non-operating = false, gives-numbers = true }
+note = "flags-non-operating: declares Alphabet cheaper on P/E with no mention of investment gains."
+text = '''
+Yes. Alphabet trades at **22.4x** trailing earnings versus Microsoft's **33.1x**, both on the last twelve months to 30 June 2026 (GOOGL Q2 2026 10-Q; MSFT FY2026 10-K, year ended 30 June 2026).
+
+P/E is a fair comparison here: both are mature, highly profitable megacap tech companies with similar business mixes across cloud, advertising-or-subscriptions and AI infrastructure, so earnings multiples line up well. On that basis Alphabet is meaningfully cheaper, at about a third less per dollar of earnings.
+'''
+
+[[response]]
+id = "no-period"
+kind = "minimal-fail"
+of = "reference"
+labels = { flags-non-operating = true, gives-numbers = false }
+note = "gives-numbers: P/E figures given with no period they are based on."
+text = '''
+On headline P/E, Alphabet looks cheaper: **22.4x** versus Microsoft's **33.1x**.
+
+But that comparison flatters Alphabet. Its net income includes about $21B of non-operating gains, mostly unrealized gains on equity investments it marks to market, which have nothing to do with its operating business. Strip those out and its P/E on operating earnings is closer to 27x, so the gap narrows a lot.
+
+A fairer comparison uses a multiple built on operating results: on EV/EBITDA Alphabet is about 16x and Microsoft about 22x. Alphabet is still cheaper, but by less than the raw P/E suggests.
+'''
