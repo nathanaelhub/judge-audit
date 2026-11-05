@@ -1,0 +1,86 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2192
+Title: A resolution approving a contract between the Metropolitan Government, acting by and through the Metropolitan Board of Health, and the State of Tennessee, Department of Health, to provide Medical Examiner Investigations, Postmortem Examinations, and Consultations.
+Sponsors: Kyonzte Toombs, Jordan Huffman
+Text:
+WHEREAS, Metropolitan Charter Section 10.104 provides that the Board of Health has the duty to contract for such services as will further the program and policies of the board, subject to confirmation by Resolution of Council; and, 
+WHEREAS, the Metropolitan Government, acting by and through the Metropolitan Board of Health, wishes to contract with the State of Tennessee, Department of Health, to provide Medical Examiner Investigations, Postmortem Examinations, and Consultations; and,  
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that this contract be approved.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That the contract by and between the State of Tennessee, Department of Health, and the Metropolitan Government, acting by and through the Metropolitan Board of Health, to provide Medical Examiner Investigations, Postmortem Examinations, and Consultations; a copy of which is attached hereto and incorporated herein, is hereby approved.   
+ Section 2.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+
+Analysis
+
+This resolution approves a contract between the Metropolitan Board of Health and the Tennessee Department of Health. According to the agreement, the State will reimburse Metro for a portion of the expenses for each autopsy performed in Davidson County.
+
+The term of the contract begins January 1, 2027, and extends for a period of 60 months. The state will provide a maximum of $640,266 for the services provided under the agreement.
+
+The Metropolitan Council approved a similar agreement in 2022 pursuant to Resolution No. RS2022-1488.
+
+Fiscal Note: This agreement will provide medical examiner investigations, postmortem examinations and consultations from the State of Tennessee, Department of Health in the amount of $640,266 from January 1, 2027, to December 31, 2031.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves a contract between the Metropolitan Board of Health and the Tennessee Department of Health for medical examiner investigations, postmortem examinations and consultations. The state would provide up to $640,266 over 60 months starting January 1, 2027.
+'''
+
+[[response]]
+id = "02fc9e1a"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves a contract between the Metropolitan Board of Health and the Tennessee Department of Health for medical examiner investigations, postmortem examinations and consultations. The state would provide up to $1,920,798 over 60 months starting January 1, 2027.
+'''
+
+[[response]]
+id = "6849e048"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves a contract between the Juvenile Court Gang Resistance Intervention Program. It and the Tennessee Department of Health for medical examiner investigations, postmortem examinations and consultations. The state would provide up to $640,266 over 60 months starting January 1, 2027.
+'''
+
+[[response]]
+id = "ae0ccd52"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects a contract between the Metropolitan Board of Health and the Tennessee Department of Health for medical examiner investigations, postmortem examinations and consultations. The state would provide up to $640,266 over 60 months starting January 1, 2027.
+'''
+
+[[response]]
+id = "d9b2fbe1"
+kind = "variant-pass"
+of = "reference"
+note = "planted swap that kept the meaning"
+labels = { faithful = true }
+text = '''
+Approves a contract between the Tennessee Department of Health and the Metropolitan Board of Health for medical examiner investigations, postmortem examinations and consultations. The state would provide up to $640,266 over 60 months starting January 1, 2027.
+'''
+
+[[response]]
+id = "fb839882"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves a contract between the Metropolitan Board of Health and the Tennessee Department of Health for medical examiner investigations, postmortem examinations and consultations. The state would provide up to $640,266 over 123 months starting January 1, 2027.
+'''

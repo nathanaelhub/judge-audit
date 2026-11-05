@@ -1,0 +1,71 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2224
+Title: A resolution approving an application for a Hazard Mitigation Grant Program Grant from the Tennessee Emergency Management Agency to the Metropolitan Government, acting by and through the Office of the Mayor, to benefit all residents of Metro Nashville and Davidson County by ensuring uninterrupted access to safe, powered facilities when the electrical grid is compromised by providing funding for backup generators at the Fairgrounds Nashville to ensure continuity of operations during critical times.
+Sponsors: Terry Vo, Jason Spain, Ginny Welsch, Brenda Gadd, Zulfat Suara, Burkley Allen, Tasha Ellis, David Benton
+Text:
+WHEREAS, the Tennessee Emergency Management Agency is accepting applications for a Hazard Mitigation Grant Program grant with an award of $1,458,056.25 and a required match of $486,018.75; and, 
+WHEREAS, the Metropolitan Government is eligible to participate in this grant program; and,  
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that the grant application be approved and submitted.
+NOW, THEREFORE BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That the application for a Hazard Mitigation Grant Program grant with an award of $1,458,056.25, a copy of which is attached hereto and incorporated herein, is hereby approved, and the Office of the Mayor is authorized to submit said application to the Tennessee Emergency Management Agency. 
+Section 2.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution approves an application for a grant from the Tennessee Emergency Management Agency to the Nashville Fairgrounds. The grant would provide Building Resilient Infrastructure and Communities funds to purchase generators for emergency sheltering. If awarded, these generators would ensure uninterrupted access to safe, powered facilities when the electrical grid is compromised.
+
+If awarded, the grant amount would be $1,458,056.25 with a required cash match of $486,018.75.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves an application from the Office of the Mayor to the Tennessee Emergency Management Agency for a $1,458,056.25 Hazard Mitigation Grant to pay for backup generators at the Fairgrounds Nashville. The grant requires a match of $486,018.75.
+'''
+
+[[response]]
+id = "093b0148"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves an application from the Office of the Mayor to the Tennessee Emergency Management Agency for a $4,374,169 Hazard Mitigation Grant to pay for backup generators at the Fairgrounds Nashville. The grant requires a match of $486,018.75.
+'''
+
+[[response]]
+id = "10eaff98"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects an application from the Office of the Mayor to the Tennessee Emergency Management Agency for a $1,458,056.25 Hazard Mitigation Grant to pay for backup generators at the Fairgrounds Nashville. The grant requires a match of $486,018.75.
+'''
+
+[[response]]
+id = "28c35c4e"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves an application from the Office of the Mayor to the Nashville and Davidson County. It for a $1,458,056.25 Hazard Mitigation Grant to pay for backup generators at the Fairgrounds Nashville. The grant requires a match of $486,018.75.
+'''
+
+[[response]]
+id = "ff783eb5"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Approves an application from the Office of the Mayor to the Hazard Mitigation Grant for a $1,458,056.25 Tennessee Emergency Management Agency to pay for backup generators at the Fairgrounds Nashville. The grant requires a match of $486,018.75.
+'''

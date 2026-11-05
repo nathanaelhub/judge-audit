@@ -1,0 +1,77 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1454
+Title: An ordinance approving a greenway conservation easement between the Metropolitan Government of Nashville and Davidson County, through the Metropolitan Board of Parks and Recreation, and Beazer Homes, LLC, for greenway improvements at 0 Godwin Court (Parcel No. 087100B90100CO) (Proposal No. 2026M-021AG-001).
+Sponsors: Erin Evans, Kyonzte Toombs, Rollin Horton, Quin Evans-Segall, Terry Vo, Burkley Allen, Brenda Gadd, Ginny Welsch, Olivia Hill, Sandy Ewing
+Text:
+WHEREAS, Beazer Homes, LLC ("Owner") owns property located at 0 Godwin Court (Parcel No. 087100B90100CO); and, 
+WHEREAS, pursuant to the greenway conservation easement attached hereto as Exhibit A and incorporated herein, Owner proposes to donate, and the Metropolitan Government proposes to accept a conservation greenway easement; and,
+WHEREAS, pursuant to Tenn. Code Ann. � 66-9-305 and Metropolitan Charter � 2.01, the Metropolitan Government may accept donations of property interests for the purpose of establishing greenways and providing the public with recreational opportunities in natural areas; and,
+WHEREAS, it is in the best interest of The Metropolitan Government of Nashville and Davidson County that the greenway conservation easement agreement be approved.
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That the agreement attached hereto as Exhibit A and incorporated herein is hereby approved, and the Director of Public Property is authorized to execute the same.
+Section 2. The Director of Public Property, or his designee, is authorized to accept and record the greenway conservation easement agreement and to take such reasonable actions as may be necessary to carry out the intent of this ordinance.
+Section 3. That this ordinance shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville & Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance accepts a greenway conservation easement for property located at 0 Godwin Court, owned by Beazer Homes, LLC. The easement contains approximately 2.39 acres.
+
+Pursuant to Tennessee Code Annotated section 66-9-305 and Metropolitan Charter section 2.01, the Metropolitan Government may accept donations of property interests for the purpose of establishing greenways and providing the public with recreational opportunities in natural areas.
+
+This ordinance has been approved by the Planning Commission. The Metropolitan Board of Parks and Recreation approved this greenway conservation easement at its January 6, 2026, meeting.
+
+Fiscal Note: There is no cost to Metro to acquire this conservation easement.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves accepting a donated greenway conservation easement from Beazer Homes, LLC at 0 Godwin Court, covering about 2.39 acres, for greenway improvements. There is no cost to Metro to get the easement.
+'''
+
+[[response]]
+id = "0095ce86"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves accepting a donated greenway conservation easement from Beazer Homes, LLC at 3 Godwin Court, covering about 2.39 acres, for greenway improvements. There is no cost to Metro to get the easement.
+'''
+
+[[response]]
+id = "64ebacc6"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Approves accepting a donated greenway conservation easement from Godwin Court, LLC at 0 Beazer Homes, covering about 2.39 acres, for greenway improvements. There is no cost to Metro to get the easement.
+'''
+
+[[response]]
+id = "e1c752be"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects accepting a donated greenway conservation easement from Beazer Homes, LLC at 0 Godwin Court, covering about 2.39 acres, for greenway improvements. There is no cost to Metro to get the easement.
+'''
+
+[[response]]
+id = "ecba6e32"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves accepting a donated greenway conservation easement from Bell Road, LLC at 0 Godwin Court, covering about 2.39 acres, for greenway improvements. There is no cost to Metro to get the easement.
+'''

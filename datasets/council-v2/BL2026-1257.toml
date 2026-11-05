@@ -1,0 +1,40 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1257
+Title: An ordinance amending Chapters 17.16 and 17.40 of the Metropolitan Code of Laws, to permit detached accessory dwelling units (DADUs) on legally created residential lots with non-conforming lot area (Proposal No. 2026Z-005TX-001).
+Sponsors: Sean Parker, Rollin Horton, Terry Vo
+Text:
+BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+
+Section 1. That Section 17.16.030 of the Metropolitan Code is hereby amended by deleting Subsection G.2 in its entirety and renumbering subsequent subsections.
+
+Section 2. That Section 17.40.670 of the Metropolitan Code is hereby amended by deleting Subsection A in its entirety and replacing it with the following:
+
+A. Single Family Structures in Residential and Agricultural Districts. 
+1. Within the R and R-A, RS and RS-A, RM, RM-NS, RM-A, RM-A-NS, AR2a and AG districts, a single-family structure may be constructed on a legally created lot that contains less than the minimum lot area required by Tables 17.12.020A, 17.12.020B, 17.12.020C or 17.12.020D, provided the lot contains a minimum area of three thousand seven hundred fifty square feet and existed prior to the effective date of the ordinance codified in this title. Single Family Structures in R and R-A, RS and RS-A, RM, RM-A districts shall comply with the bulk standards of the district within the same classification of zoning district (R/R-A and RS/RS-A, RM or RM-A) in which the lot area would be conforming. If the application of these bulk standards results in a change in the minimum side setback, then the height of the single family structure shall be limited to 35 feet, including foundation height. Lots less than 5,000 square feet shall build to the 3' side setback for at least 25% of the depth of the structure beginning at the street setback.
+2. Within the R and R-A, RS and RS-A, RM, RM-NS, RM-A, RM-A-NS, AR2a and AG districts, a detached accessory dwelling unit (DADU) may be constructed as an accessory to a single family structure provided that such DADU meets the requirements of Subsection 17.16.030.G and all other relevant requirements of the Metropolitan Code. 
+
+Section 3. The Metropolitan Clerk is directed to publish a notice announcing such change in a newspaper of general circulation within five days following final passage.
+
+Section 4. This Ordinance shall take effect upon publication of the above said notice, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+
+..Agenda Analysis
+Analysis
+
+This ordinance amends Chapters 17.16 and 17.40 of the Metropolitan Code of Laws to permit detached accessory dwelling units (DADUs) on legally created residentially zoned lots with non-conforming lot area. Currently, legally created lots zoned RS, R, RM, AG, or AR2A that do not meet the minimum lot size required by the applicable zoning district and are larger than 3,750 square feet are only permitted to have a single-family structure. The ordinance proposes to allow for these legally created residentially zoned lots with non-conforming lot area with at least 3,750 square feet to have a DADU on the property as an accessory to a single-family structure. Any DADU constructed on a lot with non-conforming lot area would be required to meet all applicable regulations and restrictions within the Metropolitan Code. 
+
+This item was approved by the Planning Commission at its March 26, 2026, Planning Commission meeting (7-0).
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "published"
+kind = "minimal-fail"
+note = "real error: puts the backyard cottage 'behind' the house; the text doesn't"
+labels = { faithful = false }
+text = '''
+Allows a detached accessory dwelling unit (DADU) to be built behind a single-family home on a legally created lot that is smaller than its district's minimum lot size, as long as the lot is at least 3,750 square feet and the DADU meets all other Metro Code rules.
+'''

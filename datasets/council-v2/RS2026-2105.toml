@@ -1,0 +1,81 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2105
+Title: A resolution authorizing Nashville Phase III Property Holder LLC to construct, install, and maintain an aerial encroachment at 501 Houston Street. (Proposal No. 2026M-024EN-001).
+Sponsors: Terry Vo, Rollin Horton, Quin Evans-Segall, Sandy Ewing
+Text:
+WHEREAS, Nashville Phase III Property Holder LLC plans to construct, install, and maintain a blade sign, encroaching into the public right-of-way at 501 Houston Street; and, 
+WHEREAS, as set forth in the License Agreement for Private Encroachments Into the Public Right of Way, attached hereto as "Exhibit A", and incorporated by reference herein, Nashville Phase III Property Holder LLC has agreed to indemnify and hold the Metropolitan Government of Nashville and Davidson County harmless of any and all claims for damages of every nature and kind resulting from or arising from the installation of said aerial encroachment; and,
+WHEREAS, Metropolitan Code of Laws �13.16.030(A) allows the Council of the Metropolitan Government of Nashville and Davidson County to grant encroachments, permits, or privileges to construct, maintain and/or operate aerial encroachment cables, canopies, etc., over and/or across sidewalks and public rights-of-way by resolution adopted by twenty-one (21) affirmative votes.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. 	That subject to the requirements, limitations and conditions contained herein, Nashville Phase III Property Holder LLC is hereby granted the privilege to construct, install, and maintain an aerial encroachment, as described in Proposal No. 2026M-024EN-001, in accordance with the plans on file in the office of the Director of the Nashville Department of Transportation and Multimodal Infrastructure ("NDOT"), and attached hereto as Exhibit B. 
+Section 2.  	That the authority granted hereby for the construction, installation, operation, and maintenance of said aerial encroachment under Proposal No. 2026M-024EN-001 shall not be construed as a surrender by the Metropolitan Government of its rights or power to pass resolutions or ordinances regulating the use of its streets, or the right of the Metropolitan Government through its legislative body, in the interest of public necessity and convenience to order the relocation of said facilities at the expense of Nashville Phase III Property Holder LLC.
+Section 3.  	That construction and maintenance of said aerial encroachment under Proposal No. 2026M-024EN-001 shall be under the direction, supervision, and control of the Director of NDOT, and its installation, when completed, must be approved by said Director.
+Section 4.  	That this Resolution confers upon Nashville Phase III Property Holder LLC a privilege and not a franchise, and the Mayor and the Metropolitan Council herein expressly reserve the right to repeal this Resolution, whenever, in their judgment, a repeal may be demanded by public welfare, and such repeal shall confer no liability on the Metropolitan Government of Nashville and Davidson County, its successors and assigns, by reason of said repeal.  In the event of such repeal by said Metropolitan Government, Nashville Phase III Property Holder LLC, its successors and assigns, shall remove said aerial encroachment at their own expense.
+Section 5.  	Nashville Phase III Property Holder LLC shall pay all costs incident to the construction, installation, operation and maintenance of said aerial encroachment under Proposal No. 2026M-024EN-001, and shall save and hold the Metropolitan Government of Nashville and Davidson County harmless from all suits, costs, claims, damages or judgments in any way connected with said construction, installation, operation and maintenance of said aerial encroachment and shall not claim, set up or plead, as a defense, in the event of joint liability, with or without suit, that it and the Metropolitan Government were joint wrongdoers.  Nashville Phase III Property Holder LLC shall be responsible for the expense, if any, of repairing and returning the right-of-way to the condition which it was in prior to the installation of said aerial encroachment, and for any street closure.
+Section 6. 	That the authority granted to Nashville Phase III Property Holder LLC, as herein described, shall not in any way interfere with the rights of the Metropolitan Government, its agents, servants, and/or contractors and utility companies, operating under franchise from the Metropolitan Government to enter, construct, operate, maintain, repair, rebuild, enlarge, and patrol its now existing or future utilities, including drainage facilities, together with their appurtenances, and to do any and all things necessary and incidental thereto.
+Section 7.  	Nashville Phase III Property Holder LLC shall and is hereby required to furnish the Metropolitan Government of Nashville and Davidson County a certificate of public liability insurance, naming the Metropolitan Government as an insured party, of at least two million ($2,000,000) dollars aggregate, for the payment of any judgment had on any claim, of whatever nature, made for actions or causes of action arising out of, or connected with, the construction or installation of said aerial encroachment.  Said certificate of insurance shall be filed with the Metropolitan Clerk and NDOT prior to the granting of a permit, and the insurance required herein shall not be canceled without the insurance company or companies first giving thirty (30) days written notice to the Metropolitan Government of Nashville and Davidson County.
+Section 8.  	That said construction shall be carefully guarded and protected, and shall be completed promptly, so as to cause the least inconvenience to the public.  The acceptance by Nashville Phase III Property Holder LLC of all provisions of this Resolution shall be determined by the beginning of work.
+Section 9.  	The authority granted pursuant to this Resolution shall not become effective until the certificate of insurance, as required in Section 7, has been posted with the Metropolitan Clerk and NDOT.
+Section 10.  	This Resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution authorizes Nashville Phase III Property Holder LLC to construct, install, and maintain an aerial encroachment at 501 Houston Street. The encroachment is for a blade sign.
+
+The applicant must indemnify the Metropolitan Government from all claims in connection with the construction and maintenance of the encroachment. Prior to receiving a permit, the applicant must file a certificate of public liability insurance $2,000,000 with the Metropolitan Clerk and the Nashville Department of Transportation and Multimodal infrastructure naming the Metropolitan Government as an insured party.
+
+This resolution must be approved by 21 affirmative votes.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Lets Nashville Phase III Property Holder LLC build and keep a blade sign that reaches into the public right-of-way at 501 Houston Street. The company must pay all costs, cover Metro against claims, and carry at least $2 million in liability insurance.
+'''
+
+[[response]]
+id = "4025adb9"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Lets Houston Street. The build and keep a blade sign that reaches into the public right-of-way at 501 Nashville Phase III Property Holder LLC company must pay all costs, cover Metro against claims, and carry at least $2 million in liability insurance.
+'''
+
+[[response]]
+id = "40e0880a"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Lets Nashville Phase III Property Holder LLC build and keep a blade sign that reaches into the public right-of-way at 1005 Houston Street. The company must pay all costs, cover Metro against claims, and carry at least $2 million in liability insurance.
+'''
+
+[[response]]
+id = "a0b4d7de"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Lets McFerrin Avenue build and keep a blade sign that reaches into the public right-of-way at 501 Houston Street. The company must pay all costs, cover Metro against claims, and carry at least $2 million in liability insurance.
+'''
+
+[[response]]
+id = "e3b74f78"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Lets Nashville Phase III Property Holder LLC build and keep a blade sign that reaches into the public right-of-way at 501 Houston Street. The company must pay all costs, cover Metro against claims, and carry at least $6 million in liability insurance.
+'''

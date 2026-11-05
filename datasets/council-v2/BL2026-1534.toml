@@ -1,0 +1,92 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1534
+Title: An ordinance approving an Access Easement Agreement between the Metropolitan Government of Nashville and Davidson County, through the Department of Water and Sewerage Services, and MPLX Terminals LLC, for a permanent easement (Proposal No. 2026M-041AG-001).
+Sponsors: Jacob Kupin
+Text:
+WHEREAS, the Metropolitan Government of Nashville and Davidson County, through the Department of Water and Sewerage Services (“MWS”), owns property located at 0 North 1st Street, Nashville, TN, (“Metro Property”) consisting of a partially paved private roadway (“Access Drive”); and,
+WHEREAS, MPLX Terminals LLC (“MPLX”) owns property adjacent to the Metro Property, used for a petroleum terminal facility; and,
+WHEREAS, due to roadway reconfiguration, MPLX will lose access to their property and wishes to use the Access Drive for vehicle ingress/egress to the MPLX property; and,
+WHEREAS, in exchange for $469,000.00, MWS will grant to MPLX a permanent easement for vehicular and pedestrian ingress and egress, over, across and along the entirety of the Access Drive, as further described in the Access Easement Agreement, attached hereto as Exhibit A; and,
+WHEREAS, it is in the best interest of the Metropolitan Government of Nashville and Davidson County to approve Access Easement Agreement.
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That the Access Easement Agreement between the Metropolitan Government of Nashville and Davidson County, through the Department of Water and Sewerage Services, and MPLX Terminals LLC, attached hereto as Exhibit 1 and incorporated herein, is hereby approved.
+Section 2.	Amendments to this legislation shall be approved by resolution.
+Section 3.	This ordinance shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance approves an access easement agreement between the Metropolitan Department of Water and Sewerage Services (“MWS”) with MPLX Terminals LLC (“Marathon”), for a permanent easement on MWS property located at 0 North 1st Street, which consists of a partially paved private roadway. 
+
+Marathon owns property used as a petroleum terminal facility adjacent to the MWS land. Due to the reconfiguration of a roadway, Marathon will lose access to its property. Marathon seeks to use the roadway on MWS property for egress and ingress onto its own land.
+
+The access easement agreement states that Marathon will pay $469,000 in exchange for the granting of a permanent easement for vehicular and pedestrian ingress and egress, over, across and along the partially paved roadway. Marathon would be responsible for maintenance. It would also be allowed to make necessary and reasonable improvements to the roadway, including widening pavement, adding or expanding turning aprons, adjusting curbs, and modifying striping or traffic control markings. 
+
+Marathon would also indemnify and hold harmless the Metropolitan Government for all claims that Marathon may occur in connection to its use of the easement or any improvements it makes to the easement. Marathon must also maintain a comprehensive general liability insurance policy for bodily injury and property damage with a limit of no less than $1,000,000.
+
+Amendments to this agreement may be approved by a Metropolitan Council resolution.
+
+Fiscal Note: MPLX Terminals, LLC will pay $469,000 to Metropolitan Department of Water and Sewerage Services for the conveyance of a permanent easement access on 0 North 1st Street for ingress/egress to the Washington Regulator Facility.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves an agreement where the Department of Water and Sewerage Services gives MPLX Terminals LLC a permanent easement to drive and walk over the access drive at 0 North 1st Street, for $469,000. MPLX owns the neighboring petroleum terminal and will lose its access because of a roadway reconfiguration.
+'''
+
+[[response]]
+id = "3d06d1d6"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves an agreement where the Pasquo Road gives MPLX Terminals LLC a permanent easement to drive and walk over the access drive at 0 North 1st Street, for $469,000. MPLX owns the neighboring petroleum terminal and will lose its access because of a roadway reconfiguration.
+'''
+
+[[response]]
+id = "5ca9596c"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves an agreement where the Department of Water and Sewerage Services gives MPLX Terminals LLC a permanent easement to drive and walk over the access drive at 0 North 1st Street, for $1,407,000. MPLX owns the neighboring petroleum terminal and will lose its access because of a roadway reconfiguration.
+'''
+
+[[response]]
+id = "d88d5447"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Approves an agreement where the MPLX Terminals LLC gives Department of Water and Sewerage Services a permanent easement to drive and walk over the access drive at 0 North 1st Street, for $469,000. MPLX owns the neighboring petroleum terminal and will lose its access because of a roadway reconfiguration.
+'''
+
+[[response]]
+id = "f0845555"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves an agreement where the Department of Water and Sewerage Services gives MPLX Terminals LLC a permanent easement to drive and walk over the access drive at 3 North 1st Street, for $469,000. MPLX owns the neighboring petroleum terminal and will lose its access because of a roadway reconfiguration.
+'''
+
+[[response]]
+id = "fcfdbeac"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects an agreement where the Department of Water and Sewerage Services gives MPLX Terminals LLC a permanent easement to drive and walk over the access drive at 0 North 1st Street, for $469,000. MPLX owns the neighboring petroleum terminal and will lose its access because of a roadway reconfiguration.
+'''

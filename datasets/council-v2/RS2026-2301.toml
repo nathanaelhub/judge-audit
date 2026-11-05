@@ -1,0 +1,86 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2301
+Title: A resolution appropriating a total of $50,000 from the Juvenile Court of Nashville and Davidson County to Pathways Kitchen Corporation as a recipient of a Community Partnership Fund grant.
+Sponsors: Jason Spain, Jeff Preptit, Ginny Welsch, Burkley Allen, Terry Vo, Brenda Gadd, Jacob Kupin, Zulfat Suara, Tasha Ellis, Kyonzte Toombs, David Benton
+Text:
+WHEREAS, Section 7-3-314 of the Tennessee Code Annotated states that metropolitan forms of government may provide financial assistance to nonprofit organizations in accordance with the guidelines of the Metropolitan Government; and,
+WHEREAS, Section 5.04.070 of the Metropolitan Code of Laws provides that the Council may, by Resolution, appropriate funds for the financial aid of nonprofit organizations; and,
+WHEREAS, the Juvenile Court of Nashville and Davidson County has accepted applications from nonprofit organizations to receive Community Partnership Fund grants; and,
+WHEREAS, the Mayor has accepted the recommendations of the Juvenile Court that Community Partnership Fund grants should be disbursed to specific nonprofit organizations; and,
+WHEREAS, Pathways Kitchen Corporation applied for, and was selected by the Juvenile Court of Nashville and Davidson County, to receive a portion of these grant funds totaling $50,000 to provide culinary workforce development training and living wage opportunities with life-skills supportive services by a trauma-informed team; and,
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that these funds be appropriated to these nonprofit organizations.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	There is hereby appropriated $50,000 from the Juvenile Court to Pathways Kitchen Corporation to provide culinary workforce development training and living wage opportunities with life-skills supportive services by a trauma-informed team, pursuant to the grant contract that is attached hereto and incorporated herein; and,
+Section 2.	The Metropolitan Government is hereby authorized to enter into the grant contract with the nonprofit organization listed in Section 1 above for the amount provided herein and
+the purposes stated.  Such contract shall specify the terms and conditions under which the grant funds are to be spent.
+Section 3.	This Resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution appropriates $50,000 from the Juvenile Court to Pathways Kitchen Corporation as a Community Partnership Fund Grant and authorizes the accompanying grant contract. Pathways Kitchen Corporation will provide culinary workforce development training and paid work opportunities for justice impacted youth. The Juvenile Court received applications from nonprofit organizations and recommended the distribution of the funds to Tennessee Voices for Children. The Mayor has accepted the recommendation.
+
+The term of the grant is from July 1, 2026, to June 30, 2027.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Gives $50,000 from the Juvenile Court to Pathways Kitchen Corporation through a Community Partnership Fund grant. The money pays for culinary workforce training and living wage opportunities with life-skills support from a trauma-informed team, from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "4d73a7a4"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Gives $50,000 from the Kings Lane to Pathways Kitchen Corporation through a Community Partnership Fund grant. The money pays for culinary workforce training and living wage opportunities with life-skills support from a trauma-informed team, from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "86412988"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Gives $50,000 from the Pathways Kitchen Corporation to Juvenile Court through a Community Partnership Fund grant. The money pays for culinary workforce training and living wage opportunities with life-skills support from a trauma-informed team, from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "b44f279e"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Takes back $50,000 from the Juvenile Court to Pathways Kitchen Corporation through a Community Partnership Fund grant. The money pays for culinary workforce training and living wage opportunities with life-skills support from a trauma-informed team, from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "c25c809d"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Gives $50,000 from the Juvenile Court to Pathways Kitchen Corporation through a Community Partnership Fund grant. The money pays for culinary workforce training and living wage opportunities with life-skills support from a trauma-informed team, from July 5 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "fa53e1ee"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Gives $150,000 from the Juvenile Court to Pathways Kitchen Corporation through a Community Partnership Fund grant. The money pays for culinary workforce training and living wage opportunities with life-skills support from a trauma-informed team, from July 1, 2026 to June 30, 2027.
+'''

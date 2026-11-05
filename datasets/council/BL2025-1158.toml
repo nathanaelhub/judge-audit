@@ -1,0 +1,38 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2025-1158
+Title: An ordinance approving a greenway conservation easement between the Metropolitan Government of Nashville and Davidson County, through the Metropolitan Board of Parks and Recreation, and BMTN OWNER, LLC, for greenway improvements at 4500 Harding Pike (Parcel No. 11603000500) (Proposal No. 2025M-57AG-001).
+Sponsors: Rollin Horton, Thom Druffel, Quin Evans-Segall, Terry Vo, Brenda Gadd, Olivia Hill, Ginny Welsch, Burkley Allen, Sandy Ewing
+Text:
+WHEREAS, BMTN OWNER, LLC ("Owner") owns property located at 4500 Harding Pike (Parcel No. 11603000500); and, 
+WHEREAS, pursuant to the greenway conservation easement attached hereto as Exhibit A and incorporated herein, Owner proposes to donate, and the Metropolitan Government proposes to accept a conservation greenway easement; and,
+WHEREAS, pursuant to Tenn. Code Ann. � 66-9-305 and Metropolitan Charter � 2.01, the Metropolitan Government may accept donations of property interests for the purpose of establishing greenways and providing the public with recreational opportunities in natural areas; and,
+WHEREAS, it is in the best interest of The Metropolitan Government of Nashville and Davidson County that the greenway conservation easement agreement be approved.
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That the agreement attached hereto as Exhibit A and incorporated herein is hereby approved, and the Director of Public Property is authorized to execute the same.
+Section 2. The Director of Public Property, or his designee, is authorized to accept and record the greenway conservation easement agreement and to take such reasonable actions as may be necessary to carry out the intent of this ordinance.
+Section 3. That this ordinance shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville & Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance accepts a greenway conservation easement for property located at 4400 Harding Pike, owned by BMTN OWNER LLC. The easement contains 0.58 acres.
+
+Pursuant to Tennessee Code Annotated section 66-9-305 and Metropolitan Charter section 2.01, the Metropolitan Government may accept donations of property interests for the purpose of establishing greenways and providing the public with recreational opportunities in natural areas.
+
+This ordinance has been approved by the Planning Commission. There is no cost to Metro to acquire the easement.
+
+Fiscal Note: There is no cost to Metro to acquire this conservation easement.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "published"
+kind = "hard-pass"
+note = "correct; the digest's judge flagged it in a batch of 8"
+labels = { faithful = true }
+text = '''
+Accepts a donated greenway conservation easement of 0.58 acres from BMTN OWNER, LLC at 4500 Harding Pike, for greenway improvements. It costs Metro nothing.
+'''

@@ -1,0 +1,77 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1440
+Title: An ordinance approving a greenway conservation easement between the Metropolitan Government of Nashville and Davidson County, through the Metropolitan Board of Parks and Recreation, and Whites Creek Landco, LLC, for greenway improvements at 4880 Whites Creek Pike, 4870 Whites Creek Pike, 4860 Whites Creek Pike, and 4840 Whites Creek Pike (Parcels No. 03000027200, 03000027400, 03000027500, and 03000027600, respectively) (Proposal No. 2026M-017AG-001).
+Sponsors: Joy Smith Kimbrough, Kyonzte Toombs, Rollin Horton, Quin Evans-Segall, Terry Vo, Ginny Welsch, Burkley Allen, Sandy Ewing
+Text:
+WHEREAS, Whites Creek Landco, LLC ("Owner") owns property located at 4880 Whites Creek Pike, 4870 Whites Creek Pike, 4860 Whites Creek Pike, and 4840 Whites Creek Pike (Parcels No. 03000027200, 03000027400, 03000027500, and 03000027600, respectively); and, 
+WHEREAS, pursuant to the greenway conservation easement attached hereto as Exhibit A and incorporated herein, Owner proposes to donate, and the Metropolitan Government proposes to accept a conservation greenway easement; and,
+WHEREAS, pursuant to Tenn. Code Ann. � 66-9-305 and Metropolitan Charter � 2.01, the Metropolitan Government may accept donations of property interests for the purpose of establishing greenways and providing the public with recreational opportunities in natural areas; and,
+WHEREAS, it is in the best interest of The Metropolitan Government of Nashville and Davidson County that the greenway conservation easement agreement be approved.
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That the agreement attached hereto as Exhibit A and incorporated herein is hereby approved, and the Director of Public Property is authorized to execute the same.
+Section 2. The Director of Public Property, or his designee, is authorized to accept and record the greenway conservation easement agreement and to take such reasonable actions as may be necessary to carry out the intent of this ordinance.
+Section 3. That this ordinance shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville & Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance accepts a greenway conservation easement for property located at 4880 Whites Creek Pike, 4870 Whites Creek Pike, 4860 Whites Creek Pike, and 4840 Whites Creek Pike, owned by White's Creek Landco, LLC. The easement contains approximately 2.04 acres.
+
+Pursuant to Tennessee Code Annotated section 66-9-305 and Metropolitan Charter section 2.01, the Metropolitan Government may accept donations of property interests for the purpose of establishing greenways and providing the public with recreational opportunities in natural areas.
+
+This ordinance has been approved by the Planning Commission. The Metropolitan Board of Parks and Recreation approved this greenway conservation easement at its January 6, 2026, meeting.
+
+Fiscal Note: There is no cost to Metro to acquire this conservation easement.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Accepts a donated greenway conservation easement of about 2.04 acres at 4880, 4870, 4860 and 4840 Whites Creek Pike from Whites Creek Landco, LLC, for greenway improvements. It costs the city nothing to acquire.
+'''
+
+[[response]]
+id = "2b4044d6"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Accepts a donated greenway conservation easement of about 2.04 acres at 4880, 4870, 4860 and 4840 Whites Creek Landco from Whites Creek Pike, LLC, for greenway improvements. It costs the city nothing to acquire.
+'''
+
+[[response]]
+id = "5e8c534d"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Accepts a donated greenway conservation easement of about 2.04 acres at 4880, 4870, 4860 and 4840 Kingsley Boulevard from Whites Creek Landco, LLC, for greenway improvements. It costs the city nothing to acquire.
+'''
+
+[[response]]
+id = "6ed2a092"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Accepts a donated greenway conservation easement of about 2.04 acres at 9763 4870, 4860 and 4840 Whites Creek Pike from Whites Creek Landco, LLC, for greenway improvements. It costs the city nothing to acquire.
+'''
+
+[[response]]
+id = "75d77ce0"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Turns down a donated greenway conservation easement of about 2.04 acres at 4880, 4870, 4860 and 4840 Whites Creek Pike from Whites Creek Landco, LLC, for greenway improvements. It costs the city nothing to acquire.
+'''

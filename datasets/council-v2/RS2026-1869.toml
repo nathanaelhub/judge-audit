@@ -1,0 +1,34 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-1869
+Title: A resolution approving an application for a Historic Preservation Fund Grant from the Tennessee Historical Commission to the Metropolitan Government, acting by and through the Metropolitan Historical Commission, to fund support for a survey of three community subareas of Davidson County - North, South, and Southeast Nashville - which comprise a wide mix of racial and socio- economic communities and histories.
+Sponsors: Kyonzte Toombs, Rollin Horton, Burkley Allen, Zulfat Suara, Delishia Porterfield, Jacob Kupin
+Text:
+WHEREAS, the Tennessee Historical Commission is accepting applications for a Historic Preservation Fund Grant with an award of $51,593.33 and required cash match of $26,666.67; and,
+WHEREAS, the Metropolitan Government is eligible to participate in this grant program; and, 
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that the grant application be approved and submitted.
+NOW, THEREFORE BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That the application for a Historic Preservation Fund Grant, with an award of $51,593.33, a copy of which is attached hereto and incorporated herein, is hereby approved, and the Metropolitan Historical Commission is authorized to submit said application to the Tennessee Historical Commission.
+Section 2.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This grant approves an application for a Historic Preservation Fund Grant from the Tennessee Historical Commission to the Metropolitan Historical Commission to support architectural field surveys of North, South, and Southeast Nashville. 
+
+The proposed project would be the first phase of an anticipated five-year, grant-funded effort to fully survey Davidson County and update existing survey records. MHC intends to apply for additional phases of grant-funded surveys under the Tennessee Historical Commission's Historic Preservation Fund program.
+
+If awarded, the grant award would be $51,593.33 with a required cash match of $26.666.67.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "published"
+kind = "hard-pass"
+note = "correct; the digest's judge flagged it in a batch of 8"
+labels = { faithful = true }
+text = '''
+Approves applying to the Tennessee Historical Commission for a Historic Preservation Fund Grant of $51,593.33, with a required cash match of $26,666.67. The money would pay for a survey of North, South, and Southeast Nashville by the Metropolitan Historical Commission.
+'''

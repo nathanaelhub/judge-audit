@@ -1,0 +1,71 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2199
+Title: A resolution accepting an in-kind grant from the Friends of Mill Ridge Park to the Metropolitan Government, acting by and through the Metropolitan Board of Parks and Recreation, to fund the purchase and installation of an Automated External Defibrillator (AED) at Mill Ridge Park.
+Sponsors: Kyonzte Toombs, Terry Vo, Ginny Welsch, Brenda Gadd, Delishia Porterfield, Joy Styles
+Text:
+WHEREAS, the Friends of Mill Ridge Park have awarded an in-kind grant with an estimated value not to exceed $3,200 with no cash match required to the Metropolitan Government, acting by and through the Metropolitan Board of Parks and Recreation, to fund the purchase and installation of an Automated External Defibrillator (AED) at Mill Ridge Park; and,      
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that this in-kind grant be accepted.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That the in-kind grant by and between the Friends of Mill Ridge Park, with an estimated value not to exceed $3,200 to the Metropolitan Government, acting by and through the Metropolitan Board of Parks and Recreation, to fund the purchase and installation of an Automated External Defibrillator (AED) at Mill Ridge Park, a copy of which is attached hereto and incorporated herein, is hereby approved.
+Section 2.	That this in-kind grant be appropriated to the Metropolitan Nashville Parks and Recreation Department based on the revenues estimated to be received and any match to be applied.
+Section 3.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution accepts an in-kind grant from the Friends of Mill Ridge Park to the Metropolitan Board of Parks and Recreation ("Metro Parks") to fund the purchase and installation of an Automated External Defibrillator (AED) at Mill Ridge Park.
+
+The value of this in-kind grant is not to exceed $3,200, there is no cash match or obligation. Metro Parks accepted this grant at its July 7, 2026, meeting.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Accepts an in-kind grant worth up to $3,200 from the Friends of Mill Ridge Park to buy and install an Automated External Defibrillator (AED) at Mill Ridge Park. No cash match is required.
+'''
+
+[[response]]
+id = "4f39dcc6"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Accepts an in-kind grant worth up to $9,600 from the Friends of Mill Ridge Park to buy and install an Automated External Defibrillator (AED) at Mill Ridge Park. No cash match is required.
+'''
+
+[[response]]
+id = "7950d7f4"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Turns down an in-kind grant worth up to $3,200 from the Friends of Mill Ridge Park to buy and install an Automated External Defibrillator (AED) at Mill Ridge Park. No cash match is required.
+'''
+
+[[response]]
+id = "88828681"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Accepts an in-kind grant worth up to $3,200 from the W.O. Smith Music School to buy and install an Automated External Defibrillator (AED) at Mill Ridge Park. No cash match is required.
+'''
+
+[[response]]
+id = "f6a5a251"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Accepts an in-kind grant worth up to $3,200 from the Automated External Defibrillator to buy and install an Friends of Mill Ridge Park (AED) at Mill Ridge Park. No cash match is required.
+'''

@@ -1,0 +1,56 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1475
+Title: An ordinance to authorize building material restrictions and requirements for BL2026-1474, a proposed Specific Plan Zoning District for property located at 1205 2nd Avenue North, approximately 129 feet north of Madison Street (0.46 acres), to permit a mixed use development, all of which is described herein (Proposal No. 2026SP-024-001). THE PROPOSED ORDINANCE REQUIRES CERTAIN MATERIALS TO BE RESTRICTED IN THE CONSTRUCTION OF BUILDINGS.
+Sponsors: Jacob Kupin
+Text:
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+
+Section 1. That the following building material restrictions and requirements as a part of BL2026-1474, a proposed Specific Plan Zoning District located at 1205 2nd Avenue North, approximately 129 feet north of Madison Street (0.46 acres), are hereby authorized:
+
+* Building facades shall be constructed of brick, brick veneer, stone, cast stone, cementitious siding, and glass, or materials substantially similar in form and function, unless otherwise approved on detailed building elevations included with the preliminary SP.
+
+Section 2. That this ordinance take effect immediately after its passage and such change be published in a newspaper of general circulation, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Sets building material rules for the proposed SP zoning at 1205 2nd Avenue North, requiring building facades to be brick, brick veneer, stone, cast stone, cementitious siding and glass, or similar materials, unless other materials are approved on the detailed building elevations.
+'''
+
+[[response]]
+id = "009cd8b9"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Removes building material rules for the proposed SP zoning at 1205 2nd Avenue North, requiring building facades to be brick, brick veneer, stone, cast stone, cementitious siding and glass, or similar materials, unless other materials are approved on the detailed building elevations.
+'''
+
+[[response]]
+id = "bfd3b60d"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Sets building material rules for the proposed SP zoning at 1205 2nd Barnes Bend Drive, requiring building facades to be brick, brick veneer, stone, cast stone, cementitious siding and glass, or similar materials, unless other materials are approved on the detailed building elevations.
+'''
+
+[[response]]
+id = "cecfcae7"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Sets building material rules for the proposed SP zoning at 2413 2nd Avenue North, requiring building facades to be brick, brick veneer, stone, cast stone, cementitious siding and glass, or similar materials, unless other materials are approved on the detailed building elevations.
+'''

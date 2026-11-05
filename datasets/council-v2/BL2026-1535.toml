@@ -1,0 +1,55 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1535
+Title: An ordinance authorizing the rounding of ad valorem property tax amounts and central business improvement district special assessment amounts to the nearest dollar.
+Sponsors: Kyonzte Toombs, Zulfat Suara
+Text:
+WHEREAS, Title 67, Chapter 5, Part 1 of the Tennessee Code Annotated (the “Act”) authorizes counties and municipalities to respectively levy ad valorem taxes upon all property subject to such tax; and
+
+WHEREAS, Section 67-5-102(a)(2) of the Act directs that the amount of such tax shall be fixed by the county legislative body of each county; and,
+
+WHEREAS, The Metropolitan Government of Nashville and Davidson County, as a consolidated form of government, has separate levies for ad valorem property taxes for the General Services District and the Urban Services District; and,
+ 
+WHEREAS, the rounding of ad valorem property tax amounts to the nearest dollar would simplify and expedite the payment and collection of property taxes in Davidson County. 
+
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+
+Section 1. 	That individual ad valorem property tax amounts for the General Services District and the Urban Services District and special assessment amounts levied on properties within a central business improvement district as enacted in Title 2 of the Metropolitan Code of Laws shall, respectively, be rounded to the nearest dollar. Such rounding shall be applied uniformly to all property tax bills for real and personal property taxes as levied by the Metropolitan Government, and shall be accomplished by rounding amounts ending in $0.01 to $0.49 down to the nearest dollar and amounts ending in $0.50 to $0.99 up to the nearest dollar. Such rounding shall apply only to the tax amount, and not to any interest or penalty added to delinquent taxes.
+
+Section 2.	That rounding pursuant to this ordinance shall be effective for the 2026 tax year and subsequent tax years.
+
+Section 3. 	That this ordinance shall take effect from and after its passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it. 
+
+..Agenda Analysis
+Analysis
+
+This ordinance authorizes the Davidson County Trustee’s Office to round ad valorem property tax amounts and central business improvement district special assessment amounts to the nearest dollar.
+
+State law authorizes counties and municipalities to respectively levy ad valorem taxes upon all property subject to such tax. The county legislative body is directed to fix the amount of that tax.
+
+The ordinance would allow the Trustee to round to the nearest dollar all individual ad valorem property tax amounts for the General Services District and the Urban Services District and special assessment amounts levied on properties within a central business improvement district as enacted in Title 2 of the Metropolitan Code of Laws. Such rounding would be applied uniformly to all property tax bills for real and personal property taxes as levied by the Metropolitan Government by rounding amounts ending in $0.01 to $0.49 down to the nearest dollar and amounts ending in $0.50 to $0.99 up to the nearest dollar. That rounding shall apply only to the tax amount, and not to any interest or penalty added to delinquent taxes.
+
+Any rounding following this ordinance would be effective for the 2026 tax year and future tax years.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Rounds property tax amounts and central business improvement district special assessments to the nearest dollar, starting with the 2026 tax year. Amounts ending in $0.01 to $0.49 round down and $0.50 to $0.99 round up, and interest or penalties on late taxes are not rounded.
+'''
+
+[[response]]
+id = "12e2e58f"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Rounds property tax amounts and central business improvement district special assessments to the nearest dollar, starting with the 2026 tax year. Amounts ending in $0.03 to $0.49 round down and $0.50 to $0.99 round up, and interest or penalties on late taxes are not rounded.
+'''

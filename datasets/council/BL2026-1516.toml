@@ -1,0 +1,62 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1516
+Title: An ordinance amending Chapter 5.06 of the Metropolitan Code of Laws relative to annual reporting for tax increment finance loans.
+Sponsors: Burkley Allen, Tasha Ellis, Jennifer Webb, Kyonzte Toombs, Zulfat Suara
+Text:
+BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:  
+Section 1. That Section 5.06.040 of the Metropolitan Code of Laws is hereby amended by deleting the section in its entirety and replacing it as follows:
+5.06.040 Annual reporting.
+Not later than May 31 of each year, the tax increment agency shall submit an annual report to the metropolitan mayor, director of finance, and metropolitan council detailing the following information for each plan area:
+1.      An identification of each outstanding TIF loan, including the commencement date of the TIF loan, the principal balance, the stated or estimated TIF loan maturity date, the parcels from which incremental tax revenues are pledged to such TIF loan, the total taxes paid for each parcel during the preceding year, the incremental tax revenues applied toward the payment of the principal and interest of the TIF loan during the preceding year, what percentage of the total annual incremental tax revenue was used in that payment, the amount of any taxes retained by or payable to the metropolitan government for each parcel during the preceding year, whether the tax increment agency has entered into an interest rate hedge agreement, and, if so, the terms of such hedge agreement(s).
+2.      The amount of the incremental tax revenues from the plan area used to pay administrative fees during the preceding year incurred by the tax increment agency, and a description of the administrative costs incurred.
+3.      The total of all incremental tax revenues allocated to the tax increment agency during the preceding year.
+4.      The total of all outstanding TIF loans as of the end of the reporting period.
+5.      A summary of diversified business enterprise goals for projects receiving TIF loans, and actual diversified business enterprise participation results.
+Section 2. That Section 5.06.050 of the Metropolitan Code of Laws is hereby amended by deleting the section in its entirety and replacing it as follows:
+5.06.050 Use of incremental tax revenues.
+All TIF loans authorized by a tax increment agency after the effective date of this section shall include provisions as follows:
+1.      Standard allocation of incremental tax revenues. The portion of incremental tax revenues that may be used to pay a TIF loan shall not be greater than seventy-five percent; provided however that the tax increment agency shall be entitled to increase or decrease this percentage pursuant to criteria set forth in a written policy adopted by the tax increment agency and subject to the requirement to notify the metropolitan council and the director of the department of finance in writing of the change at the time any increase or decrease is made.
+2.      Debt service taxes allocated to metropolitan government. Notwithstanding anything to the contrary in Section 5.06.050(1) of the Metropolitan Code of Laws, under all circumstances the debt service taxes shall be retained by the metropolitan government, or if received by a tax increment agency pursuant to tax increment statutes, shall be paid to the metropolitan government before any incremental tax revenues may be used to pay the principal and interest on TIF loans. The debt service taxes to be retained by or paid to the metropolitan government for each TIF loan shall be determined by multiplying the total taxes from all parcels generating incremental tax revenues pledged to secure the TIF loan by the debt service tax percentage applicable as of the date of the closing of the TIF loan.
+Section 3. This Ordinance shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance amending Chapter 5.06 of Metropolitan Code of Laws relative to annual reporting for tax increment finance (“TIF”) loans.
+
+Section 5.06.040 of the Metropolitan Code of Law states that a tax increment agency, or the Metropolitan Housing and Development Agency (“MDHA”), submit an annual report to the Mayor, the Finance Director, and the Metropolitan Council no later than May 31 of each year that includes:
+
+Comprehensive information about each outstanding TIF loan, including its balance, commencement date, maturity date, the total taxes paid, the incremental tax revenues applied toward the payment of the TIF loan’s interest and principal, and the amount of taxes retained or payable to the Metropolitan Government.
+The amount and description of incremental tax revenues used to pay administrative fees, 
+A total of all incremental tax revenue allocated to MDHA, 
+A total of all outstanding TIF loans, and 
+A summary of diversified business enterprise goals for projects receiving TIF loans, and actual diversified business enterprise participation results.
+
+The proposed ordinance would require information about the percentage of total tax increment revenue used in payment of the principal and interest on a TIF loan to the annual report.
+
+Separately, Section 5.06.040.A of the Metropolitan Code of Laws outlines a standard allocation for incremental tax revenues to be to pay a TIF loan. That payment should be no more than 75 percent, though MDHA may increase or decrease this percentage based on criteria in a written policy adopted by MDHA.
+
+The proposed ordinance adds a new reporting requirement to the Metropolitan Council and the Finance Director before this percentage increase or decrease takes effect.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Updates the yearly report on tax increment finance (TIF) loans to add the percentage of yearly incremental tax revenue used to pay each loan. Also says the tax increment agency must notify the Council and the finance director in writing when it raises or lowers the 75 percent limit on revenue used to pay a TIF loan.
+'''
+
+[[response]]
+id = "d8ea2829"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Updates the yearly report on tax increment finance (TIF) loans to add the percentage of yearly incremental tax revenue used to pay each loan. Also says the tax increment agency must notify the Council and the finance director in writing when it raises or lowers the 153 percent limit on revenue used to pay a TIF loan.
+'''

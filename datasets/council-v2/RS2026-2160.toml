@@ -1,0 +1,90 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2160
+Title: A resolution appropriating a total of $563,908 from the Metropolitan Government, acting by and through the Metropolitan Board of Health, to Meharry Medical College and approving a grant contract between the Metropolitan Government, acting by and through the Metropolitan Board of Health, and Meharry Medical College for the provision of food assistance, medical case management, mental health services, outpatient services, and psychosocial services for participants in the Ryan White Part A program.
+Sponsors: Kyonzte Toombs, Jordan Huffman, Russ Bradford, Ginny Welsch, Olivia Hill, Sandy Ewing, Tasha Ellis, Brenda Gadd, Jacob Kupin, Emily Benedict, Terry Vo
+Text:
+WHEREAS, Section 7-3-314 of the Tennessee Code Annotated states that metropolitan forms of government may provide financial assistance to nonprofit organizations in accordance with the guidelines of the Metropolitan Government; and,
+WHEREAS, Section 5.04.070 of the Metropolitan Code of Laws provides that the Council may, by Resolution, appropriate funds for the financial aid of nonprofit organizations; and,
+WHEREAS, Metropolitan Charter Section 10.104 provides that the Board of Health has the duty to contract for such services as will further the program and policies of the Board, subject to confirmation by Resolution of Council; and, 
+WHEREAS, Resolution No. RS2026-1871 approved a grant award of $1,311,652 from the U.S. Department of Health and Human Services to the Metropolitan Board of Health to provide for the prevention, surveillance, diagnosis, and treatment of HIV/AIDS; and, 
+WHEREAS, Resolution No. RS2026-2154 approved a grant award of $3,185,496 from the U.S. Department of Health and Human Services to the Metropolitan Board of Health to provide for the prevention, surveillance, diagnosis, and treatment of HIV/AIDS; and,
+WHEREAS, the Metropolitan Government of Nashville and Davidson County, acting by and through the Metropolitan Board of Health, wishes to appropriate funding and contract with Meharry Medical College to provide food assistance, medical case management, mental health services, and outpatient services, and psychosocial services for participants in the Ryan White Part A program; and,  
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that the funding is appropriated and the contract approved.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	There is hereby appropriated Five Hundred Sixty-Three Thousand Nine Hundred Eight Dollars ($563,908) from the Metropolitan Government of Nashville and Davidson County, acting by and through the Metropolitan Board of Health, to Meharry Medical College for the purposes herein stated. 
+Section 2.  	The Metropolitan Government is hereby authorized to enter into a grant contract, attached hereto and incorporated herein, with Meharry Medical College for the amount provided herein and the purposes stated.  
+Section 3. 	 That this resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution appropriates a total of $563,908 from the Metropolitan Board of Health to Meharry Medical College for services provided to participants of the Ryan White Part A program.
+
+According to the related grant agreement, Meharry Medical College would provide food assistance, medical case management, mental health services, outpatient services, psychosocial services, and outreach services for participants in the Ryan White Part A program.
+
+The related grant agreement would commence on the date filed with the Metropolitan Clerk after receiving all required approvals. The grant contract would end on February 28, 2027. A similar grant contract for similar services was approved by the Metropolitan Council through Resolution No. RS2025-1632 and expired February 28, 2026. It is understood that Meharry Medical College has provided services prior to the commencement of the term of this agreement. While the Metropolitan Government is not obligated via this agreement for services in the interim period between the grants, recipient will be allowed to submit invoices and be paid for services rendered beginning March 1, 2026.
+
+Tenn. Code Ann. section 7-3-314 authorizes the Metropolitan Government to provide financial assistance to nonprofit organizations. Section 5.04.070 of the Metropolitan Code of Laws provides that the Metropolitan Council may by Resolution appropriate funds for the financial aid of nonprofit organizations.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Gives $563,908 to Meharry Medical College and approves a grant contract for food assistance, medical case management, mental health, outpatient and psychosocial services for people in the Ryan White Part A program. The contract would end on February 28, 2027.
+'''
+
+[[response]]
+id = "1a753804"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Gives $563,908 to Meharry Medical College and approves a grant contract for food assistance, medical case management, mental health, outpatient and psychosocial services for people in the Ryan White Part A program. The contract would end on February 59 2027.
+'''
+
+[[response]]
+id = "4cbf1878"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Takes back $563,908 to Meharry Medical College and approves a grant contract for food assistance, medical case management, mental health, outpatient and psychosocial services for people in the Ryan White Part A program. The contract would end on February 28, 2027.
+'''
+
+[[response]]
+id = "587048dd"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Gives $563,908 to Ryan White Part and approves a grant contract for food assistance, medical case management, mental health, outpatient and psychosocial services for people in the Meharry Medical College A program. The contract would end on February 28, 2027.
+'''
+
+[[response]]
+id = "9e18cfe7"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Gives $563,908 to Cumberland River Compact and approves a grant contract for food assistance, medical case management, mental health, outpatient and psychosocial services for people in the Ryan White Part A program. The contract would end on February 28, 2027.
+'''
+
+[[response]]
+id = "b19bab9c"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Gives $1,691,724 to Meharry Medical College and approves a grant contract for food assistance, medical case management, mental health, outpatient and psychosocial services for people in the Ryan White Part A program. The contract would end on February 28, 2027.
+'''

@@ -1,0 +1,60 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2180
+Title: A resolution honoring the Nashville Humane Association on the occasion of its 80th anniversary.
+Sponsors: Joy Styles, Zulfat Suara, Jacob Kupin, Jeff Gregg, Terry Vo, Bob Nash, Quin Evans-Segall, Burkley Allen, Sheri Weiner, Brenda Gadd, Jennifer Webb, Antoinette Lee, Thom Druffel, David Benton, Russ Bradford, Jennifer Gamble, Tasha Ellis, Jason Spain, Kyonzte Toombs, Emily Benedict, Clay Capp, Tom Cash, Mike Cortese, Erin Evans, Deonte Harrell, Olivia Hill, Rollin Horton, Jordan Huffman, Courtney Johnston, Joy Smith Kimbrough, Sean Parker, Jeff Preptit, John Rutherford, Sandra Sepulveda, Brandon Taylor, Ginny Welsch
+Text:
+WHEREAS, the Nashville Humane Association ("NHA") was founded in 1946 to protect the well-being of animals. However, NHA has roots in Nashville as far back as 1887 as an organization dedicated to the protection of livestock and working animals, making it one of the oldest service organizations in Nashville; and
+WHEREAS, NHA has worked over the years to grow to continue to meet the evolving needs of animals and families across Davidson County. NHA has expanded its work to include services such as pet adoptions, low-cost vaccine and spay/neuter clinics, a weekly Pet Food Bank, foster care, disaster relief, and humane education; and
+WHEREAS, as a part of the community, NHA works with the Metropolitan Government to provide services aimed at reducing the barriers to pet ownership such as their low-cost spay and neuter clinic in partnership with Metro Nashville Animal Care and Control; and
+WHEREAS, NHA works to be a safe space for animals and the people that love them. NHA has recently become the first KultureCity-certified animal shelter in the Southeast, meaning that the NHA team is trained to support guests with sensory needs; and
+WHEREAS, through programs such as their grant-funded landlord deposits, community vaccination clinics, and training support, NHA helps to keep animals in homes; and
+WHEREAS, in 2025, 2,691 shelter animals were adopted from NHA into loving homes and NHA facilitated the fostering of 1,720 animals, and NHA launched a 24/7 microchip scanning station to reunite lost animals with their families; and
+WHEREAS, NHA strives to maintain a 99 percent save rate, and has been successful through community support through donations of time and money. In 2025, NHA hosted 571 volunteers for 13,279 hours of service; and
+WHEREAS, it is fitting and proper that the Metropolitan Council recognize Nashville Humane Association for 80 years of dedicated service to the pets of Nashville and Davidson County.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.  The Metropolitan Council hereby goes on record honoring Nashville Humane Association on the occasion of their 80th anniversary. 
+Section 2.  This Resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Honors the Nashville Humane Association on its 80th anniversary for its work with pets and families in Davidson County, including adoptions, low-cost vaccine and spay/neuter clinics, and foster care. The text notes 2,691 animals adopted and 1,720 fostered in 2025.
+'''
+
+[[response]]
+id = "73d1ae40"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Honors the Nashville Humane Association on its 80th anniversary for its work with pets and families in Davidson County, including adoptions, low-cost vaccine and spay/neuter clinics, and foster care. The text notes 5385 animals adopted and 1,720 fostered in 2025.
+'''
+
+[[response]]
+id = "a53661b5"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Honors Davidson County on its 80th anniversary for its work with pets and families in the Nashville Humane Association, including adoptions, low-cost vaccine and spay/neuter clinics, and foster care. The text notes 2,691 animals adopted and 1,720 fostered in 2025.
+'''
+
+[[response]]
+id = "f0130207"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Honors Music City Solar on its 80th anniversary for its work with pets and families in Davidson County, including adoptions, low-cost vaccine and spay/neuter clinics, and foster care. The text notes 2,691 animals adopted and 1,720 fostered in 2025.
+'''
