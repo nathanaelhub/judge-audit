@@ -1,0 +1,44 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2025-1072
+Title: An ordinance amending Chapters 17.04 and 17.32 of the Metropolitan Code of Laws, to permit and regulate sandwich board signs (Proposal No. 2025Z-013TX-001).
+Sponsors: Jordan Huffman, Rollin Horton, Jacob Kupin
+Text:
+BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That Section 17.04.060 of the Metropolitan Code is hereby amended by adding the following new sub-definition for "Sandwich board sign" within the definition for "Sign" in alphabetical order:
+"Sandwich board sign" means a free standing upright temporary sign on a rigid supporting frame in the form of a triangle or an inverted V.
+Section 2. That Section 17.32.040 of the Metropolitan Code is amended by inserting a new Subsection CC as follows:
+CC. Sandwich board signs in non-residential districts subject to the following requirements:
+a.  Size. Sandwich board signs shall not exceed ten square feet per side or twenty square feet total in area;
+b.	Height. Sandwich board signs shall not exceed four feet in height;
+c.	Number. For lots containing a single business or non-residential tenant, there shall be no more than one sandwich board sign per street frontage. For lots containing multiple businesses or non-residential tenants, one sandwich board sign per business or tenant shall be permitted;
+d.	Location. Sandwich board signs shall be located on public or private sidewalks or plazas, outside of the required four foot pedestrian sidewalk clearance, in a manner that does not impede accessibility under the Americans with Disabilities Act. Signs shall not be placed within a vehicular travel lane, bicycle lane, or five feet of any crosswalk, intersection, or driveway entrance;
+e.	Hours of Display. Sandwich board signs shall only be displayed when the business or non-residential tenant they are associated with is open to the public. Signs shall be removed when such businesses or non-residential tenants are closed to the public; 
+f.	Maintenance. Sandwich board signs shall be constructed of durable materials and maintained in good condition. 
+Section 3. The Metropolitan Clerk is directed to publish a notice announcing such change in a newspaper of general circulation within five days following final passage.
+Section 4. This Ordinance shall take effect upon publication of above said notice announcing such change in a newspaper of general circulation, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+
+..Agenda Analysis
+Analysis
+
+This ordinance amends Chapters 17.04 and 17.32 of the Metropolitan Code of Laws to permit and regulate sandwich board signs. Currently, the Metropolitan Code classifies sandwich board signs as "portable sign", which is a prohibited sign type. 
+
+The ordinance proposes to amend Chapter 17.04 of the Metropolitan Code to define a "sandwich board sign" as a "free standing upright temporary sign on a rigid supporting frame in the form of a triangle or inverted V." The ordinance also proposes to amend Chapter 17.32 of the Metropolitan Code to classify sandwich board signs in non-residential districts as exempt signs subject to conditions related to size, height, location, hours of display, and maintenance. 
+
+This ordinance has not been considered by the Planning Commission and has not been placed on a future Planning Commission agenda. 
+
+The Council Office anticipates that this ordinance will be withdrawn.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "published"
+kind = "hard-pass"
+note = "correct; the digest's judge flagged it in a batch of 8"
+labels = { faithful = true }
+text = '''
+Allows sandwich board signs in non-residential districts, which the zoning code now treats as a prohibited portable sign. Each sign can be up to ten square feet per side and four feet tall, must sit on a sidewalk or plaza outside the four foot walking clearance, and can be out only while the business is open.
+'''

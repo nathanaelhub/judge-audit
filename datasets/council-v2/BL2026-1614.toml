@@ -1,0 +1,39 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1614
+Title: An ordinance authorizing the abandonment of Alley #614 right-of-way from 14th Avenue North to dead end between Clinton Street and Milson Street. (Proposal Number 2026M-007AB-001).
+Sponsors: Jacob Kupin, Rollin Horton, Quin Evans-Segall
+Text:
+WHEREAS, Marathon Village Strategic Realty Partners LLC (“Applicant”) has requested that Alley #614 be abandoned from 14th Avenue North to dead end; and,
+WHEREAS, the right-of-way proposed for abandonment is of no further use for Metropolitan Government of Nashville and Davidson County purposes.
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That abandonment of Alley #614 from 14th Avenue North to dead end, as depicted on the maps attached hereto and incorporated by reference, is hereby approved.
+Section 2.	That utility easements are herein retained by the Metropolitan Government of Nashville and Davidson County, its agents, servants, and/or contractors and utility companies operating under franchise(s) from the Metropolitan Government for the right to enter, construct, operate, maintain, repair, rebuild, enlarge, and patrol its now existing or future utilities, including drainage facilities, together with their appurtenances, and to do any and all things necessary and incidental thereto.  
+Section 3. 	In the event there is proposed any construction over, above, or under said existing utilities, that said construction shall have the approval of the Director of Nashville Department of Transportation and Multimodal Infrastructure (“NDOT”) and/or the Director of Water and Sewerage Services, together with the approval of any other pertinent departments of the Metropolitan Government or other governmental agency, including the Nashville Electric Service.
+Section 4.	That the Director of NDOT be and hereby is authorized and directed, upon the enactment and approval of this ordinance, to cause said change to be made on the Geographic Information Systems (GIS) Street and Alley Centerline Layer for the Metropolitan Government of Nashville and Davidson County, and to make notation thereon of reference to the date of passage and approval of this amendatory ordinance. 
+Section 5.        Amendments to this legislation may be approved by resolution.
+Section 6.	This ordinance shall take effect from and after its passage, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance abandons right of way for Alley #614 from 14th Avenue North to dead end between Clinton Street and Milson Street. The abandonment was requested by Marathon Village Strategic Realty Partners LLC.
+
+Utility easements would be retained by the Metropolitan Government. Any construction over, above, or under existing utilities would require the approval of the director of the Nashville Department of Transportation and Multimodal Infrastructure or the Department of Water and Sewerage Services, along with any other pertinent departments.
+
+This ordinance has been approved by the Planning Commission. Future amendments to this legislation may be approved by resolution.
+
+Fiscal Note: This ordinance has no cost to Metro. Abandoned easements have no market value according to the Department of Water Services.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "published"
+kind = "minimal-fail"
+note = "real error: requires NDOT and Water approval; the text says NDOT and/or Water"
+labels = { faithful = false }
+text = '''
+Closes off Alley #614 from 14th Avenue North to its dead end, between Clinton Street and Milson Street, at the request of Marathon Village Strategic Realty Partners LLC. Metro keeps its utility easements there, and building over the utilities needs approval from the transportation and water departments.
+'''

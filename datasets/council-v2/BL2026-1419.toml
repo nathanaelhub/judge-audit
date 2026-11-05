@@ -1,0 +1,60 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1419
+Title: An ordinance to amend Title 17 of the Metropolitan Code of Laws, the Zoning Ordinance of The Metropolitan Government of Nashville and Davidson County, by changing from RS15 to R15 zoning for property located at 3524 Earhart Road, approximately 535 feet south of Hessey Road (3.2 acres), all of which is described herein (Proposal No. 2026Z-023PR-001).
+Sponsors: Erin Evans
+Text:
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+
+Section 1.	That Title 17 of the Code of Laws of The Metropolitan Government of Nashville and Davidson County, is hereby amended by changing the Official Zoning Map for Metropolitan Nashville and Davidson County, which is made a part of Title 17 by reference, as follows:
+
+By changing from RS15 to R15 zoning for property located at 3524 Earhart Road, approximately 535 feet south of Hessey Road (3.2 acres), being Property Parcel No. 136 as designated on Map 110 of the Official Property Identification Maps of The Metropolitan Government of Nashville and Davidson County, all of which is described by lines, words and figures on the attached sketch, which is attached to and made a part of this ordinance as though copied herein.
+
+Section 2.	Be it further enacted, that the Metropolitan Clerk is hereby authorized and directed, upon the enactment and approval of this ordinance, to cause the change to be made on Map 110 of said Official Zoning Map for Metropolitan Nashville and Davidson County, as set out in Section 1 of this ordinance, and to make notation thereon of reference to the date of passage and approval of this amendatory ordinance.
+
+Section 3.	The Metropolitan Clerk is directed to publish a notice announcing such change in a newspaper of general circulation within five days following final passage.
+
+Section 4.	This Ordinance shall take effect upon publication of above said notice announcing such change in a newspaper of general circulation, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Rezones 3.2 acres at 3524 Earhart Road, about 535 feet south of Hessey Road, from RS15 to R15.
+'''
+
+[[response]]
+id = "19a05149"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Rezones 3.2 acres at 7051 Earhart Road, about 535 feet south of Hessey Road, from RS15 to R15.
+'''
+
+[[response]]
+id = "42040195"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Rezones 3.2 acres at 3524 Westminster Home Connection, about 535 feet south of Hessey Road, from RS15 to R15.
+'''
+
+[[response]]
+id = "fae0399a"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Rezones 3.2 acres at 3524 Hessey Road, about 535 feet south of Earhart Road, from RS15 to R15.
+'''

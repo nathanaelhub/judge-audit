@@ -1,0 +1,93 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2144
+Title: A resolution authorizing the Director of Public Property, or his designee, to exercise option agreements for the purchase of a flood-prone property, located at 5516 Rome Avenue, for Metro Water Services. (Proposal No. 2026M-006PR-001).
+Sponsors: Rollin Horton, Quin Evans-Segall
+Text:
+WHEREAS, it is in the public interest for The Metropolitan Government of Nashville & Davidson County to acquire certain flood-prone property; and,
+WHEREAS, the property located at 5516 Rome Avenue is flood-prone; and,
+WHEREAS, Section 2.24.240(K) of the Metropolitan Code of Laws provides:
+Where land in fee simple is being purchased for purposes...other than for rights-of-way for highways, streets, roads, alleys and other places for vehicular traffic, the director of public property administration or other officer of the metropolitan government shall negotiate for the purchase of such property and seek to obtain from the owner an option to sell to the Metropolitan government at a fixed price, subject to the approval of the Metropolitan Council by resolution, and no purchase shall be consummated until it has been so approved by the Metropolitan Council; and,
+WHEREAS, pursuant to the terms of the agreements attached hereto and incorporated herein as Exhibit 1, the Metropolitan Government holds an option to purchase the certain real property as shown in Section 1 below; and,
+WHEREAS, The Metropolitan Planning Commission approved mandatory referral No. 2026M-006PR-001 on June 23, 2026, for acquisition of the property; and,
+WHEREAS, it is in the best interest of the citizens of Nashville and Davidson County to approve the purchase of said properties.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. The Director of Public Property, or his designee, is hereby authorized to exercise the option to purchase the property as shown on Exhibit 1, which is attached hereto and incorporated by reference and to execute the necessary documents pertaining thereto.
+Map & Parcel:				Address:
+09110008800				5516 Rome Avenue
+Section 2. This resolution shall take effect upon passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution authorizes the Director of Public Property, or his designee, to exercise an option agreement for the purchase of flood-prone property located at 5516 Rome Avenue for the Department of Water and Sewerage Services.
+
+The option is to acquire a 0.16-acre property at 5516 Rome Avenue for a fair market value of $347,000.
+
+Pursuant to Metropolitan Code of Laws section 2.24.250.K, option agreements for the purchase of real property intended for uses other than vehicular right of way may be approved by resolution.
+
+This proposal has been approved by the Planning Commission.
+
+Fiscal Note: According to the Assessor of Property's website, the appraised value of the 0.16-acre parcel located at 5516 Rome Avenue is $255,900. Metropolitan Government will pay $347,000 for the purchase of the flood prone property.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Allows the Director of Public Property, or a designee, to use an option to buy the flood-prone property at 5516 Rome Avenue for Metro Water Services. Metro would pay $347,000 for the 0.16-acre property.
+'''
+
+[[response]]
+id = "1bdd22dc"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Allows the Director of Public Property, or a designee, to use an option to buy the flood-prone property at 11035 Rome Avenue for Metro Water Services. Metro would pay $347,000 for the 0.16-acre property.
+'''
+
+[[response]]
+id = "2fcac7e9"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Bans the Director of Public Property, or a designee, to use an option to buy the flood-prone property at 5516 Rome Avenue for Metro Water Services. Metro would pay $347,000 for the 0.16-acre property.
+'''
+
+[[response]]
+id = "45b3c6d8"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Allows the Director of Public Property, or a designee, to use an option to buy the flood-prone property at 5516 Rome Avenue for Metro Water Services. Metro would pay $1,041,000 for the 0.16-acre property.
+'''
+
+[[response]]
+id = "4bd85524"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Allows Rome Avenue for Metro Water Services. Metro, or a designee, to use an option to buy the flood-prone property at 5516 the Director of Public Property would pay $347,000 for the 0.16-acre property.
+'''
+
+[[response]]
+id = "57510348"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Allows Illinois Avenue for Metro Water Services. The, or a designee, to use an option to buy the flood-prone property at 5516 Rome Avenue for Metro Water Services. Metro would pay $347,000 for the 0.16-acre property.
+'''

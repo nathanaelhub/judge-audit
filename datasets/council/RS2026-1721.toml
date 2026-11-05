@@ -1,0 +1,41 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-1721
+Title: A resolution approving amendment one to the Economic Impact Plan for the Rivergate Mall Economic Development Project.
+Sponsors: Kyonzte Toombs
+Text:
+WHEREAS, on May 14, 2025, The Industrial Development Board of the Metropolitan Government of Nashville and Davidson County (the "Industrial Development Board") adopted an Economic Impact Plan regarding the development of the Rivergate area (the "Plan"); and
+WHEREAS, on May 20, 2025, the Metropolitan Council approved the Plan pursuant to Resolution No. RS2025-1223; and,
+WHEREAS, Tenn. Code. Ann. � 7-53-314 permits the Plan to be amended by resolution of both the Industrial Development Board and the Metropolitan Council; and
+WHEREAS, the Metropolitan Government has determined that the First Amendment to Economic Impact Plan for Rivergate Mall Economic Development Project ("amendment one") will promote economic growth and stability within the community.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. 	That the Metropolitan Council hereby approves amendment one to the Plan in the form attached hereto as Exhibit A and incorporated herein by reference, it being in the interest of the residents of the Metropolitan Government of Nashville and Davidson County so to do, and the Industrial Development Board is authorized to take such other action as may be necessary, appropriate, or required to implement the Plan, as amended.
+Section 2. 	That this Resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution approves the first amendment to the Economic Impact Plan for the Rivergate Mall Economic Development Plan (the "Plan"). The Metropolitan Council previously approved the Plan through Resolution No. RS2025-1223.
+
+The purpose of an economic impact plan is primarily to provide tax increment financing for a designated project to cover costs related to public infrastructure and site development. Tennessee Code Annotated section 7-53-314 authorizes the Industrial Development Board (the "IDB") to prepare economic impact plans for approval by the Metropolitan Council. On January 7, 2026, the IDB considered and approved the first amendment to the Plan for submission to the Metropolitan Council.
+
+The proposed amendment largely references a potential "land swap" that the developer, Merus LLC, may elect to make with Dillard's, where the parties would exchange distinct areas of the Rivergate Mall parking lot. Essentially, the proposed amendment provides two scenarios for administering the Plan based on whether the land swap is completed.
+
+The proposed amendment adds two new sections to the Plan. The first new section applies only if the owner of an affordable senior housing facility described in the Plan participates in the Metropolitan Development and Housing Agency's affordable housing tax abatement plan. If that occurs, the Metropolitan Government shall apply any payments in lieu of taxes as if such payments were ad valorum property tax payments. The amount of any property tax abatement provided to the facilities shall county toward a $42,000,000 cap. 
+
+The second new section authorizes the Department of Finance and other departments of the Metropolitan Government to provide necessary services to administer the plan, which may be memorialized in administrative agreements.
+
+Lastly, the proposed amendment updates how reasonable third-party administrative expenses shall be calculated for purposes of reimbursement.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "published"
+kind = "minimal-fail"
+note = "real error: states the $42 million cap unconditionally; it applies only if the owner joins MDHA's plan"
+labels = { faithful = false }
+text = '''
+Approves the first amendment to the Economic Impact Plan for the Rivergate Mall Economic Development Project. The amendment covers a possible land swap between the developer, Merus LLC, and Dillard's, and counts any property tax abatement for affordable senior housing toward a $42 million cap.
+'''

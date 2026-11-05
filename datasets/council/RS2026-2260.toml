@@ -1,0 +1,64 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2260
+Title: A resolution recognizing the life and legacy of Dolly Parton.
+Sponsors: Delishia Porterfield, Terry Vo, Jason Spain, Jacob Kupin, Burkley Allen, Brenda Gadd, Russ Bradford, Quin Evans-Segall, John Rutherford, Olivia Hill, Jeff Eslick, Bob Nash, Courtney Johnston, Emily Benedict, Tasha Ellis, Jennifer Webb, Thom Druffel, Sandy Ewing, Zulfat Suara, Clay Capp, Deonte Harrell, Kyonzte Toombs, Jordan Huffman, Ginny Welsch, Erin Evans, David Benton, Tom Cash, Mike Cortese, Jennifer Gamble, Jeff Gregg, Tonya Hancock, Joy Smith Kimbrough, Antoinette Lee, Sean Parker, Jeff Preptit, Joy Styles
+Text:
+WHEREAS, Dolly Parton – a country music legend, renowned songwriter, incomparable philanthropist and businesswoman, and treasure of Nashville and the state of Tennessee – died on Tuesday, August 25, 2026, in Nashville; and
+WHEREAS, Ms. Parton was a child of the Great Smoky Mountains, born in a log room cabin with 11 siblings in East Tennessee. Her faith and love of music propelled her from those humble roots and set her towards success; and
+WHEREAS, Ms. Parton was a person deeply led by her faith and guided throughout her life by a profound belief in kindness, compassion, and love for all people; and she openly supported the LGBTQIA+ community, including advocating for equality and acceptance, and stood in support of the Black Lives Matter movement and the pursuit of racial justice, reflecting her enduring belief that every person deserves dignity, respect, and the opportunity to live freely and authentically; and
+WHEREAS, Ms. Parton set course for Nashville on the day after graduating from Sevier County High School in 1964, where she quickly met Carl Dean, who became her husband of more than 58 years; and
+WHEREAS, her voice, wit, and charisma quickly set her apart on Music Row, leading to several hit records like “Dumb Blonde”, “Coat of Many Colors", and “My Tennessee Mountain Home”, and a role on The Porter Wagoner Show, where she stayed for seven years; and
+WHEREAS, Ms. Parton eventually went on her path, leaving the television program and building even more success with songs including “Jolene” and “I Will Always Love You”, and 
+WHEREAS, Ms. Parton quickly broke through on a national scale as she moved among genres of music seamlessly, collaborated with iconic artists, and played timeless roles in films such as “9 to 5” and “Steel Magnolias”; and
+WHEREAS, even in her stardom, Dolly never forgot her Tennessee home. In 1986, she established the Dollywood theme park through a business partnership. Dollywood became a nationally recognized attraction, creating thousands of jobs and a major economic driver in East Tennessee; and
+WHEREAS, Ms. Parton’s greatest impact may be through her philanthropy, namely the Imagination Library, which sends free books to young children once a month. Since its founding in 1995, the non-profit has sent 330 million books to children worldwide; and
+WHEREAS, her charity efforts extended on for decades, largely without note or credit. Her work nevertheless made a major difference in the lives of others, notably through a crucial donation to support a successful trial for a COVID-19 vaccine; and
+WHEREAS, in all, Ms. Parton’s career speaks for itself, whether by the 100 million albums she sold worldwide, the 25 Billboard country No. 1s, or her legacy of charitable efforts. Her charm, grace, and style captured the imagination of Nashville, the country, and the world; and
+WHEREAS, Dolly Parton was one of Nashville’s greatest ambassadors. It is fitting and proper for the Metropolitan Council to recognize her life, career, and legacy that will continue to inspire the creative spirit of Nashville and Davidson County.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That the Metropolitan Council hereby goes on record as recognizing the life and legacy of Dolly Parton and her deep, lasting contributions to Nashville and Davidson County. 
+Section 2. That this resolution shall take effect immediately upon its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Recognizes the life and legacy of Dolly Parton, who died on August 25, 2026, and her lasting contributions to Nashville and Davidson County.
+'''
+
+[[response]]
+id = "97bebbe6"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Recognizes the life and legacy of Dolly Parton, who died on August 53 2026, and her lasting contributions to Nashville and Davidson County.
+'''
+
+[[response]]
+id = "ddbb177b"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Recognizes the life and legacy of Nashville and Davidson County, who died on August 25, 2026, and her lasting contributions to Dolly Parton.
+'''
+
+[[response]]
+id = "f2546ab7"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Recognizes the life and legacy of Sevier Street, who died on August 25, 2026, and her lasting contributions to Nashville and Davidson County.
+'''

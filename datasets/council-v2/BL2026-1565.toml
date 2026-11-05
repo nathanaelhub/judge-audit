@@ -1,0 +1,83 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1565
+Title: An ordinance amending Metropolitan Code of Law § 5.04.150 to clarify the distinction between an initial resolution and the capital spending plan.
+Sponsors: Jason Spain, Kyonzte Toombs, Jordan Huffman
+Text:
+WHEREAS, prior to issuing most forms of debt, state law requires local governments, including the Metropolitan Government (“Metro”), to adopt an initial resolution stating the intent to issue such debt and identifying the maximum bond amount, maximum interest rate, and generalized project descriptions, and all such initial resolutions must be published in a newspaper of general circulation, with those for general obligation debt also subject to statelaw voter protest period requirements; and,
+WHEREAS, the capital spending plan is a Metro-created legislative process for allocating and appropriating debt proceeds from Metro’s general obligation commercial paper and bond programs to specific capital projects; and, 
+WHEREAS, over time, Metro’s practices have conflated state-law initial resolutions with Metro’s capital spending plans, resulting in initial resolutions containing additional information, such as more granular project-specific details, that are not required by state law; and,
+WHEREAS, the combination of the two separate pieces of legislation is not common practice among other Tennessee local governments and complicates Metro’s ability to more easily adjust a capital spending plan without triggering the passage of a new initial resolution that complies with the state-law requirements; and, 
+WHEREAS, the herein proposed amendment to the Metropolitan Code of Laws will preserve the Metropolitan Council’s current robust capital spending plan approval process and, by clearly separating capital spending plans from initial resolutions and recognizing them as distinct legislative actions, will allow the Metropolitan Council to reallocate unspent or unneeded project funding more efficiently by amending only the capital spending plan legislation and without triggering statelaw requirements applicable solely to an initial resolution; and, 
+WHEREAS, an amendment to Metropolitan Code of Law § 5.04.150—and a separate amendment to the Council Rules of Procedure—is needed to clearly distinguish initial resolutions from capital spending plans and eliminate provisions that contribute to their conflation.
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That Section 5.04.150 of the Metropolitan Code of Laws is hereby amended by deleting its text in its entirety and substituting instead the following:
+5.04.150 Cost itemization for capital projects.
+A.	The department of finance shall develop a Capital Project Cost Itemization Form 	to be completed for all proposed capital projects with an estimated total value greater than five million dollars. Such form shall itemize the present value full projected costs, allowing for local market cost escalation, including, but not limited to, the following costs, as applicable:
+	1.	Land acquisition; 
+	2.	Environmental compliance; 
+	3.	Temporary relocation; 
+	4.	Architectural, engineering, and design; 
+	5.	Construction; 
+	6.	Furniture, fixture, and equipment; 
+	7.	Infrastructure improvement; 
+	8.	New and supporting technology; 
+	9.	Utility relocation and related costs; 
+	10.	Estimated operating budget impact; and 
+	11.	Other anticipated project costs. 
+B.	The Capital Project Cost Itemization Form shall be completed by all departments, 	agencies, authorities, and other entities and delivered to the department of finance 	and the mayor for review prior to the inclusion of any capital project in any 	legislation authorizing the allocation and appropriation of funding sources, 	including debt proceeds, to specific projects (“Capital Spending Plan”). For the 	avoidance of doubt, any legislation approving a Capital Spending Plan shall be 	separate from any initial resolution required by Title 9, Chapter 21 of the Tennessee 	Code Annotated, to authorize the issuance of bonds.
+C.	Any Capital Spending Plan shall include:
+	An itemized list by categories of capital projects for which funding sources 	will be allocated, and including a total amount not to be exceeded for each 	category;
+	An itemized list of each capital project for which funding sources will be 	allocated that includes the Capital Improvements Budget project number 	and a total amount not to be exceeded for each capital project; and
+	A completed Capital Project Cost Itemization Form for each included capital 	project with an estimated total value greater than five million dollars.
+D.	The requirements of Section 5.04.150(A)—(C) shall not apply to capital projects 	that are: (1) limited solely to preliminary project planning and/or feasibility costs; or (2) funded exclusively by an enterprise fund, electric rates, water or sewer rates, or other fees or surcharges paid to the metropolitan government.
+Section 2. 	That this ordinance shall take effect from and after its passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance amends Section 5.04.150 of the Metropolitan Code of Laws to clarify the distinction between an initial resolution and the capital spending plan in relation to their filings before the Metropolitan Council. The Metropolitan Department of Finance currently combines an initial resolution and a capital spending plan, which authorizes the allocation and appropriation of funding sources and the issuance of bonds, when filed as a resolution for consideration by the Metropolitan Council 
+
+Current law requires the Metropolitan Department of Finance to develop a Capital Project Cost Itemization Form for all proposed capital projects including in this combined initial resolution with an estimated total value greater than $5,000,000. This form would itemize the full projected costs of the project, allowing for local market cost escalation. 
+
+The Capital Project Cost Itemization Form must be completed by all departments, agencies, authorities, and other entities and delivered to the Mayor and the Department of Finance for review prior to the inclusion of an initial resolution as required by state law. Further, the initial resolution must include:
+
+an itemized list by categories of capital projects which would receive funding, including a maximum amount of each project’s funding, 
+an itemized list of each capital project which would receive funding, including a maximum amount of each project’s funding, and
+a completed Capital Project Cost Itemization Form for each included capital project with an estimated total value greater than $5,000,000.
+
+These requirements do not apply to capital projects that are limited solely to preliminary project planning and/or feasibility costs; or funded exclusively by an enterprise fund, water or sewer rates, or other fees paid to the Metropolitan Government.
+
+The proposed ordinance distinguishes a Capital Spending Plan as legislation authorizing the allocation and appropriation of funding sources, including debt proceeds, from initial resolution required by state law to authorize the issuance of bonds. The proposal would maintain the above requirements for the approval of a Capital Spending Plan but remove them from the approval of an initial resolution.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Rewrites the Metro code on capital project cost itemization to treat a capital spending plan as separate from the initial resolution state law requires before bonds are issued. Projects over $5 million still need a completed cost itemization form, and each spending plan must list projects with a not-to-exceed amount.
+'''
+
+[[response]]
+id = "02c87132"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Rewrites the Metro code on capital project cost itemization to treat a capital spending plan as separate from the initial resolution state law requires before bonds are issued. Projects over $15 million still need a completed cost itemization form, and each spending plan must list projects with a not-to-exceed amount.
+'''
+
+[[response]]
+id = "6b11f4e2"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Rewrites Second Avenue North code on capital project cost itemization to treat a capital spending plan as separate from the initial resolution state law requires before bonds are issued. Projects over $5 million still need a completed cost itemization form, and each spending plan must list projects with a not-to-exceed amount.
+'''

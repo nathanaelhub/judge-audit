@@ -1,0 +1,67 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1572
+Title: An ordinance authorizing The Metropolitan Government of Nashville and Davidson County to accept new public water and sanitary sewer mains, fire hydrant assemblies, sanitary sewer manholes and easements, for two properties located at 5639 and 5645 Valley View Road, also known as Valley View Residential, (MWS Project Nos. 26-WL-23 and 26-SL-87 and Proposal No. 2026M-070ES-001).
+Sponsors: Courtney Johnston, Rollin Horton, Quin Evans-Segall
+Text:
+WHEREAS, the acceptance of approximately 766 linear feet of new eight-inch water main (DIP), approximately 763 linear feet of new eight-inch sanitary sewer main (PVC), three fire hydrant assemblies, six sanitary sewer manholes and easements, for two properties located at 5639 and 5645 Valley View Road, also known as Valley View Residential, is needed to construct project numbers 26-WL-23 and 26-SL-87; and,
+WHEREAS, the Metropolitan Planning Commission approved mandatory referral No. 2026M070ES-001 on August 17, 2026, for the acceptance of said water and sanitary sewer mains, fire hydrant assemblies, sanitary sewer manholes and easements.
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	The Metropolitan Government of Nashville and Davidson County is authorized to accept approximately 766 linear feet of new eight-inch water main (DIP), approximately 763 linear feet of new eight-inch sanitary sewer main (PVC), three fire hydrant assemblies, six sanitary sewer manholes and easements, for two properties located at 5639 and 5645 Valley View Road, also known as Valley View Residential, as shown on Exhibit 1, which is attached hereto and incorporated by reference. 
+Map & Parcel: 				Address:
+17100004600					5639 Valley View Road
+17100004400					5645 Valley View Road
+Section 2.	The Directors of Water and Sewerage Services and Public Property Administration are authorized to execute such documents as may be necessary and appropriate to carry out the acceptance authorized by this ordinance. 
+Section 3.	Amendments to this legislation shall be approved by resolution.
+Section 4.	This ordinance shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it. 
+..Agenda Analysis
+Analysis
+
+This ordinance accepts approximately 766 linear feet of new eight-inch water main (DIP), approximately 763 linear feet of new eight-inch sanitary sewer main (PVC), three fire hydrant assemblies, six sanitary sewer manholes and easements, for two properties located at 5639 and 5645 Valley View Road, also known as Valley View Residential.
+
+Future amendments to this legislation may be approved by resolution. This ordinance has been approved by the Planning Commission.
+
+Fiscal Note: This ordinance has no cost to Metro. Donated easements have no market value according to the Department of Water and Sewerage Services.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Lets Metro accept about 766 feet of new eight-inch water main, about 763 feet of new eight-inch sewer main, three fire hydrant assemblies, six sewer manholes and easements for Valley View Residential at 5639 and 5645 Valley View Road. It has no cost to Metro.
+'''
+
+[[response]]
+id = "2b806786"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Lets Metro accept about 1535 feet of new eight-inch water main, about 763 feet of new eight-inch sewer main, three fire hydrant assemblies, six sewer manholes and easements for Valley View Residential at 5639 and 5645 Valley View Road. It has no cost to Metro.
+'''
+
+[[response]]
+id = "49b5e406"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Lets Metro accept about 766 feet of new eight-inch water main, about 763 feet of new eight-inch sewer main, three fire hydrant assemblies, six sewer manholes and easements for Jefferson Street and Meharry Boulevard at 5639 and 5645 Valley View Road. It has no cost to Metro.
+'''
+
+[[response]]
+id = "ed3bf084"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Lets Metro accept about 766 feet of new eight-inch water main, about 763 feet of new eight-inch sewer main, three fire hydrant assemblies, six sewer manholes and easements for Valley View Road. It at 5639 and 5645 Valley View Residential has no cost to Metro.
+'''

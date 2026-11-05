@@ -1,0 +1,72 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2203
+Title: A resolution approving an intergovernmental agreement by and between the Tennessee Department of Transportation (“TDOT”) and the Metropolitan Government, acting by and through the Nashville Department of Transportation and Multimodal Infrastructure (“NDOT”), for signal maintenance at the SR-155 Interchange at SR-12. State Project No: 19074-3261-94, Federal Project No: HSIP-155(31), Agreement No. 260056. (Proposal No. 2026M-030AG-001).
+Sponsors: Kyonzte Toombs, Rollin Horton, Quin Evans-Segall, Brenda Gadd
+Text:
+WHEREAS, as set forth in the agreement attached hereto and incorporated by reference, NDOT and TDOT seek to enter into an agreement for the maintenance of lighting, signals, and other electrically operated and/or solar powered devices at the SR-155 interchange at SR-12, and;
+WHEREAS, Tennessee Code Annotated Section 12-9-104(a)(2)(b) authorizes the Metropolitan Council to approve an agreement with TDOT by resolution; and,
+WHEREAS, it is in the interest of the Metropolitan Government of Nashville and Davidson County that this intergovernmental agreement be approved.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. 	That the intergovernmental agreement between the Tennessee Department of Transportation, and the Metropolitan Government of Nashville and Davidson County, by and through the Nashville Department of Transportation and Multimodal Infrastructure, attached hereto and incorporated by reference, is hereby approved, and that the Metropolitan Mayor is authorized to execute the same.
+Section 2. 	That any amendments, renewals, or extension of the terms of the agreement may be approved by resolution of the Metropolitan Council. 
+Section 3. 	That this resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution approves an intergovernmental agreement between the Tennessee Department of Transportation ("TDOT") and the Nashville Department of Transportation and Multimodal Infrastructure ("NDOT") for signal maintenance at State Route 155 and State Route 12. According to the agreement, TDOT will be responsible for installation of signs, signals, and safety improvements and NDOT will be responsible for maintenance of the upgrades.
+
+State law authorizes the Metropolitan Government to enter into agreements with the State of Tennessee by resolution. Any amendments, renewals, or extension of the terms of the agreement may be approved by resolution of the Metropolitan Council.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves an agreement between the Tennessee Department of Transportation and the Metropolitan Government, through the Nashville Department of Transportation and Multimodal Infrastructure, for maintenance of lighting, signals, and other electrically operated or solar powered devices at the SR-155 interchange at SR-12, and authorizes the Metropolitan Mayor to sign it.
+'''
+
+[[response]]
+id = "01ce035b"
+kind = "variant-pass"
+of = "reference"
+note = "planted swap that kept the meaning"
+labels = { faithful = true }
+text = '''
+Approves an agreement between the Metropolitan Government and the Tennessee Department of Transportation, through the Nashville Department of Transportation and Multimodal Infrastructure, for maintenance of lighting, signals, and other electrically operated or solar powered devices at the SR-155 interchange at SR-12, and authorizes the Metropolitan Mayor to sign it.
+'''
+
+[[response]]
+id = "8a1e9942"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves an agreement between the Tennessee Department of Transportation and the Metropolitan Government, through the Nashville Department of Transportation and Multimodal Infrastructure, for maintenance of lighting, signals, and other electrically operated or solar powered devices at the SR-313 interchange at SR-12, and authorizes the Metropolitan Mayor to sign it.
+'''
+
+[[response]]
+id = "c3a9d3b0"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves an agreement between the The Library Corporation and the Metropolitan Government, through the Nashville Department of Transportation and Multimodal Infrastructure, for maintenance of lighting, signals, and other electrically operated or solar powered devices at the SR-155 interchange at SR-12, and authorizes the Metropolitan Mayor to sign it.
+'''
+
+[[response]]
+id = "faa838be"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects an agreement between the Tennessee Department of Transportation and the Metropolitan Government, through the Nashville Department of Transportation and Multimodal Infrastructure, for maintenance of lighting, signals, and other electrically operated or solar powered devices at the SR-155 interchange at SR-12, and authorizes the Metropolitan Mayor to sign it.
+'''

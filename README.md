@@ -62,7 +62,7 @@ full reasoning, is in the `verdicts.jsonl` next to each report.
 
 ### Caveats
 
-- **79 items, one domain, written by one person.** The minimal-fail items
+- **79 items, one domain, written by one person** (the first dataset; see the council dataset above for a second). The minimal-fail items
   turned out easy: every judge caught all 23. Harder near-miss failures
   would test false passes, which this set barely probes.
 - **Opus helped validate the labels.** A one-vote Opus pilot over the
@@ -76,6 +76,65 @@ full reasoning, is in the `verdicts.jsonl` next to each report.
   the prompt in `src/judge_audit/judges.py`. This is not the prompt `claude
   plugin eval` uses internally, so these numbers say how these models judge
   these rubrics, not how that tool's grader does.
+
+## Second dataset: council summaries (2026-11-04, Sonnet / Haiku 5.5, 5 votes per item)
+
+The [Nashville Council Digest](https://github.com/nathanaelhub/nashville-council-digest) publishes
+Claude-written summaries of city legislation only after a second Claude reading (its "judge")
+says they're faithful. Run over 1,124 summaries in batches of 8, that judge flagged 14; a review
+called 6 of them real errors and 4 false alarms. `datasets/council/` turns the digest's labeled
+summaries into judge-audit tasks: 50 bills (a seeded sample of 40 from its planted-error
+evaluation, plus 10 reviewed flags), 191 summaries, with the digest judge's own faithfulness rule
+as the rubric. Built by `scripts/council_dataset.py`.
+
+| | Sonnet | Haiku |
+|---|---:|---:|
+| Accuracy (191 items, 5 votes) | 96% | 94% |
+| Correct summaries flagged (40 published + 2 harmless swaps) | 0 of 42 | 0 of 42 |
+| The digest's 4 batch false alarms, judged one at a time | 0 of 4 flagged | 0 of 4 flagged |
+| Planted wrong amounts, numbers, names, reversed verbs | 112 of 112 | 111 of 112 |
+| Planted name swaps | 23 of 27 | 20 of 27 |
+| The 6 "real errors" from the digest's review | 2 of 6 | 2 of 6 |
+| Error ICC; 3 votes are worth | 0.90; 1.1 votes | 0.83; 1.1 votes |
+
+(Counts are majority verdicts over 5 votes.)
+
+**1. The false alarms didn't come back one at a time.** Each of the four summaries the batched
+judge flagged, while its own explanation said nothing was wrong, passed 5 of 5 times with both
+models. Two things differ from the digest, though: these calls judge one summary each with this
+repo's prompt, and the four were chosen *because* they were flagged, so they might pass on a
+re-run in batches too. This run can't separate those.
+
+**2. Errors are locked to items again, so voting doesn't help.** Error ICC 0.90 (Sonnet): three
+votes are worth 1.1 independent ones. The misses are the same items every time.
+
+**3. Most of those items are judgment calls, and one was my labeling mistake.**
+
+- The first version of the converter labeled a planted swap harmless only if the digest's judge
+  had accepted it. That made the labels depend on the judge being audited. RS2026-2192 ("a
+  contract between A and B" written as "between B and A") was labeled an error because the old
+  judge flagged it; Sonnet passed it 5 of 5, correctly. Harmless swaps are now decided from the
+  text (`symmetric_swap`, tested), and the numbers above use the corrected labels.
+- Sonnet's other repeated misses are 4 scrambled-word swaps (a name or address moved
+  mid-sentence, leaving garbled but recoverable text) and 4 of the review's 6 "real errors". On those four it named the exact
+  problem and called it minor: "a loose but consistent paraphrase", "a slight simplification of
+  'and/or'", "the response omits that condition, but omission is allowed". The digest's rule does
+  say leaving details out is fine. For RS2026-1721, the strongest of the four, Sonnet argued that
+  "any property tax abatement" already carries the condition, since an abatement exists only if the
+  owner joins the plan, which is a fair reading. The review that labeled these was done by
+  Claude, not an independent person; this run says those labels are arguable.
+
+**4. A stricter rule finds a real omission on the live site.** `datasets/council-v2/` is the same
+dataset with one change to the rule: an omission is *not* fine "if what is left out changes what
+the item does: a condition, limit or exception that the summary's statement depends on." Sonnet
+then caught one more of the six reviewed errors (3 of 6), missed one fewer swap, and failed one
+published summary 4 of 5 times: BL2026-1565 says projects over $5 million "still need a completed
+cost itemization form", and the ordinance exempts planning-only and enterprise-funded projects.
+Under the stricter rule that's a real error, and it's on the digest today.
+
+Reports: [v1](results/2026-11-04-council/report-v1.md),
+[v2 rule](results/2026-11-04-council/report-v2.md); every verdict with the judge's reasoning
+is next to them. 2,865 calls, $10.58 at API prices.
 
 ## The dataset
 

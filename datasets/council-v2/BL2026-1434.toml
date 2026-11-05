@@ -1,0 +1,48 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1434
+Title: An ordinance to amend Section 13.20.020 of the Metropolitan Code of Laws relative to required notice and permission for excavations in the right-of-way.
+Sponsors: Antoinette Lee
+Text:
+NOW BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That Section 13.20.020(B) of the Metropolitan Code of Laws shall be deleted in its entirety and replaced with the following:
+B.1. No excavation may be undertaken in any street, road, alley or right-of-way or of any utility or temporary construction easement of the metropolitan government or other government entity by any department of the metropolitan government or any other entity unless notice as required herein has been given to the following: 
+a. the occupant of the property abutting a street, road, alley, or right-of-way in which work is to be performed; 
+b. the fee owner and occupant of the property burdened by the easement in which work is to be performed;
+c. all occupants within the block where such work is to be performed; and 
+d. the district member(s) of council representing the area of such excavation.
+Such notice shall be given to the persons provided above at least seven days prior to the beginning of any such construction work. The person holding the excavation permit shall deliver to the director a signed statement containing the list of persons notified or the addresses of the occupants notified and what manner of notification was used prior to commencement of work.
+2. For the purposes of this subsection, adequate notice shall be written notice providing the following information: 
+       a. the purpose of the excavation; 
+       b. a description of the excavation work; 
+       c. the expected beginning date and completion date of the excavation work; 
+d. the name, address, and telephone number of a contact person available to provide information regarding the project and to receive complaints from the public; and 
+       e. such other information as may be required by the director. 
+3. In the event such construction work is for emergency repairs, the notice required herein shall be waived, provided, that notice shall be given as soon as practicable to the owner setting forth both the work being undertaken and the purposes for such emergency repairs.
+Section 2. This Ordinance shall take effect from and after its final passage, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance, as amended, revises Section 13.20.020 of the Metropolitan Code of Laws relative to required notice and permission for excavations in the right-of-way.
+
+The present code requires that 48 hours' notice be provided before any excavation occurs in any street, road, alley or right-of-way or of any utility or temporary construction easement of the Metropolitan Government or other government entity. That notice must be provided to the occupant of the property abutting a street, road, alley, or right-of-way in which work is to be performed; the owner and occupant of the property with the easement in which work is to be performed; all occupants within the block where the work is to be performed; and the district Council Member representing the area. The person holding the excavation permit shall deliver a signed statement to the Nashville Department of Transportation and Multimodal Infrastructure containing the persons notified and the manner of notification prior to start of work.
+
+The ordinance would require seven days' notice prior to the beginning of construction work in the right-of-way. This notice period codifies current Nashville Department of Transportation and Multimodal Infrastructure policy. The bill also reorganized various requirements in the section. 
+
+As amended, the bill provides an exception to provide notice for emergency repairs as determined by the director or a member of management of the department. If the notice requirement is waived that notice shall be given as soon as practicable to the owner that describes the work being undertaken and the purposes for such emergency repairs, if that work occurs more than seven days following the initiation of the emergency.
+
+Lastly, the amended bill exempts minor, routine excavation work from notice requirements when that work is undertaken to install, connect, inspect, maintain, repair, replace, or remove a service line, meter, valve, conduit, or other utility facility serving an individual property, is reasonably expected to be completed within three working days, and does not materially restrict access to any property other than the property being served.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "published"
+kind = "minimal-fail"
+note = "real error: notice goes to the owner of land the easement crosses, not 'easement owners'"
+labels = { faithful = false }
+text = '''
+Requires at least seven days' written notice before digging in a street, alley or right-of-way, sent to neighbors, easement owners, occupants on the block and the district council member. The notice must give the purpose, a description of the work, expected start and end dates, and a contact person, and is waived for emergency repairs, with notice given as soon as practicable.
+'''

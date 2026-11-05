@@ -1,0 +1,63 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2146
+Title: A resolution honoring the life of Vonda McDaniel and her legacy of service to the labor movement in Nashville and Davidson County.
+Sponsors: Delishia Porterfield, Sandra Sepulveda, Zulfat Suara, Kyonzte Toombs, Brandon Taylor, Ginny Welsch, Jason Spain, Sean Parker, Bob Nash, Joy Styles, Jordan Huffman, Terry Vo, Burkley Allen, Clay Capp, John Rutherford, Erin Evans, Sheri Weiner, Quin Evans-Segall, Emily Benedict, Tasha Ellis, Mike Cortese, Russ Bradford, Jennifer Gamble, Jacob Kupin, Joy Smith Kimbrough, Antoinette Lee, Jeff Preptit, David Benton, Tom Cash, Thom Druffel, Jeff Eslick, Sandy Ewing, Brenda Gadd, Tonya Hancock, Deonte Harrell, Olivia Hill, Rollin Horton, Courtney Johnston
+Text:
+WHEREAS, Vonda McDaniel, longtime president of the Central Labor Council of Nashville and Middle Tennessee ("CLC"), passed away at the age of 60 on Tuesday, June 30, 2026; and
+WHEREAS, Ms. McDaniel left behind a legacy of leadership, service, and unwavering advocacy for working people throughout Nashville and Middle Tennessee; and
+WHEREAS, she is remembered for her visionary efforts to build bridges and bring together people from all areas to build diverse working-class power; and 
+WHEREAS, Ms. McDaniel dedicated more than 30 years to the labor movement, beginning her service in 1992 with the United Rubber Workers at the Bridgestone-Firestone Lavergne Plant, and later continuing her work through the United Steelworkers and the Office and Professional Employees International Union Local 182; and
+WHEREAS, Ms. McDaniel was a graduate of Tennessee State University, where she further developed the leadership and commitment to service that would define her lifelong work on behalf of working people and communities across Tennessee; and
+WHEREAS, during her career, she held numerous leadership roles, including Shop Steward, Union Pension and Insurance Representative for USW Local 1055L, President of the Central Labor Council of Nashville and Middle Tennessee, and Vice President on the national AFL-CIO Executive Council from 2017 until her passing; and
+WHEREAS, throughout her tenure as CLC President, Ms. McDaniel helped build and strengthen movement infrastructure across Nashville and the state. She was a founding member of Stand Up Nashville, the Nashville Justice League, Music City Construction Careers, and Tennessee for All; and
+WHEREAS, Ms. McDaniel's leadership extended across labor, faith, civic life, and community justice. She served as Vice-Chair of the Music City Center Board and was active in organizations including Alpha Kappa Alpha Sorority, Incorporated, Alpha Delta Omega Chapter, the A. Philip Randolph Institute, the Coalition of Black Trade Unionists, and numerous other efforts dedicated to building opportunity, equity, and power for working people; and
+WHEREAS, Ms. McDaniel was known for her commitment to expanding opportunities for workers, mentoring emerging leaders, and engaging faith communities through her involvement with First Baptist Church Capitol Hill, whose history and witness helped shape her lifelong commitment to community, civil rights, and the dignity of all people; and
+WHEREAS, Ms. McDaniel was preparing to conclude her tenure with the Central Labor Council at the end of 2026 and begin a new role as Co-Executive Director of the Highlander Center, reflecting her continued commitment to community and organizational development; and
+WHEREAS, Ms. McDaniel's legacy will endure through the workers she represented, the leaders she mentored and the organizations she helped strengthen during more than three decades of public service and labor advocacy.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.  The Metropolitan Council hereby goes on record as honoring the life and legacy of Vonda McDaniel and recognizing her work to build bridges within Nashville and Davidson County, fight for justice, and struggle for a better future for all people.
+Section 2. This Resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Honors the life and legacy of Vonda McDaniel, longtime president of the Central Labor Council of Nashville and Middle Tennessee, who died at age 60 on June 30, 2026. It recognizes her more than 30 years of work in the labor movement and her efforts to build bridges and fight for justice.
+'''
+
+[[response]]
+id = "27485ba7"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Honors the life and legacy of Central Labor Council of Nashville and Middle Tennessee, longtime president of the Vonda McDaniel, who died at age 60 on June 30, 2026. It recognizes her more than 30 years of work in the labor movement and her efforts to build bridges and fight for justice.
+'''
+
+[[response]]
+id = "7bd5a98d"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Honors the life and legacy of Vonda McDaniel, longtime president of the Central Labor Council of Nashville and Middle Tennessee, who died at age 123 on June 30, 2026. It recognizes her more than 30 years of work in the labor movement and her efforts to build bridges and fight for justice.
+'''
+
+[[response]]
+id = "930ab7f3"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Honors the life and legacy of Woodbine Community Organization, longtime president of the Central Labor Council of Nashville and Middle Tennessee, who died at age 60 on June 30, 2026. It recognizes her more than 30 years of work in the labor movement and her efforts to build bridges and fight for justice.
+'''

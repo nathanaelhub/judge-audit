@@ -1,0 +1,77 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2263
+Title: A resolution approving the Second Amendment to a Grant Subcontract between the Metropolitan Government of Nashville and Davidson County, acting by and through the Juvenile Justice Center (Metro Juvenile Court), and Counter Punch Youth Academy.
+Sponsors: Jason Spain, Jeff Preptit, Burkley Allen, Terry Vo
+Text:
+WHEREAS, pursuant to RS2024-881, the Metropolitan Government of Nashville and Davidson County (“Metro”) previously entered into a grant contract with the State of Tennessee, Department of Finance and Administration, and the Office of Criminal Justice Programs, (collectively, the “State”), to administer federal grant funds for the improvement of the criminal justice system under the Byrne State Crisis Intervention Program; and,
+WHEREAS, to fulfill the requirements of the grant contract, Metro entered into a subcontract agreement with Counter Punch Youth Academy; and,
+WHEREAS, this subcontract was included as an exhibit to RS2024-881; and,
+WHEREAS, this subcontract was previously executed and amended by RS2025-1380 to provide funding for FY26, and to update various scopes of services provided by the subcontractor; and,
+WHEREAS, the parties wish to amend this agreement again to provide funding for FY27, extend the contract term, and to update required language; and,
+WHEREAS, it is to the benefit of the citizens of the Metropolitan Government of Nashville and Davidson County that these amendments thereto be approved.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That the Second Amendment between the Metropolitan Government and Counter Punch Youth Academy is hereby approved. 
+Section 2. The Metropolitan Government is hereby authorized to enter into the amended grant subcontract with Counter Punch Youth Academy attached hereto and incorporated herein, to provide funding for FY27, extend the contract term, and to update required language. 
+Section 3.	That this Resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it. 
+..Agenda Analysis
+Analysis
+
+This resolution approves the second amendment to a grant subcontract between the Juvenile Justice Center and Counter Punch Youth Academy. The grant will fund a program for youth to utilize non-contact boxing as a mentorship tool to address mental health and academic challenges.
+
+In Resolution No. RS2024-881, the Metropolitan Council approved a grant contract with the State of Tennessee to administer federal grant funds for the improvement of the criminal justice system through the Byrne State Crisis Intervention Program. The subcontract with Counter Punch Youth Academy was included as exhibits in RS2024-881. The first amendment to the subcontract was approved through Resolution No. RS2025-1380. The first amendment approved funding for fiscal year 2026 and retroactively approve the contract for fiscal year 2025.
+
+The proposed resolution would provide $14,000 in funding to Counter Punch Youth Academy for fiscal year 2027. The grant term would be extended to June 30, 2027. The amendment would also update the indemnification and hold harmless clause to include the State as an indemnified party and include language relative to compliance with the “Dismantling DEI in Departments Act” and “Dismantling DEI in Employment Act”, as required by state law.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves a second change to the grant subcontract between Metro and Counter Punch Youth Academy, a youth program that uses non-contact boxing as a mentorship tool. The change gives the academy $14,000 for fiscal year 2027, extends the contract to June 30, 2027, and updates required language.
+'''
+
+[[response]]
+id = "13d9d2eb"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects a second change to the grant subcontract between Metro and Counter Punch Youth Academy, a youth program that uses non-contact boxing as a mentorship tool. The change gives the academy $14,000 for fiscal year 2027, extends the contract to June 30, 2027, and updates required language.
+'''
+
+[[response]]
+id = "29b8caf4"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves a second change to the grant subcontract between Metro and Counter Punch Youth Academy, a youth program that uses non-contact boxing as a mentorship tool. The change gives the academy $42,000 for fiscal year 2027, extends the contract to June 30, 2027, and updates required language.
+'''
+
+[[response]]
+id = "5c1b5f65"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves a second change to the grant subcontract between Metro and Counter Punch Youth Academy, a youth program that uses non-contact boxing as a mentorship tool. The change gives the academy $14,000 for fiscal year 2027, extends the contract to June 63 2027, and updates required language.
+'''
+
+[[response]]
+id = "f2f624ec"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves a second change to the grant subcontract between Mayor. The, a youth program that uses non-contact boxing as a mentorship tool. The change gives the academy $14,000 for fiscal year 2027, extends the contract to June 30, 2027, and updates required language.
+'''

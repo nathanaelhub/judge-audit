@@ -1,0 +1,93 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2135
+Title: A resolution approving an intergovernmental project agreement between the Metropolitan Government of Nashville and Davidson County and the Convention Center Authority of the Metropolitan Government of Nashville and Davidson County relating to the financing and refinancing of the Music City Center.
+Sponsors: Kyonzte Toombs, Zulfat Suara, Burkley Allen, Jacob Kupin
+Text:
+WHEREAS, pursuant to the Convention Center Authorities Act of 2009, codified as Chapter 89, Title 7 of the Tennessee Code Annotated, as amended, the Metropolitan Council created the Convention Center Authority for the purpose of exercising all powers granted to a convention center authority, including the financing, construction, renovation, equipping, expanding and operation of the convention center known as the "Music City Center" (the "Convention Center"); and
+WHEREAS, pursuant to the terms of the agreement (the "Intergovernmental Agreement") attached to this Resolution as Exhibit 1, the Metropolitan Government and the Convention Center Authority propose to undertake certain duties and responsibilities relating to the refinancing of the Convention Center Authority's Series 2010 Bonds, the financing of an expansion to the Convention Center, the transfer of certain funds of the Convention Center Authority to the East Bank Development Authority, and certain other matters set forth therein; and
+WHEREAS, approval of the Intergovernmental Agreement would benefit the citizens of Nashville and Davidson County.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	The form, terms and provisions of the Intergovernmental Agreement between the Metropolitan Government and the Convention Center Authority attached hereto as Exhibit 1 (the "Intergovernmental Agreement") are hereby approved, and the Metropolitan Mayor, Metropolitan Clerk, and Director of Law of the Metropolitan Government are hereby authorized, empowered and directed to execute and deliver the Intergovernmental Agreement in the name and on behalf of the Metropolitan Government in substantially the form attached hereto as Exhibit 1, with such changes and additions thereto and omissions therefrom as the Metropolitan Mayor shall approve as necessary or appropriate, such execution and delivery to be conclusive evidence of such approval; provided that such changes, additions and omissions do not have any material adverse effect on the terms of the Intergovernmental Agreement attached hereto as Exhibit 1.  From and after the execution and delivery of the Intergovernmental Agreement, the Metropolitan Mayor and such employees of the Metropolitan Government as he or she may designate from time to time, or any of them, are hereby authorized, empowered and directed to do all such acts and things and to execute all such documents as may be necessary to carry out and comply with the provisions of the Intergovernmental Agreement as so executed.
+
+Section 2. 	Any amendments, renewals, or extension of the terms of the Intergovernmental Agreement may be approved by resolution of the Metropolitan Council.  
+Section 3.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution approves an intergovernmental project agreement between the Metropolitan Government ("Metro") and the Convention Center Authority of Nashville and Davidson County ("CCA") relating to the financing and the refinancing of the Music City Center. The resolution permits the Mayor, the Metropolitan Clerk, and the Metropolitan Director of Law to execute and deliver the agreement on Metro's behalf.
+
+The CCA was formed under state law and through a Metropolitan Council ordinance to exercise all powers granted to a Convention Center Authority, which included issuing a series of bonds to construct the Music City Center. These bonds were primarily payable through various tourism tax revenues, including a portion of the hotel/motel tax, a portion of the hotel room occupancy tax, the contracted vehicle tax, the rental surcharge tax, and a portion of state and local sales tax generated within the tourism development zone in downtown Nashville. Metro pledged payment of its non-tax revenues to secure repayment of these bonds and to secure a separate incentive payment to Omni Nashville, LLC to construct a hotel near the Music City Center.
+
+The agreement allows for the refinancing of Series 2010 Bonds through the issuance of refunding bonds that would not require the pledge of non-tax revenues from Metro. As Metro would not provide backing for these bonds, the government's general credit would improve and increase the capacity to redeploy these capital funds to projects that may need additional credit support, including affordable housing projects.
+
+The agreement would also provide for the Board of Directors for the CCA to issue and sell a separate set of Initial Expansion Bonds without the separate backing of the Metropolitan Government. The final maturity date for these bonds would be December 31, 2028. These bonds would fund the construction of an expansion of the Music City Center as described in the agreement. Any Tourism Tax Revenues received by the CCA would go to the appropriate bond funds. When state and local tax revenues are allocated to the CCA pursuant to state law, the CCA would still transfer that revenue to the CCA's operating reserve fund and capital reserve fund and to the Metropolitan Government for public safety purposes. 
+
+The agreement would require the Metropolitan Government to not repeal or amend the ordinances authorizing the collection of tourism tax revenues in a way that reduces the amount of revenues pursuant to this agreement. This commitment would be effective until December 31, 2058, or when any CCA bonds are not outstanding.
+
+Separately, Public Chapter No. 1079 of the 2026 Public Acts of Tennessee authorizes the CCA to transfer funds to the East Bank Development Authority ("EBDA") to fund capital costs up to $300,000,000 associated with the construction and installation of roads, bridges, utilities, and other public infrastructure within the East Bank. The agreement allows for the transfer of these funds from the CCA to the EBDA. 
+
+The term of this agreement would commence on the date the agreement is signed and end on December 31, 2058, or when any CCA bonds are not outstanding. Any amendments, renewals, or extension of the terms of the agreement may be approved by Metropolitan Council resolution.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves an agreement between Metro and the Convention Center Authority on refinancing the Series 2010 Bonds and financing an expansion of the Music City Center. It also allows the Authority to transfer funds, up to $300 million for East Bank infrastructure, to the East Bank Development Authority, with the agreement lasting until December 31, 2058, or until no Authority bonds are outstanding.
+'''
+
+[[response]]
+id = "198771b7"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects an agreement between Metro and the Convention Center Authority on refinancing the Series 2010 Bonds and financing an expansion of the Music City Center. It also allows the Authority to transfer funds, up to $300 million for East Bank infrastructure, to the East Bank Development Authority, with the agreement lasting until December 31, 2058, or until no Authority bonds are outstanding.
+'''
+
+[[response]]
+id = "20f0e5d6"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves an agreement between Metro and the Convention Center Authority on refinancing the Series 2010 Bonds and financing an expansion of the Music City Center. It also allows the Authority to transfer funds, up to $900 million for East Bank infrastructure, to the East Bank Development Authority, with the agreement lasting until December 31, 2058, or until no Authority bonds are outstanding.
+'''
+
+[[response]]
+id = "2123b07c"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Approves an agreement between Metro and the Music City Center. It on refinancing the Series 2010 Bonds and financing an expansion of the Convention Center Authority also allows the Authority to transfer funds, up to $300 million for East Bank infrastructure, to the East Bank Development Authority, with the agreement lasting until December 31, 2058, or until no Authority bonds are outstanding.
+'''
+
+[[response]]
+id = "4ac015a4"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves an agreement between Metro and the Old Hickory Boulevard on refinancing the Series 2010 Bonds and financing an expansion of the Music City Center. It also allows the Authority to transfer funds, up to $300 million for East Bank infrastructure, to the East Bank Development Authority, with the agreement lasting until December 31, 2058, or until no Authority bonds are outstanding.
+'''
+
+[[response]]
+id = "ebb590c9"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves an agreement between Metro and the Convention Center Authority on refinancing the Series 2010 Bonds and financing an expansion of the Music City Center. It also allows the Authority to transfer funds, up to $300 million for East Bank infrastructure, to the East Bank Development Authority, with the agreement lasting until December 65 2058, or until no Authority bonds are outstanding.
+'''

@@ -1,0 +1,83 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1442
+Title: An ordinance approving amendment two to a contract between the Metropolitan Government of Nashville and Davidson County and Waste Management, Inc. of Tennessee, for the provision of solid waste collection and collection of carts.
+Sponsors: Kyonzte Toombs, Quin Evans-Segall, Burkley Allen
+Text:
+WHEREAS, Resolution No. RS2022-1540 approved a contract between The Metropolitan Government of Nashville and Davidson County and Waste Management, Inc. for the provision of solid waste collection and collection of carts; and,
+WHEREAS, Resolution No. RS2023-2326 approved amendment one to this contract, which increased the value of the contract; and, 
+WHEREAS, the parties wish to extend the term of the contract to 120 months, increase the value of the contract, add an escalation request date of July 1, 2027, amend the proof of insurance clause by removing the requirement to identify the project name, RFQ, or description, and add required language regarding the boycott of Israel, replace Exhibit A Scope of Work to reflect a new collection schedule, and replace Exhibit B Pricing and Rates to reflect a new pricing the collection schedule; and, 
+WHEREAS, Section 4.12.160 of the Metropolitan Code limits the term of contracts for supplies to sixty (60) months, unless otherwise authorized by the Metropolitan Council; and
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that this Amendment 2 be approved.
+NOW THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That amendment two to the contract between The Metropolitan Government of Nashville and Davidson County and Waste Management, Inc. of Tennessee, attached hereto and incorporated herein, is hereby approved, and the Metropolitan Mayor is authorized to execute the same.
+Section 2. That this ordinance shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance, as amended, approves the second amendment to a contract between the Metropolitan Government and Waste Management, Inc. of Tennessee, for the provision of solid waste collection and collection of carts.
+
+The Metropolitan Council first approved this contract by Resolution No. RS2022-1540. The original contract provided for one per week waste collection for four Metro trash routes per day for a total of 20 routes per week, serving approximately 14,100 customers per week. The original estimated contract value was $7,500,000.
+
+The first amendment, as approved by Resolution No. RS2023-2326, increased the contract value by $32,500,000, from $7,500,000 to $40,000,000. This amendment reflected an additional 50 routes that are being permanently moved to be serviced by WM.
+
+As currently amended, the amendment would provide a new scope of work and pricing and rates would be included to reflect new pricing and collection schedules. The proposed amendment also removes the requirement for a RFQ, project name, or project description to appear on a certificate of insurance and adds language regarding the boycott of Israel, as required by state law.
+
+The current amendment, as amended, does not include a term extension to term by 60 months to 120 months, does not include an increase the contract value by $60,500,000, from $40,000,000 to $100,500,000, and does not provide for annual escalation/de-escalation adjustments starting July 1, 2027. Each of these terms were originally included in the proposed contract amendment.
+
+The Metropolitan Council cannot unilaterally amend contracts between the Metropolitan Government and a third party. If enacted, all parties would have to agree to the amended terms for the contract to take effect.
+
+Fiscal Note: This amendment to contract number 6510020 with Waste Management, Inc. for residential collection services will increase the contract value by $60,500,000, bringing the previous estimated contract value of $ $40,000,000 to a new total of $100,500,000 be paid from Fund 30501, Cost Centers 1072803100 and 65803100. However, actual expenses may be paid from various departments' funds and cost centers when purchase orders are issued.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves a second change to the contract with Waste Management, Inc. of Tennessee for trash collection and cart collection. It adds a new scope of work, new pricing and collection schedules, removes the project name or RFQ requirement from proof of insurance, and adds language on boycotting Israel. As amended, it leaves out the longer term, the $60.5 million increase and the yearly price adjustments that were first proposed.
+'''
+
+[[response]]
+id = "40b5983c"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves a second change to the contract with Transportation Licensing Commission, Inc. of Tennessee for trash collection and cart collection. It adds a new scope of work, new pricing and collection schedules, removes the project name or RFQ requirement from proof of insurance, and adds language on boycotting Israel. As amended, it leaves out the longer term, the $60.5 million increase and the yearly price adjustments that were first proposed.
+'''
+
+[[response]]
+id = "49027d3f"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves a second change to the contract with Waste Management, Inc. of Tennessee for trash collection and cart collection. It adds a new scope of work, new pricing and collection schedules, removes the project name or RFQ requirement from proof of insurance, and adds language on boycotting Israel. As amended, it leaves out the longer term, the $181.50 million increase and the yearly price adjustments that were first proposed.
+'''
+
+[[response]]
+id = "e5c5b737"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Approves a second change to the contract with Inc. of Tennessee, Waste Management for trash collection and cart collection. It adds a new scope of work, new pricing and collection schedules, removes the project name or RFQ requirement from proof of insurance, and adds language on boycotting Israel. As amended, it leaves out the longer term, the $60.5 million increase and the yearly price adjustments that were first proposed.
+'''
+
+[[response]]
+id = "ea3b5aa2"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects a second change to the contract with Waste Management, Inc. of Tennessee for trash collection and cart collection. It adds a new scope of work, new pricing and collection schedules, removes the project name or RFQ requirement from proof of insurance, and adds language on boycotting Israel. As amended, it leaves out the longer term, the $60.5 million increase and the yearly price adjustments that were first proposed.
+'''

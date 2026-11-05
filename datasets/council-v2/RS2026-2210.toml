@@ -1,0 +1,78 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2210
+Title: A resolution approving a contract between the Metropolitan Government of Nashville and Davidson County and WASCON, Incorporated for the provision of Environment One (EOne) and Grundfos products, parts, and services.
+Sponsors: Kyonzte Toombs, Quin Evans-Segall
+Text:
+WHEREAS, Section 4.12.060 of the Metropolitan Code of Laws authorizes the Metropolitan Purchasing Agent to enter into sole source contracts when the Purchasing Agent determines in writing according to standards adopted by the Procurement Standards Board that there is only one source for the supply or services required; and,
+WHEREAS, the Purchasing Agent has determined that the services and supplies to be provided by WASCON, Incorporated to meet the requirements for the use of a sole source contract; and,
+WHEREAS, Section 4.12.060 of the Metropolitan Code of Laws calls for Council approval by Resolution of sole source contracts "with a total contract amount in excess of three hundred fifty thousand dollars ($350,000.00)"; and,
+WHEREAS, approval of the Contract will benefit the citizens of Davidson County.
+NOW THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1: That the Contract between The Metropolitan Government of Nashville and Davidson County and WASCON, Incorporated, attached hereto and incorporated herein, is hereby approved.
+Section 2: That this Resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution approves a sole source contract between the Metropolitan Government of Nashville and Davidson County and WASCON, Incorporated, to provide Environment One ("EOne") and Grundfos products, parts, and services for the Metropolitan Department of Water and Sewerage Services.
+
+Sole source contracts may be awarded when it is determined that there is only one source for the supply or services rendered. Section 4.12.060 of the Metropolitan Code requires all sole source contracts having a total value in excess of $350,000 to be approved by the Council by a resolution receiving 21 affirmative votes.
+
+The estimated value of this contract is $2,500,000 and therefore requires council approval. The contract term begins once the contract is approved by all required parties and filed in the Metropolitan Clerk's Office. The contract term extends for 60 months.
+
+According to the sole source review form, WASCON is the only authorized distributor of EOne and Grundfos products and maintenance.
+
+Fiscal Note: The estimated value of this sole source contract number C6000141 with WASCON, Inc. for Environment One (E/One) and Groundfos products, parts and services is $2,500,000 to be paid from Fund 67331, Cost Center 1065557930. However, actual expenses may be paid from various funds and cost centers when purchase orders are issued.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves a contract with WASCON, Incorporated, the only authorized distributor, for Environment One (EOne) and Grundfos products, parts and services. The contract is estimated at $2.5 million and runs 60 months.
+'''
+
+[[response]]
+id = "439f48ae"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects a contract with WASCON, Incorporated, the only authorized distributor, for Environment One (EOne) and Grundfos products, parts and services. The contract is estimated at $2.5 million and runs 60 months.
+'''
+
+[[response]]
+id = "4fb92559"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves a contract with WASCON, Incorporated, the only authorized distributor, for Environment One (EOne) and Grundfos products, parts and services. The contract is estimated at $7.50 million and runs 60 months.
+'''
+
+[[response]]
+id = "925c50fa"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves a contract with WASCON, Incorporated, the only authorized distributor, for Environment One (EOne) and Grundfos products, parts and services. The contract is estimated at $2.5 million and runs 123 months.
+'''
+
+[[response]]
+id = "e14ea916"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves a contract with WASCON, Incorporated, the only authorized distributor, for East Bank Design Review Committee (EOne) and Grundfos products, parts and services. The contract is estimated at $2.5 million and runs 60 months.
+'''

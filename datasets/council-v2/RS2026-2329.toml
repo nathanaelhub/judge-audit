@@ -1,0 +1,88 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2329
+Title: A resolution authorizing a grant in the amount of $700,000 from the Mayor’s Office to the United Way of Middle Tennessee, Inc., to provide financial counseling and other financial education activities to low-income residents in accordance with the Financial Empowerment Center program model.
+Sponsors: Jason Spain, Ginny Welsch, Burkley Allen, Terry Vo, Brenda Gadd, Zulfat Suara, Tasha Ellis, Jacob Kupin, Kyonzte Toombs, Delishia Porterfield
+Text:
+WHEREAS, Tennessee Code Annotated Section 7-3-314 provides that metropolitan forms of government may provide financial assistance to nonprofit organizations; and,
+WHEREAS, Metropolitan Code of Law Section 5.04.070 provides that the Metropolitan Council may, by resolution, appropriate funds for the financial aid of nonprofit organizations; and,
+WHEREAS, Metropolitan Code of Law Section 5.04.076 provides that the Metropolitan Council may, by resolution, approve grant contracts; and, 
+WHEREAS, the Mayor’s Office recommends that $700,000 of its funds appropriated pursuant to the Fiscal Year 2027 Budget Ordinance (Substitute Bill No. BL2026-1377) be granted to the United Way of Middle Tennessee, Inc., for the purposes of providing financial counseling and other financial education activities to low-income residents in accordance with the Financial Empowerment Center program model as further detailed in the attached grant contract; and,
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that the grant funds be appropriated to, and the grant contract be approved with, the United Way of Middle Tennessee, Inc.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That $700,000 of the amount appropriated to the Mayor’s Office pursuant to Substitute Bill No. BL2026-1377 be hereby granted to the United Way of Middle Tennessee, Inc., to provide financial counseling and other financial education activities to low-income residents in accordance with the Financial Empowerment Center program model.
+Section 2.	The grant contract between The Metropolitan Government of Nashville and Davidson County and the United Way of Middle Tennessee, Inc., attached hereto and incorporated herein, is hereby approved.
+Section 3.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution authorizes a grant for $700,000 from the Mayors Office to the United Way of Middle Tennessee, Inc. to provide financial counseling and other financial education activities to low-income residents through the Financial Empowerment Center model. The Mayor’s Office recommended that $700,000 of the funds appropriated for the Mayor’s Office in the Budget Ordinance (Substitute Ordinance No. BL2026-1377) be distributed to the United Way.
+
+The resolution also approves an associated grant contract between the Metropolitan Government and the United Way for the continuation of the Nashville Financial Empowerment Center. In 2012, the Metropolitan Government was the recipient of a grant from Bloomberg Philanthropies for the purpose of operating the financial empowerment program through December 2015. The Financial Empowerment Center program has subsequently been extended by Ordinance Nos. BL2016-387, BL2017-869, BL2018-1313, BL2019-10, BL2020-552, BL2021-914, BL2022-1386, BL2023-139, and Resolutions Nos. RS2024-736, and RS2025-1558.
+
+The Financial Empowerment Center provides one-on-one financial counseling and other financial education activities at no charge to low-income residents. The United Way agrees to conduct a minimum of 2,160 counseling sessions during the contract period. At least five full-time (or equivalent) counselors would be retained and supervised to provide these services. The term of this contract is from July 1, 2026 to June 30, 2027.
+
+Tennessee Code Annotated section 7-3-314 authorizes Metro to provide financial assistance to nonprofit organizations. In addition, Section 5.04.070 of the Metropolitan Code of Laws provides that the Council may appropriate funds for the financial aid of nonprofit organizations by resolution or as a part of the annual operating budget ordinance.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Gives a $700,000 grant from the Mayor's Office to the United Way of Middle Tennessee, Inc. for financial counseling and financial education for low-income residents under the Financial Empowerment Center model. Also approves the grant contract, which runs from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "20781cd6"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Gives a $2,100,000 grant from the Mayor's Office to the United Way of Middle Tennessee, Inc. for financial counseling and financial education for low-income residents under the Financial Empowerment Center model. Also approves the grant contract, which runs from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "34375147"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Gives a $700,000 grant from the Channing Drive to the United Way of Middle Tennessee, Inc. for financial counseling and financial education for low-income residents under the Financial Empowerment Center model. Also approves the grant contract, which runs from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "3c73b6d8"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Takes back a $700,000 grant from the Mayor's Office to the United Way of Middle Tennessee, Inc. for financial counseling and financial education for low-income residents under the Financial Empowerment Center model. Also approves the grant contract, which runs from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "3f3d2279"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Gives a $700,000 grant from the United Way of Middle Tennessee to the Mayor's Office, Inc. for financial counseling and financial education for low-income residents under the Financial Empowerment Center model. Also approves the grant contract, which runs from July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "db307470"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Gives a $700,000 grant from the Mayor's Office to the United Way of Middle Tennessee, Inc. for financial counseling and financial education for low-income residents under the Financial Empowerment Center model. Also approves the grant contract, which runs from July 5 2026 to June 30, 2027.
+'''

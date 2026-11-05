@@ -1,0 +1,62 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2258
+Title: A resolution honoring the life and legacy of former Member of Council Jamie D. Isabel.
+Sponsors: Kyonzte Toombs, Delishia Porterfield, Zulfat Suara, Jennifer Gamble, Tasha Ellis, Terry Vo, Deonte Harrell, Joy Smith Kimbrough, Joy Styles, Antoinette Lee, David Benton, Jacob Kupin, Burkley Allen, Sandy Ewing, Emily Benedict, Russ Bradford, Clay Capp, Tom Cash, Mike Cortese, Thom Druffel, Jeff Eslick, Quin Evans-Segall, Erin Evans, Jeff Gregg, Tonya Hancock, Olivia Hill, Jordan Huffman, Courtney Johnston, Bob Nash, Sean Parker, Jeff Preptit, John Rutherford, Jason Spain, Jennifer Webb
+Text:
+WHEREAS, former Metropolitan Council Member Jamie D. Isabel passed away on August 10, 2026. Jamie Isabel was born in Memphis and first moved to Nashville to attend Tennessee State University (“TSU”); and
+WHEREAS, after graduating grom TSU, Jamie Isabel founded Dalmatian Creative Agency Inc and Dalmatian Public Affairs. Dalmatian Creative Agency has become the largest African American owned promotional products and uniform distributor in the world; and
+WHEREAS, from 2003 to 2007, Jamie Isabel represented District 2 on the Metro Council. He was known for his selfless leadership and his relentless efforts to increase equity for Black Nashvillians, raising awareness of disparities in Metro’s procurement practice affecting diversity, equity and inclusion; and
+WHEREAS, during his tenure on Council, Jamie Isabel served as Chair of the Federal Grants Review Committee and Chair of the Parks, Library, Recreation, and Public Entertainment Committee. Jamie was also a founder and Charter Member of the Black Caucus; and
+WHEREAS, a family man, he decided not to run for re-election in favor of spending time with his young children; and
+WHEREAS, Jamie Isabel has remained a leader throughout the community serving as a member of the TSU Alumni Association, a member of the 2016 TSU Transition Advisory Committee, a Trustee of the Watkins College of Arts & Design, a board member of the Northwest YMCA, a Trustee of the Better Business Bureau, a Deacon at the Temple Church, a member of Nashville Kiwanis and a member of other community groups; and
+WHEREAS, as an engaged TSU alumnus, he served as Chairman of the university’s $1 Million in One Month capital campaign in 2020. Under his leadership this campaign nearly doubled the goal, raising $1.7 million and laying the foundation for a historic partnership between TSU and the Nashville Predators; and
+WHEREAS, Jamie Isabel served as a mentor to others in the realm of business and civic engagement. He was well known for his generosity and his commitment to uplifting others; and
+WHEREAS, former Council Member Isabel is survived by his wife Karen, his children Jamie, Aaren, and J’Kia, along with many beloved family members, friends and community; and
+WHEREAS, it is fitting and proper that the Metropolitan Council recognize the life and legacy of Jamie Isabel and his great contributions to Nashville and Davidson County.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.  The Metropolitan Council hereby goes on record as honoring the life and legacy of Jamie D. Isabel.
+Section 2.  This Resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Honors the life and legacy of former Council Member Jamie D. Isabel, who represented District 2 from 2003 to 2007, founded Dalmatian Creative Agency Inc, and died on August 10, 2026.
+'''
+
+[[response]]
+id = "5a98f41a"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Honors the life and legacy of former Council Member Jamie D. Isabel, who represented District 2 from 2003 to 2007, founded Dalmatian Creative Agency Inc, and died on August 23 2026.
+'''
+
+[[response]]
+id = "c6f68787"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Honors the life and legacy of former Dalmatian Creative Agency Inc, who represented District 2 from 2003 to 2007, founded Council Member Jamie D. Isabel, and died on August 10, 2026.
+'''
+
+[[response]]
+id = "e6b7ab05"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Honors the life and legacy of former Foster Avenue, who represented District 2 from 2003 to 2007, founded Dalmatian Creative Agency Inc, and died on August 10, 2026.
+'''

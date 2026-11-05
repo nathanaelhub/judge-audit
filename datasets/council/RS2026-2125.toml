@@ -1,0 +1,89 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2125
+Title: A resolution approving Amendment No. 1 to a Contract by and between The Metropolitan Government of Nashville and Davidson County (“Metro”) and Intergraph Corporation.
+Sponsors: Kyonzte Toombs, Jordan Huffman, David Benton
+Text:
+WHEREAS, the parties desire to modify the terms and conditions to their original agreement dated December 4, 2024, Metro Contract No. 6566549; and,
+WHEREAS, the parties wish to amend this agreement by extending the contract term to December 3, 2029, for a revised contract term of sixty (60) months; and,
+WHEREAS, the parties wish to amend the contract value by adding $1,198,091.40 to the contract total for a revised contract total of $1,856,944.38; and,
+WHEREAS, the parties wish to amend this agreement to remove the requirement to identify the project name, RFQ or Contract number on the ACORD document; and,
+WHEREAS, the parties wish to amend this agreement by removing and replacing Exhibit D - List of Maintenance Products and Prices - to reflect pricing for added service year(s); and,
+WHEREAS, it is to the benefit of the citizens of the Metropolitan Government of Nashville and Davidson County that these amendments thereto be approved.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1. That Amendment No. 1 to the Contract between the Metropolitan Government and Intergraph Corporation is hereby approved. 
+Section 2. The Metropolitan Government is hereby authorized to enter into the amended contract with Intergraph Corporation, attached hereto and incorporated herein, to extend the contract term, add value, and to update the language. 
+Section 3.	That this Resolution shall take effect from and after its adoption, the welfare of the Metropolitan Government of Nashville and Davidson County requiring it. 
+..Agenda Analysis
+Analysis
+
+This resolution approves the first amendment to a sole source contract between the Metropolitan Government ("Metro") and Intergraph Corporation, through its Hexagon Safety, Infrastructure & Geospatial division to provide maintenance services for records management systems utilized by the Metropolitan Nashville Police Department ("MNPD"). The contract was originally approved through Resolution No. RS2024-893.
+
+The proposed amendment would extend the term of the contract from 24 months to 60 months, terminating on December 3, 2029. The amendment would also increase the contract value by $1,198,091.40 from $658,852.98 to $1,856,944.38 and update the pricing exhibit to reflect the new contract term. The amendment also removes a requirement to identify the project name or contract number on the certificate of insurance.
+
+Sole source contracts may be awarded under the Metro procurement code when it is determined that there is only one source for the supply or services rendered. Section 4.12.060 of the Metro Code requires all sole source contracts having a total value in excess of $350,000 to be approved by the Council by resolution with 21 affirmative votes. 
+
+Fiscal Note: This amendment to the sole source contract 6566549 with Intergraph Corporation for records management system maintenance increases the estimated contract value by $1,198,091.40, from $658,852.98 to $1,856,944.38 to be paid from Fund 10101, Cost Center 1031160110.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine; saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves Amendment No. 1 to the contract with Intergraph Corporation, extending it to December 3, 2029 (60 months) and adding $1,198,091.40 for a new total of $1,856,944.38. The contract covers maintenance of records management systems used by the Metropolitan Nashville Police Department.
+'''
+
+[[response]]
+id = "28a90022"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves Amendment No. 5 to the contract with Intergraph Corporation, extending it to December 3, 2029 (60 months) and adding $1,198,091.40 for a new total of $1,856,944.38. The contract covers maintenance of records management systems used by the Metropolitan Nashville Police Department.
+'''
+
+[[response]]
+id = "37d6bed2"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects Amendment No. 1 to the contract with Intergraph Corporation, extending it to December 3, 2029 (60 months) and adding $1,198,091.40 for a new total of $1,856,944.38. The contract covers maintenance of records management systems used by the Metropolitan Nashville Police Department.
+'''
+
+[[response]]
+id = "b4917edc"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Approves Intergraph Corporation. 1 to the contract with Amendment No, extending it to December 3, 2029 (60 months) and adding $1,198,091.40 for a new total of $1,856,944.38. The contract covers maintenance of records management systems used by the Metropolitan Nashville Police Department.
+'''
+
+[[response]]
+id = "cb0d7e80"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves Amendment No. 1 to the contract with Intergraph Corporation, extending it to December 3, 2029 (60 months) and adding $3,594,274 for a new total of $1,856,944.38. The contract covers maintenance of records management systems used by the Metropolitan Nashville Police Department.
+'''
+
+[[response]]
+id = "fcab2bd8"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves Nashville Parks Foundation. 1 to the contract with Intergraph Corporation, extending it to December 3, 2029 (60 months) and adding $1,198,091.40 for a new total of $1,856,944.38. The contract covers maintenance of records management systems used by the Metropolitan Nashville Police Department.
+'''

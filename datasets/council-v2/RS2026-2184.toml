@@ -1,0 +1,81 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2184
+Title: A resolution accepting a grant from the State of Tennessee, Administrative Office of the Courts, to the Metropolitan Government, acting by and through the Davidson County State Trial Courts, to provide interpreter/translation services by a Tennessee Certified Spanish Court interpreter for parties with limited English proficiency.
+Sponsors: Kyonzte Toombs, Jordan Huffman, Ginny Welsch, Brenda Gadd, Tasha Ellis, Zulfat Suara, Jacob Kupin, Delishia Porterfield
+Text:
+WHEREAS, the State of Tennessee, Administrative Office of the Courts, has awarded a grant in an amount not to exceed $99,999 with no cash match required to the Metropolitan Government, acting by and through the Davidson County State Trial Courts, to provide interpreter/translation services by a Tennessee Certified Spanish Court interpreter for parties with limited English proficiency; and, 
+WHEREAS, it is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that this grant be accepted.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That the grant by and between the State of Tennessee, Administrative Office of the Courts, in an amount not to exceed $99,999, to the Metropolitan Government, acting by and through the Davidson County State Trial Courts, to provide interpreter/translation services by a Tennessee Certified Spanish Court interpreter for parties with limited English proficiency, a copy of which grant is attached hereto and incorporated herein, is hereby approved.
+Section 2.	That the amount of this grant be appropriated to the Davidson County State Trial Courts based on the revenues estimated to be received and any match to be applied.
+Section 3.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution accepts a grant from the Tennessee Administrative Office of the Courts to the Davidson County State Trial Courts to provide interpreter and translation services by a Tennessee Certified Spanish Court interpreter for parties with limited English proficiency.
+
+The grant award is an amount not to exceed $99,999 with no cash match required. The grant period will begin on July 1, 2026, and end on June 30, 2027.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Accepts a state grant of up to $99,999 from the Administrative Office of the Courts for the Davidson County State Trial Courts to provide a Tennessee Certified Spanish Court interpreter for people with limited English proficiency. No cash match is required, and the grant runs July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "18cdf708"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Accepts a state grant of up to $299,997 from the Administrative Office of the Courts for the Davidson County State Trial Courts to provide a Tennessee Certified Spanish Court interpreter for people with limited English proficiency. No cash match is required, and the grant runs July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "1ab62b5d"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Accepts a state grant of up to $99,999 from the Davidson County State Trial Courts of the Courts for the Administrative Office to provide a Tennessee Certified Spanish Court interpreter for people with limited English proficiency. No cash match is required, and the grant runs July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "45667602"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Accepts a state grant of up to $99,999 from the Juvenile Court of the Courts for the Davidson County State Trial Courts to provide a Tennessee Certified Spanish Court interpreter for people with limited English proficiency. No cash match is required, and the grant runs July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "8e8131b9"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Turns down a state grant of up to $99,999 from the Administrative Office of the Courts for the Davidson County State Trial Courts to provide a Tennessee Certified Spanish Court interpreter for people with limited English proficiency. No cash match is required, and the grant runs July 1, 2026 to June 30, 2027.
+'''
+
+[[response]]
+id = "ff099df8"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Accepts a state grant of up to $99,999 from the Administrative Office of the Courts for the Davidson County State Trial Courts to provide a Tennessee Certified Spanish Court interpreter for people with limited English proficiency. No cash match is required, and the grant runs July 5 2026 to June 30, 2027.
+'''

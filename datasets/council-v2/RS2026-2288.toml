@@ -1,0 +1,56 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2288
+Title: A resolution authorizing The Metropolitan Government of Nashville and Davidson County to abandon existing fire hydrant assembly, and to accept new fire hydrant assembly, for property located at 1625 B Meridian Street, also known as 1605 Meridian Street (MWS Project No. 26-WL-16 and Proposal No. 2026M-080ES-001).
+Sponsors: Sean Parker, Rollin Horton, Quin Evans-Segall
+Text:
+WHEREAS, the abandonment of one existing fire hydrant assembly, and the acceptance of one new fire hydrant assembly, for property located at 1625 B Meridian Street, also known as 1605 Meridian Street, are needed to construct project number 26-WL-16; and,
+WHEREAS, BL2024-345 authorizes the Metropolitan Department of Water and Sewerage Services to approve extensions, additions, improvement, or works by resolution of the Metropolitan Council; and,
+WHEREAS, the Metropolitan Planning Commission approved mandatory referral No. 2026M080ES-001 on August 17, 2026, for the abandonment and acceptance of said fire hydrant assemblies.
+NOW, THEREFORE, BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	The Metropolitan Government of Nashville and Davidson County is authorized to abandon one existing fire hydrant assembly, and to accept one new fire hydrant assembly, for property located at 1625 B Meridian Street, also known as 1605 Meridian Street, as shown on Exhibit 1, which is attached hereto and incorporated by reference.
+Map & Parcel: 				Address:
+071110N90000CO				1625 B Meridian Street
+Section 2.	The Directors of Water and Sewerage Services and Public Property Administration are authorized to execute such documents as may be necessary and appropriate to carry out the abandonment and acceptance authorized by this resolution. 
+Section 3.	This resolution shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it. 
+..Agenda Analysis
+Analysis
+
+This resolution abandons an existing fire hydrant assembly and accepts a new fire hydrant assembly for property located at 1625 B Meridian Street, also known as 1605 Meridian Street.
+
+Tennessee Code Annotated section 7-35-406(A)(2) and Ordinance No. BL2024-345 allow the Metropolitan Department of Water and Sewerage Services to approve extension, additions, or works by resolution of the Metropolitan Council. 
+
+This resolution has been approved by the Planning Commission.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Lets Metro abandon one existing fire hydrant assembly and accept one new one at 1625 B Meridian Street, also known as 1605 Meridian Street. The water and public property directors can sign the needed documents.
+'''
+
+[[response]]
+id = "73c05425"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Lets Metro abandon one existing fire hydrant assembly and accept one new one at 1625 B JWC Environmental, also known as 1605 Meridian Street. The water and public property directors can sign the needed documents.
+'''
+
+[[response]]
+id = "ca7bf78a"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Lets Metro abandon one existing fire hydrant assembly and accept one new one at 3253 B Meridian Street, also known as 1605 Meridian Street. The water and public property directors can sign the needed documents.
+'''

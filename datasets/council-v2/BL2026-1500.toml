@@ -1,0 +1,85 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1500
+Title: An ordinance approving Amendment 1 to a contract between the Metropolitan Government of Nashville and Davidson County and The Library Corporation to provide software maintenance and support for the CarlX integrated library system.
+Sponsors: Kyonzte Toombs, Ginny Welsch, Brenda Gadd, Delishia Porterfield
+Text:
+WHEREAS, Section 4.12.060 of the Metropolitan Code of Laws authorizes the Metropolitan Purchasing Agent to enter into sole source contracts when the Purchasing Agent determines in writing according to standards adopted by the Procurement Standards Board that there is only one source for the supply or services required; and,
+WHEREAS, the Purchasing Agent determined that the services to be provided by The Library Corporation met the requirements for the use of a sole source contract, and this contract was approved by RS2022-1564; and,
+WHEREAS, Section 4.12.160 of the Metropolitan Code of Laws requires that contracts exceeding a period of sixty months shall provide certain information; and, 
+WHEREAS, The Library Corporation contract was originally executed on June 9, 2022 and shall continue after amendment until June 8, 2030; and, 
+WHEREAS, the contract provides services which are not provided by any department of the metropolitan government; and, 
+WHEREAS, the services provided by the contractor would require the equivalent of two full-time positions to perform the same services; and, 
+WHEREAS, the software provided by The Library Corporation provides an operationally necessary platform for cataloging, accessing, and maintaining access to the Nashville Public Library collection; and, 
+WHEREAS, the extension of this contract will allow for continuity of service to more than three hundred and thirty thousand library card holders and one hundred and fifty Metro Nashville Public Schools libraries; and, 
+WHEREAS, it is in the best interest of the citizens of the Metropolitan Government of Nashville and Davidson County that Amendment 1 to this Contract be approved. 
+NOW THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1: That Amendment 1 to the Contract between The Metropolitan Government of Nashville and Davidson County and The Library Corporation, attached hereto and incorporated herein, is hereby approved.
+Section 2: That this Ordinance shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This ordinance approves the first amendment to a contract between the Metropolitan Government and The Library Corporation to provide software maintenance and support for the CarlX integrated library system. The Metropolitan Council first approved the contract through Resolution No. RS2022-1564.
+
+The original contract is for maintenance and support for the CarlX integrated library system. The estimated contract value is $784,152. The contract term is now set to end on June 9, 2027, 60 months after it began.
+
+The proposed amendment extends the contract for three additional years to June 8, 2030, with the option for the Purchasing Agent to extend the contract by another two years by contract amendment. The amendment also increases the value of the contract by $848,826.78 from $784,152 to $1,632,978.78 and updates an exhibit to reflect new pricing. The proposed amendment also removes the requirement for a RFQ, project name, or project description to appear on a certificate of insurance and adds language regarding the boycott of Israel, as required by state law.
+
+Sole source contracts may be awarded under the Metro procurement code when it is determined that there is only one source for the supply or services rendered. Section 4.12.060 of the Metro Code requires all sole source contracts having a total value in excess of $250,000 to be approved by the Council by resolution.
+
+According to the original sole source justification form, the contract provides for enterprise software that merged Nashville Public Library and Metropolitan Nashville Public Schools' digital library systems. A change to a new vendor or product would be untenable for the Limitless Libraries partnership between the library and the school system.
+
+Fiscal Note: This ordinance approves the first amendment to contract number 6493251 for CarlX Integrated Library System maintenance and support with the Library Corporation. The amendment increases the estimated contract life value by $848,826.78 from $784,152 to $1,632,978.78. The contract term extends through June 8, 2030.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves Amendment 1 to the contract with The Library Corporation for software support for the CarlX library system, extending it to June 8, 2030. It raises the contract value by $848,826.78, from $784,152 to $1,632,978.78.
+'''
+
+[[response]]
+id = "0fbec16f"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: number"
+labels = { faithful = false }
+text = '''
+Approves Amendment 5 to the contract with The Library Corporation for software support for the CarlX library system, extending it to June 8, 2030. It raises the contract value by $848,826.78, from $784,152 to $1,632,978.78.
+'''
+
+[[response]]
+id = "1fb3b804"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves Amendment 1 to the contract with Lentz Public Health Center for software support for the CarlX library system, extending it to June 8, 2030. It raises the contract value by $848,826.78, from $784,152 to $1,632,978.78.
+'''
+
+[[response]]
+id = "9d302809"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves Amendment 1 to the contract with The Library Corporation for software support for the CarlX library system, extending it to June 8, 2030. It raises the contract value by $2,546,480, from $784,152 to $1,632,978.78.
+'''
+
+[[response]]
+id = "d20558e4"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects Amendment 1 to the contract with The Library Corporation for software support for the CarlX library system, extending it to June 8, 2030. It raises the contract value by $848,826.78, from $784,152 to $1,632,978.78.
+'''

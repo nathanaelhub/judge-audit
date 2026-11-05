@@ -1,0 +1,71 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+RS2026-2123
+Title: A resolution approving an application for an Emergency Management Performance Grant (EMPG) from the Tennessee Emergency Management Agency, to the Metropolitan Government, acting by and through the Office of Emergency Management, to provide funds to subsidize the Emergency Management Program.
+Sponsors: Kyonzte Toombs, Jordan Huffman, Brenda Gadd, David Benton, Terry Vo
+Text:
+WHEREAS, the Tennessee Emergency Management Agency, is accepting applications for an Emergency Management Performance Grant (EMPG) with an award of $180,049.50 and a required cash match of $180,049.50 to subsidize the Emergency Management Program; and, 
+WHEREAS, the Metropolitan Government is eligible to participate in this grant program; and,
+WHEREAS, IT is to the benefit of the citizens of The Metropolitan Government of Nashville and Davidson County that this grant application be approved and submitted.
+NOW, THEREFORE BE IT RESOLVED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	That the Metropolitan Government's application for an Emergency Management Performance Grant (EMPG) with an award of $180,049.50, a copy of which is attached hereto and incorporated herein, is hereby approved, and the Office of Emergency Management is authorized to submit said application to the Tennessee Emergency Management Agency.
+Section 2.	That this resolution shall take effect from and after its adoption, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it.
+..Agenda Analysis
+Analysis
+
+This resolution approves an application for an Emergency Management Performance Grant from the Tennessee Emergency Management Agency to the Office of Emergency Management ("OEM"). The grant would provide funds to subsidize the Emergency Management Program.
+
+If awarded, the grant amount would be $180,049.50, with a required cash match of $180,049.50. The grant term is from October 1, 2025, to September 30, 2028.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Approves an application to the Tennessee Emergency Management Agency for an Emergency Management Performance Grant of $180,049.50 to help pay for the Emergency Management Program. The grant requires a cash match of $180,049.50, and the Office of Emergency Management may submit the application.
+'''
+
+[[response]]
+id = "5857c7b1"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Approves an application to the Parthenon Flats for an Emergency Management Performance Grant of $180,049.50 to help pay for the Emergency Management Program. The grant requires a cash match of $180,049.50, and the Office of Emergency Management may submit the application.
+'''
+
+[[response]]
+id = "5a256f62"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: money"
+labels = { faithful = false }
+text = '''
+Approves an application to the Tennessee Emergency Management Agency for an Emergency Management Performance Grant of $540,148 to help pay for the Emergency Management Program. The grant requires a cash match of $180,049.50, and the Office of Emergency Management may submit the application.
+'''
+
+[[response]]
+id = "76c4627d"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Approves an application to the Emergency Management Performance Grant for an Tennessee Emergency Management Agency of $180,049.50 to help pay for the Emergency Management Program. The grant requires a cash match of $180,049.50, and the Office of Emergency Management may submit the application.
+'''
+
+[[response]]
+id = "d6ee06fc"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: negate"
+labels = { faithful = false }
+text = '''
+Rejects an application to the Tennessee Emergency Management Agency for an Emergency Management Performance Grant of $180,049.50 to help pay for the Emergency Management Program. The grant requires a cash match of $180,049.50, and the Office of Emergency Management may submit the application.
+'''

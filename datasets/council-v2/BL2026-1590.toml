@@ -1,0 +1,56 @@
+prompt = '''
+Summarize this Nashville Metro Council item in plain language for residents.
+
+BL2026-1590
+Title: An ordinance authorizing The Metropolitan Government of Nashville and Davidson County to accept new public sanitary sewer mains, sanitary sewer manholes and easements, for property located at West Campbell Road (unnumbered), also known as Days Valley Reserve (MWS Project No. 26-SL-131 and Proposal No. 2026M-079ES-001).
+Sponsors: Jennifer Gamble, Rollin Horton, Quin Evans-Segall
+Text:
+WHEREAS, the acceptance of approximately 822 linear feet of new eight-inch sanitary sewer main (PVC), approximately 118 linear feet of new eight-inch sanitary sewer main (DIP), seven sanitary sewer manholes and easements, for property located at West Campbell Road (unnumbered), also known as Days Valley Reserve, is needed to construct Project No. 26SL131; and,
+WHEREAS, the Metropolitan Planning Commission approved mandatory referral No. 2026M079ES-001 on September 1, 2026, for the acceptance of said sanitary sewer mains, sanitary sewer manholes and easements. 
+NOW, THEREFORE, BE IT ENACTED BY THE COUNCIL OF THE METROPOLITAN GOVERNMENT OF NASHVILLE AND DAVIDSON COUNTY:
+Section 1.	The Metropolitan Government of Nashville and Davidson County is authorized to accept approximately 822 linear feet of new eight-inch sanitary sewer main (PVC), approximately 118 linear feet of new eight-inch sanitary sewer main (DIP), seven sanitary sewer manholes and easements, for property located at West Campbell Road (unnumbered), also known as Days Valley Reserve, as shown on Exhibit 1, which are attached hereto and incorporated by reference:
+Map & Parcel: 				Address:
+03300010400					West Campbell Road (unnumbered)
+Section 2.	The Directors of Water and Sewerage Services and Public Property Administration are authorized to execute such documents as may be necessary and appropriate to carry out the acceptance authorized by this ordinance. 
+Section 3.	Amendments to this legislation shall be approved by resolution.
+Section 4.	This ordinance shall take effect from and after its final passage, the welfare of The Metropolitan Government of Nashville and Davidson County requiring it. 
+..Agenda Analysis
+Analysis
+
+This ordinance accepts approximately 822 linear feet of new eight-inch sanitary sewer main (PVC), approximately 118 linear feet of new eight-inch sanitary sewer main (DIP), seven sanitary sewer manholes and easements, for property located at West Campbell Road (unnumbered), also known as Days Valley Reserve.
+
+This ordinance has been approved by the Planning Commission. Future amendments to this ordinance may be approved by resolution.
+
+Fiscal Note: This ordinance has no cost to Metro. Donated easements have no market value according to the Department of Water Services.
+'''
+
+[rubrics]
+faithful = "The summary is faithful to the official text: everything it says is supported by the text, and nothing is reversed or attached to the wrong party, place or amount. Leaving details out is fine, unless what is left out changes what the item does: a condition, limit or exception that the summary's statement depends on. Saying something the text doesn't support, or the opposite of what it says, is not."
+
+[[response]]
+id = "reference"
+kind = "reference"
+labels = { faithful = true }
+text = '''
+Lets Metro accept new eight-inch sewer pipes, seven sewer manholes and easements at West Campbell Road (unnumbered), also known as Days Valley Reserve. The text says this costs Metro nothing.
+'''
+
+[[response]]
+id = "50edfe4f"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: swap"
+labels = { faithful = false }
+text = '''
+Lets Metro accept new eight-inch sewer pipes, seven sewer manholes and easements at Days Valley Reserve. The (unnumbered), also known as West Campbell Road text says this costs Metro nothing.
+'''
+
+[[response]]
+id = "fac533c2"
+kind = "minimal-fail"
+of = "reference"
+note = "planted: name"
+labels = { faithful = false }
+text = '''
+Lets Metro accept new eight-inch sewer pipes, seven sewer manholes and easements at Convention Center Authority (unnumbered), also known as Days Valley Reserve. The text says this costs Metro nothing.
+'''
